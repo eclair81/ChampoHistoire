@@ -240,6 +240,7 @@ MonoBehaviour:
   cols: 5
   tilePrefab: {fileID: 7520556836986742406, guid: 27913232eed820a4fa4f5991bdb78efe, type: 3}
   cam: {fileID: 583534087}
+  map: {fileID: 2800000, guid: c7aa11f9b34cb984abbb8e833bff4297, type: 3}
 --- !u!4 &697586323
 Transform:
   m_ObjectHideFlags: 0
