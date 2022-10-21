@@ -46,6 +46,8 @@ public class GridGenerator : MonoBehaviour
                 GenerateTile(x, y, pixel);
             }
         }
+        cam.transform.position = new Vector3((float)map.width/2 - 0.5f, (float)map.height/2 -0.5f, -10);
+        cam.gameObject.GetComponent<Camera>().orthographicSize = map.height/2;
     }
 
     private void GenerateTile(int x, int y, Color pixel)
