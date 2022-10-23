@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class GridGenerator : MonoBehaviour
 {
-    [SerializeField] private int rows, cols;
-    [Header("Prefab")]
     [SerializeField] private GameObject tilePrefab;
     [Header("Camera")]
     [SerializeField] private Transform cam;
@@ -14,24 +12,7 @@ public class GridGenerator : MonoBehaviour
 
     void Start()
     {
-        //GenerateGrid();
         GenerateCustomGrid();
-    }
-
-    private void GenerateGrid()
-    {
-        for (int i = 0; i < rows; i++)
-        {
-            for (int j = 0; j < cols; j++)
-            {
-                GameObject tile = Instantiate(tilePrefab, new Vector3(i, j), Quaternion.identity);
-                Tile tileScript = tile.GetComponent<Tile>();
-                bool offset = ((i + j) % 2 == 1); //alternate for a checkboard grid
-                tileScript.Init(offset);
-            }
-        }
-        //Place camera at the center of the grid
-        cam.transform.position = new Vector3((float)rows/2 - 0.5f, (float)cols/2 -0.5f, -10);
     }
 
     //Generate a custom grid based on a Texture2D
@@ -54,14 +35,35 @@ public class GridGenerator : MonoBehaviour
     {
         if(pixel.a == 0) return; //Ignore transparent pixels
 
-        //Only using black pixels for now
+        //If Black Pixel -> normal tile
         if(pixel.r == 0 && pixel.g == 0 && pixel.b == 0)
         {
-            GameObject tile = Instantiate(tilePrefab, new Vector3(x, y), Quaternion.identity);
+            /*GameObject tile = Instantiate(tilePrefab, new Vector3(x, y), Quaternion.identity);
             Tile tileScript = tile.GetComponent<Tile>();
             bool offset = ((x + y) % 2 == 1); //alternate for a checkboard grid
-            tileScript.Init(offset);
+            tileScript.Init(offset, false);*/
+            SpawnTile(x, y, false);
+            return;
         }
+
+        //If Green Pixel -> event tile
+        if(pixel.r == 0 && pixel.g == 1.0f && pixel.b == 0)
+        {
+            /*GameObject tile = Instantiate(tilePrefab, new Vector3(x, y), Quaternion.identity);
+            Tile tileScript = tile.GetComponent<Tile>();
+            bool offset = ((x + y) % 2 == 1); //alternate for a checkboard grid
+            tileScript.Init(offset, true);*/
+            SpawnTile(x, y, true);
+            return;
+        }
+    }
+
+    private void SpawnTile(int x, int y, bool isEvent)
+    {
+        GameObject tile = Instantiate(tilePrefab, new Vector3(x, y), Quaternion.identity);
+        Tile tileScript = tile.GetComponent<Tile>();
+        bool offset = ((x + y) % 2 == 1); //alternate for a checkboard grid
+        tileScript.Init(offset, isEvent);
     }
 
 }
