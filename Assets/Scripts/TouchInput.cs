@@ -13,8 +13,12 @@ public class TouchInput : MonoBehaviour
 
             if(hit.collider != null)
             {
-                //Debug.Log ("Target Position: " + hit.collider.gameObject.transform.position);
-                hit.collider.GetComponent<Tile>().Interact();
+                //Check if it's an adjacent tile
+                if(MoveOnGrid.Instance.TryToMove(new Vector2(hit.transform.position.x, hit.transform.position.y)))
+                {
+                    //Debug.Log ("Target Position: " + hit.collider.gameObject.transform.position);
+                    hit.collider.GetComponent<Tile>().Interact();
+                }
             }
         }
     }
