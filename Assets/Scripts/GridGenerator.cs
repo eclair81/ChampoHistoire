@@ -10,6 +10,8 @@ public class GridGenerator : MonoBehaviour
     [Header("Custom Grid")]
     [SerializeField] private Texture2D map;
 
+    private bool startAlreadyPlaced;
+
     void Start()
     {
         GenerateCustomGrid();
@@ -18,6 +20,8 @@ public class GridGenerator : MonoBehaviour
     //Generate a custom grid based on a Texture2D
     private void GenerateCustomGrid(/*Texture2D map*/)
     {
+        startAlreadyPlaced = false;
+        
         for (int x = 0; x < map.width; x++)
         {
             for (int y = 0; y < map.height; y++)
@@ -38,32 +42,40 @@ public class GridGenerator : MonoBehaviour
         //If Black Pixel -> normal tile
         if(pixel.r == 0 && pixel.g == 0 && pixel.b == 0)
         {
-            /*GameObject tile = Instantiate(tilePrefab, new Vector3(x, y), Quaternion.identity);
-            Tile tileScript = tile.GetComponent<Tile>();
-            bool offset = ((x + y) % 2 == 1); //alternate for a checkboard grid
-            tileScript.Init(offset, false);*/
-            SpawnTile(x, y, false);
+            SpawnTile(x, y, "normal");
             return;
         }
 
         //If Green Pixel -> event tile
         if(pixel.r == 0 && pixel.g == 1.0f && pixel.b == 0)
         {
-            /*GameObject tile = Instantiate(tilePrefab, new Vector3(x, y), Quaternion.identity);
-            Tile tileScript = tile.GetComponent<Tile>();
-            bool offset = ((x + y) % 2 == 1); //alternate for a checkboard grid
-            tileScript.Init(offset, true);*/
-            SpawnTile(x, y, true);
+            SpawnTile(x, y, "event");
+            return;
+        }
+
+        //If Blue pixel -> start tile, 
+        if(pixel.r == 0 && pixel.g == 0 && pixel.b == 1.0f)
+        {
+            // only one start tile per grid
+            if(startAlreadyPlaced)
+            {
+                SpawnTile(x, y, "normal");
+                return;
+            }
+
+            SpawnTile(x, y, "start");
+            MoveOnGrid.Instance.TryToMove(new Vector2(x, y));
+            startAlreadyPlaced = true;
             return;
         }
     }
 
-    private void SpawnTile(int x, int y, bool isEvent)
+    private void SpawnTile(int x, int y, string etat)
     {
         GameObject tile = Instantiate(tilePrefab, new Vector3(x, y), Quaternion.identity);
         Tile tileScript = tile.GetComponent<Tile>();
         bool offset = ((x + y) % 2 == 1); //alternate for a checkboard grid
-        tileScript.Init(offset, isEvent);
+        tileScript.Init(offset, etat);
     }
 
 }
