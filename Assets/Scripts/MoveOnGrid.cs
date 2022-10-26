@@ -33,7 +33,7 @@ public class MoveOnGrid : MonoBehaviour
             return true;
         }
 
-        Debug.Log("Invalid Movement: " + x + ", "+ y + " to " + newX + ", " + newY);
+        //Debug.Log("Invalid Movement: " + x + ", "+ y + " to " + newX + ", " + newY);
         return false;
     }
 
@@ -42,6 +42,11 @@ public class MoveOnGrid : MonoBehaviour
     {
         x = newX;
         y = newY;
-        Debug.Log("Moved to " + x + ", " + y);
+        //Debug.Log("Moved to " + x + ", " + y);
+    }
+
+    public Vector2 GetPos()
+    {
+        return new Vector2(x, y);
     }
 }
