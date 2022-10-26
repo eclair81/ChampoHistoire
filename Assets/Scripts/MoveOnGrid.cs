@@ -8,7 +8,7 @@ public class MoveOnGrid : MonoBehaviour
 
     private int x, y; // current tile
 
-    void Start()
+    void Awake()
     {
         Instance = this;
         x = -1;
