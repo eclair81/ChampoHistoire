@@ -6,7 +6,7 @@ public class TouchInput : MonoBehaviour
 {
     private Vector2 point1;
     private Vector2 point2;
-
+    
     // Update is called once per frame
     void Update()
     {
@@ -48,35 +48,35 @@ public class TouchInput : MonoBehaviour
     {
         Vector2 currentPos = MoveOnGrid.Instance.GetPos();
 
-        if(angle <= 45f || angle >= 315f)
+        if(angle <= 90f)    //(angle <= 90f || angle >= 315f)
         {
-            //Debug.Log("Right");
-            SendRaycast(new Vector2(currentPos.x + 1, currentPos.y));
+            //Debug.Log("Up-Right");    //Debug.Log("Right");
+            SendRaycast(Convert.GridToIso(new Vector2(currentPos.x + 1, currentPos.y)));
             return;
         }
-        if(angle > 45f && angle <= 135f)
+        if(angle > 90f && angle <= 180f)    //(angle > 45f && angle <= 135f)
         {
-            //Debug.Log("Up");
-            SendRaycast(new Vector2(currentPos.x, currentPos.y + 1));
+            //Debug.Log("Up-Left");    //Debug.Log("Up");
+            SendRaycast(Convert.GridToIso(new Vector2(currentPos.x, currentPos.y + 1)));
             return;
         }
-        if(angle > 135f && angle <= 225f)
+        if(angle > 180f && angle <= 270f)   //(angle > 135f && angle <= 225f)
         {
-            //Debug.Log("Left");
-            SendRaycast(new Vector2(currentPos.x - 1, currentPos.y));
+            //Debug.Log("Down-Left");   //Debug.Log("Left");
+            SendRaycast(Convert.GridToIso(new Vector2(currentPos.x - 1, currentPos.y)));
             return;
         }
-        if(angle > 225f && angle < 315f)
+        if(angle > 270f)    //(angle > 225f && angle < 315f)
         {
-            //Debug.Log("Down");
-            SendRaycast(new Vector2(currentPos.x, currentPos.y - 1));
+            //Debug.Log("Down-Right");   //Debug.Log("Down");
+            SendRaycast(Convert.GridToIso(new Vector2(currentPos.x, currentPos.y - 1)));
             return;
         }
     }
 
     private void SendRaycast(Vector2 touchPos)
     {
-        RaycastHit2D hit = Physics2D.Raycast(touchPos, Vector2.zero);
+        RaycastHit2D hit = Physics2D.Raycast(touchPos, Camera.main.transform.forward);
 
         if(hit.collider != null)
         {
@@ -85,6 +85,7 @@ public class TouchInput : MonoBehaviour
             {
                 //Debug.Log ("Target Position: " + hit.collider.gameObject.transform.position);
                 hit.collider.GetComponent<Tile>().Interact();
+                //Debug.Log("grid: " + Convert.IsoToGrid(hit.collider.gameObject.transform.position));
             }
         }
     }

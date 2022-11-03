@@ -21,6 +21,9 @@ public class Tile : MonoBehaviour
         myState = etat;
 
         if(myState == "start") Interact();
+
+        //force sprite order base on y value (low y -> high order)
+        spriteRenderer.sortingOrder = 100 - (int)(transform.position.y * 4); // *4 because each row is 0.25 higher than the last -> 0.25 * 4 -> sprite order decreases by 1 each row
     }
 
     public void Interact()

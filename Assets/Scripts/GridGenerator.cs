@@ -5,10 +5,13 @@ using UnityEngine;
 public class GridGenerator : MonoBehaviour
 {
     [SerializeField] private GameObject tilePrefab;
+    [SerializeField] private GameObject isoTilePrefab;
     [Header("Camera")]
     [SerializeField] private Transform cam;
     [Header("Custom Grid")]
     [SerializeField] private Texture2D map;
+    [Header("Container")]
+    [SerializeField] private Transform parent;
 
     private bool startAlreadyPlaced;
 
@@ -31,8 +34,8 @@ public class GridGenerator : MonoBehaviour
                 GenerateTile(x, y, pixel);
             }
         }
-        cam.transform.position = new Vector3((float)map.width/2 - 0.5f, (float)map.height/2 -0.5f, -10);
-        cam.gameObject.GetComponent<Camera>().orthographicSize = map.height/2;
+        //cam.transform.position = new Vector3((float)map.width/2 - 0.5f, (float)map.height/2 -0.5f, -10);
+        cam.gameObject.GetComponent<Camera>().orthographicSize = map.height;
     }
 
     private void GenerateTile(int x, int y, Color pixel)
@@ -64,7 +67,8 @@ public class GridGenerator : MonoBehaviour
             }
 
             SpawnTile(x, y, "start");
-            MoveOnGrid.Instance.TryToMove(new Vector2(x, y));
+            MoveOnGrid.Instance.TryToMove(Convert.GridToIso(new Vector2(x, y)));
+            //Debug.Log("pos iso: " + Convert.GridToIso(new Vector2(x, y)) + ", pos grid: " + Convert.IsoToGrid(Convert.GridToIso(new Vector2(x, y))));
             startAlreadyPlaced = true;
             return;
         }
@@ -72,10 +76,10 @@ public class GridGenerator : MonoBehaviour
 
     private void SpawnTile(int x, int y, string etat)
     {
-        GameObject tile = Instantiate(tilePrefab, new Vector3(x, y), Quaternion.identity);
+        //GameObject tile = Instantiate(tilePrefab, new Vector3(x, y), Quaternion.identity, parent);
+        GameObject tile = Instantiate(isoTilePrefab, Convert.GridToIso(new Vector2(x, y)), Quaternion.identity, parent);
         Tile tileScript = tile.GetComponent<Tile>();
-        bool offset = ((x + y) % 2 == 1); //alternate for a checkboard grid
+        bool offset = ((x + y) % 2 == 1); //alternate for a checkboard grid, remove since we now use iso?
         tileScript.Init(offset, etat);
     }
-
 }

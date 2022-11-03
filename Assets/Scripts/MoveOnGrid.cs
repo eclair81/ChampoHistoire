@@ -7,21 +7,26 @@ public class MoveOnGrid : MonoBehaviour
     public static MoveOnGrid Instance;
 
     private int x, y; // current tile
+    private bool firstMove;
 
     void Awake()
     {
         Instance = this;
-        x = -1;
-        y = -1;
+        firstMove = true;
     }
 
     public bool TryToMove(Vector2 newPos)
     {
-        int newX = Mathf.FloorToInt(newPos[0]);
-        int newY = Mathf.FloorToInt(newPos[1]);
+        Vector2 convertedNewPos = Convert.IsoToGrid(newPos);
 
-        if(x == -1 || y == -1)
+        //Debug.Log("pos iso: " + newPos + ", pos grid: " + convertedNewPos);
+
+        int newX = Mathf.FloorToInt(convertedNewPos[0]);
+        int newY = Mathf.FloorToInt(convertedNewPos[1]);
+
+        if(firstMove)
         {
+            firstMove = false;
             Move(newX, newY);
             return true;
         }
