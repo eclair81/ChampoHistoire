@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GridGenerator : MonoBehaviour
 {
-    [SerializeField] private GameObject tilePrefab;
+    //[SerializeField] private GameObject tilePrefab;
     [SerializeField] private GameObject isoTilePrefab;
     [Header("Camera")]
     [SerializeField] private Transform cam;
@@ -67,8 +67,7 @@ public class GridGenerator : MonoBehaviour
             }
 
             SpawnTile(x, y, "start");
-            MoveOnGrid.Instance.TryToMove(Convert.GridToIso(new Vector2(x, y)));
-            //Debug.Log("pos iso: " + Convert.GridToIso(new Vector2(x, y)) + ", pos grid: " + Convert.IsoToGrid(Convert.GridToIso(new Vector2(x, y))));
+            MoveOnGrid.Instance.SetPos(x, y);
             startAlreadyPlaced = true;
             return;
         }
