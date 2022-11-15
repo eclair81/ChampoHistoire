@@ -6,13 +6,33 @@ public class Tile : MonoBehaviour
 {
     [SerializeField] private Color color1, color2, color3, color4;
     private SpriteRenderer spriteRenderer;
+    private Vector3 posBase;
     private bool alreadyInteracted;
-    private string myState; 
+    private string myState;
+
+    [SerializeField] private AnimationCurve curve;
+    private float lastFrameCurve;
+    private float animTimer = 0f;
+    private bool doAnim = false;
+
 
     void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         alreadyInteracted = false;
+        posBase = transform.position;
+
+        //Get length of the animation curve
+        Keyframe lastFrame = curve[curve.length - 1];
+        lastFrameCurve = lastFrame.time;
+    }
+
+    void Update()
+    {
+        if(doAnim)
+        {
+            Anim();
+        }
     }
 
     public void Init(bool isOffset, string etat)
@@ -39,5 +59,18 @@ public class Tile : MonoBehaviour
             Debug.Log("You interacted with an event tile!");
         }
         
+        doAnim = true;
+    }
+
+    private void Anim()
+    {
+        animTimer += Time.deltaTime;
+        if(animTimer <= lastFrameCurve)
+        {
+            transform.position = posBase + new Vector3(0, curve.Evaluate(animTimer));
+            return;
+        }
+        transform.position = posBase;
+        doAnim = false;
     }
 }
