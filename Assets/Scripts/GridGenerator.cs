@@ -10,6 +10,8 @@ public class GridGenerator : MonoBehaviour
     [SerializeField] private Transform cam;
     [Header("Custom Grid")]
     [SerializeField] private Texture2D map;
+    [Header("Player")]
+    [SerializeField] private GameObject player;
     [Header("Container")]
     [SerializeField] private Transform parent;
 
@@ -69,6 +71,8 @@ public class GridGenerator : MonoBehaviour
             SpawnTile(x, y, "start");
             MoveOnGrid.Instance.SetPos(x, y);
             startAlreadyPlaced = true;
+            //Instantiate(player, Convert.GridToIso(new Vector2(x, y)), Quaternion.identity);
+            player.transform.position = Convert.GridToIso(new Vector2(x, y));
             return;
         }
     }
