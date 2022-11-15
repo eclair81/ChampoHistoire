@@ -32,4 +32,34 @@ public static class Convert
         float posGridY = isoPos.x * invX.y + isoPos.y * invY.y;
         return new Vector2(posGridX, posGridY);
     }
+
+    // 0/1/2/3 -> Up-Right/Up-Left/Down-Left/Down-Right
+    public static int AngleToDir(Vector2 vectDir)
+    {
+        float sign = (vectDir.y >= 0) ? 1 : -1; // get if the swipe is upward or downward
+        float offset = (sign == 1) ? 0 : 360;   // add an offset to get a 0-360° angle
+        float angle = Vector2.Angle(new Vector2(1, 0), vectDir) * sign + offset; // compare to right (normal) vector
+
+        if(angle <= 90f)
+        {
+            //Debug.Log("Up-Right");
+            return 0;
+        }
+        if(angle > 90f && angle <= 180f)
+        {
+            //Debug.Log("Up-Left");
+            return 1;
+        }
+        if(angle > 180f && angle <= 270f)
+        {
+            //Debug.Log("Down-Left");
+            return 2;
+        }
+        if(angle > 270f)
+        {
+            //Debug.Log("Down-Right");
+            return 3;
+        }
+        return -1;
+    }
 }
