@@ -6,21 +6,42 @@ public class TouchInput : MonoBehaviour
 {
     private Vector2 point1;
     private Vector2 point2;
+
+    [SerializeField] private Player player;
     
+    public bool useMouseInput; //mouse input for when i forget my usb cable
+
     // Update is called once per frame
     void Update()
     {
-        if(Input.touchCount > 0) 
+        if(useMouseInput)
         {
-            if(Input.touches[0].phase == TouchPhase.Began)
+            if(Input.GetMouseButtonDown(0))
             {
-                point1 = Camera.main.ScreenToWorldPoint(Input.touches[0].position);
+                Debug.Log("down");
+                point1 = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             }
-            
-            if(Input.touches[0].phase == TouchPhase.Ended)
+            if(Input.GetMouseButtonUp(0))
             {
-                point2 = Camera.main.ScreenToWorldPoint(Input.touches[0].position);
+                Debug.Log("Up");
+                point2 = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 CalculateSwipeDirection(point1, point2);
+            }
+        }
+        else
+        {
+            if(Input.touchCount > 0) 
+            {
+                if(Input.touches[0].phase == TouchPhase.Began)
+                {
+                    point1 = Camera.main.ScreenToWorldPoint(Input.touches[0].position);
+                }
+                
+                if(Input.touches[0].phase == TouchPhase.Ended)
+                {
+                    point2 = Camera.main.ScreenToWorldPoint(Input.touches[0].position);
+                    CalculateSwipeDirection(point1, point2);
+                }
             }
         }
     }
@@ -33,44 +54,33 @@ public class TouchInput : MonoBehaviour
         // if true, didn't swipe -> directly touched a tile
         if(vectDir == new Vector2(0, 0))
         {
+            if(useMouseInput)
+            {  
+                SendRaycast(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+                return;
+            }
             SendRaycast(Camera.main.ScreenToWorldPoint(Input.touches[0].position));
             return;
         }
 
         // Get the swipe direction
-        float sign = (vectDir.y >= 0) ? 1 : -1; // get if the swipe is upward or downward
-        float offset = (sign == 1) ? 0 : 360;   // add an offset to get a 0-360° angle
-        float angle = Vector2.Angle(new Vector2(1, 0), vectDir) * sign + offset;
-        AngleToDir(angle);
-    }
-
-    private void AngleToDir(float angle)
-    {
+        int dir = Convert.AngleToDir(vectDir);
         Vector2 currentPos = MoveOnGrid.Instance.GetPos();
 
-        if(angle <= 90f)    //(angle <= 90f || angle >= 315f)
+        switch(dir)
         {
-            //Debug.Log("Up-Right");    //Debug.Log("Right");
-            SendRaycast(Convert.GridToIso(new Vector2(currentPos.x + 1, currentPos.y)));
-            return;
-        }
-        if(angle > 90f && angle <= 180f)    //(angle > 45f && angle <= 135f)
-        {
-            //Debug.Log("Up-Left");    //Debug.Log("Up");
-            SendRaycast(Convert.GridToIso(new Vector2(currentPos.x, currentPos.y + 1)));
-            return;
-        }
-        if(angle > 180f && angle <= 270f)   //(angle > 135f && angle <= 225f)
-        {
-            //Debug.Log("Down-Left");   //Debug.Log("Left");
-            SendRaycast(Convert.GridToIso(new Vector2(currentPos.x - 1, currentPos.y)));
-            return;
-        }
-        if(angle > 270f)    //(angle > 225f && angle < 315f)
-        {
-            //Debug.Log("Down-Right");   //Debug.Log("Down");
-            SendRaycast(Convert.GridToIso(new Vector2(currentPos.x, currentPos.y - 1)));
-            return;
+            case 0:
+                SendRaycast(Convert.GridToIso(new Vector2(currentPos.x + 1, currentPos.y)));
+                break;
+            case 1:
+                SendRaycast(Convert.GridToIso(new Vector2(currentPos.x, currentPos.y + 1)));
+                break;
+            case 2:
+                SendRaycast(Convert.GridToIso(new Vector2(currentPos.x - 1, currentPos.y)));
+                break;
+            case 3:
+                SendRaycast(Convert.GridToIso(new Vector2(currentPos.x, currentPos.y - 1)));
+                break;
         }
     }
 
@@ -86,6 +96,7 @@ public class TouchInput : MonoBehaviour
                 //Debug.Log ("Target Position: " + hit.collider.gameObject.transform.position);
                 hit.collider.GetComponent<Tile>().Interact();
                 //Debug.Log("grid: " + Convert.IsoToGrid(hit.collider.gameObject.transform.position));
+                player.UpdatePos();
             }
         }
     }
