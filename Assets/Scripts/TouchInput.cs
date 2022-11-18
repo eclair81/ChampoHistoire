@@ -18,12 +18,12 @@ public class TouchInput : MonoBehaviour
         {
             if(Input.GetMouseButtonDown(0))
             {
-                Debug.Log("down");
+                //Debug.Log("down");
                 point1 = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             }
             if(Input.GetMouseButtonUp(0))
             {
-                Debug.Log("Up");
+                //Debug.Log("Up");
                 point2 = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 CalculateSwipeDirection(point1, point2);
             }

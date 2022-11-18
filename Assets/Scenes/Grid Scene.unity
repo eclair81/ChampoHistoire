@@ -221,6 +221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 927180966}
+  useMouseInput: 1
 --- !u!1 &697586321
 GameObject:
   m_ObjectHideFlags: 0
