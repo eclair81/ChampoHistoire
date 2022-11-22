@@ -10,32 +10,22 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private float delayBetweenLetters = 0.1f;
     private float betweenLettersTimer;
     private bool printingText;
-    private int currentLetter;
 
     [SerializeField] private GameObject nextButton;
     [SerializeField] private GameObject choiceContainer;
     private TextMeshProUGUI choice1;
     private TextMeshProUGUI choice2;
 
-    /*private int currentNumberOfChar; // current number of characters printed from the current message
-    private int maxNumberOfCharPerBox = 100;
-    */
-
-
     private MyText currentText;
-    private string textToPrint;
 
     private int currentTextID;
 
     // Start is called before the first frame update
     void Start()
     {
-        printingText = true;
-        betweenLettersTimer = 0f;
-        currentLetter = 0;
         currentTextID = 0;
-        textToPrint = "";
         currentText = dialogue.listeText[currentTextID];
+        ResetVariables();
 
         //get choice buttons text ref
         choice1 = choiceContainer.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>(); // get button -> get TMP
@@ -57,38 +47,27 @@ public class DialogueManager : MonoBehaviour
 
     private void AddLetter()
     {
-        char letter = currentText.text[currentLetter];
-        textToPrint += letter;
-        displayText.text = textToPrint;
-
-        currentLetter ++;
-        if(currentLetter == currentText.text.Length) printingText = false; 
+        displayText.maxVisibleCharacters ++;
+        if(displayText.maxVisibleCharacters >= currentText.text.Length) printingText = false; 
     }
 
     public void NextText(int value)
     {
-        Debug.Log("next!");
-
-        //reset variables
-        displayText.text = "";
-        textToPrint = "";
-        printingText = true;
-        betweenLettersTimer = 0f;
-        currentLetter = 0;
-
         if(value == 0) // next button clicked
         {
             //increment TextID
             currentTextID++;
+            //TODO, add a "advanceDialogueBy" option to regular text
         }
         else // clicked on either choice1 or choice2 button
         {
             currentTextID += currentText.answerList[value - 1].advanceDialogueBy;
         }
         currentText = dialogue.listeText[currentTextID];
+        ResetVariables();
 
         //Display Choice Container or Next Button
-        if(currentText.isQuestion)
+        if (currentText.isQuestion)
         {
             showChoiceContainer();
             FillChoiceButtons();
@@ -97,6 +76,14 @@ public class DialogueManager : MonoBehaviour
         {
             showNextButton();
         }
+    }
+
+    private void ResetVariables() 
+    {
+        printingText = true;
+        betweenLettersTimer = 0f;
+        displayText.maxVisibleCharacters = 1;
+        displayText.text = currentText.text;
     }
 
     private void FillChoiceButtons()
