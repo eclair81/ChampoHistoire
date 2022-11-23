@@ -14,9 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   listeText:
   - text: "Bonjour, C'est la premi\xE8re ligne de dialogue"
+    needToSkipAfterThisText: 0
+    advanceDialogueBy: 0
     isQuestion: 0
     answerList: []
   - text: grosse question, skip ou no skip?
+    needToSkipAfterThisText: 0
+    advanceDialogueBy: 0
     isQuestion: 1
     answerList:
     - answer: No skip
@@ -24,8 +28,17 @@ MonoBehaviour:
     - answer: Yes skip
       advanceDialogueBy: 2
   - text: you get the full dialogue experience
+    needToSkipAfterThisText: 1
+    advanceDialogueBy: 2
+    isQuestion: 0
+    answerList: []
+  - text: Too bad.
+    needToSkipAfterThisText: 0
+    advanceDialogueBy: 0
     isQuestion: 0
     answerList: []
   - text: 'The End. '
+    needToSkipAfterThisText: 1
+    advanceDialogueBy: -4
     isQuestion: 0
     answerList: []
