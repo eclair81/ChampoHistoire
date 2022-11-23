@@ -12,12 +12,12 @@ public class DialogueManager : MonoBehaviour
     private bool printingText;
 
     [SerializeField] private GameObject nextButton;
+    private GameObject nextFalseButton;
     [SerializeField] private GameObject choiceContainer;
     private TextMeshProUGUI choice1;
     private TextMeshProUGUI choice2;
 
     private MyText currentText;
-
     private int currentTextID;
 
     // Start is called before the first frame update
@@ -26,6 +26,9 @@ public class DialogueManager : MonoBehaviour
         currentTextID = 0;
         currentText = dialogue.listeText[currentTextID];
         ResetVariables();
+
+        //get next false button ref
+        nextFalseButton = nextButton.transform.GetChild(0).gameObject;
 
         //get choice buttons text ref
         choice1 = choiceContainer.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>(); // get button -> get TMP
@@ -48,14 +51,37 @@ public class DialogueManager : MonoBehaviour
     private void AddLetter()
     {
         displayText.maxVisibleCharacters ++;
-        if(displayText.maxVisibleCharacters >= currentText.text.Length) printingText = false; 
+
+        if (displayText.maxVisibleCharacters >= currentText.text.Length)
+        {
+            printingText = false;
+            //Show button since text is now fully printed
+            if (currentText.isQuestion)
+            {
+                //show choice container
+                DeactivateNextButton(); // To prevent going to next dialogue without answering the question 
+                ShowChoiceContainer();
+            }
+            else
+            {
+                //show false next button
+                ShowNextButton();
+            }
+        }
     }
 
     public void NextText(int value)
     {
         if(value == 0) // next button clicked
         {
-            //increment TextID
+            //Check if text is already fully printed or if it's a touch to quickly advance
+            if (printingText)
+            {
+                //display full text
+                displayText.maxVisibleCharacters = currentText.text.Length;
+                return;
+            }
+
             currentTextID++;
             //TODO, add a "advanceDialogueBy" option to regular text
         }
@@ -69,12 +95,15 @@ public class DialogueManager : MonoBehaviour
         //Display Choice Container or Next Button
         if (currentText.isQuestion)
         {
-            showChoiceContainer();
+            ActivateNextButton(); // To allow to instantly display the question
+            HideNextButton();     // Hide false next button from previous text
             FillChoiceButtons();
         }
         else
         {
-            showNextButton();
+            HideChoiceContainer();
+            ActivateNextButton();
+            HideNextButton(); // Hide false next button from previous text
         }
     }
 
@@ -92,15 +121,33 @@ public class DialogueManager : MonoBehaviour
         choice2.text = currentText.answerList[1].answer;
     }
 
-    private void showNextButton()
+    private void ActivateNextButton()
     {
         nextButton.SetActive(true);
-        choiceContainer.SetActive(false);
     }
 
-    private void showChoiceContainer()
+    private void DeactivateNextButton() 
     {
         nextButton.SetActive(false);
+    }
+
+    private void ShowNextButton() 
+    {
+        nextFalseButton.SetActive(true);
+    }
+
+    private void HideNextButton()
+    {
+        nextFalseButton.SetActive(false);
+    }
+
+    private void ShowChoiceContainer()
+    {
         choiceContainer.SetActive(true);
+    }
+
+    private void HideChoiceContainer() 
+    {
+        choiceContainer.SetActive(false);
     }
 }
