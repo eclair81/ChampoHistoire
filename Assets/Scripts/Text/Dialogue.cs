@@ -12,6 +12,8 @@ public class Dialogue : ScriptableObject
 public class MyText
 {
     public string text;
+    public bool needToSkipAfterThisText;
+    public int advanceDialogueBy;
     public bool isQuestion;
     public List<Answer> answerList;
 }

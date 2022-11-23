@@ -82,8 +82,14 @@ public class DialogueManager : MonoBehaviour
                 return;
             }
 
-            currentTextID++;
-            //TODO, add a "advanceDialogueBy" option to regular text
+            if (currentText.needToSkipAfterThisText)
+            {
+                currentTextID += currentText.advanceDialogueBy; //skip some dialogue
+            }
+            else
+            {
+                currentTextID++;
+            }
         }
         else // clicked on either choice1 or choice2 button
         {
