@@ -18,13 +18,13 @@ public class DialogueManager : MonoBehaviour
     private TextMeshProUGUI choice2;
 
     private MyText currentText;
-    private int currentTextID;
+    private int nextTextIndex;
 
     // Start is called before the first frame update
     void Start()
     {
-        currentTextID = 0;
-        currentText = dialogue.listeText[currentTextID];
+        nextTextIndex = 0;
+        currentText = dialogue.listeText[nextTextIndex];
         ResetVariables();
 
         //get next false button ref
@@ -82,20 +82,20 @@ public class DialogueManager : MonoBehaviour
                 return;
             }
 
-            if (currentText.needToSkipAfterThisText)
+            if (currentText.jumpTo != "")
             {
-                currentTextID += currentText.advanceDialogueBy; //skip some dialogue
+                nextTextIndex = GetTextIndex(currentText.jumpTo);
             }
             else
             {
-                currentTextID++;
+                nextTextIndex++;
             }
         }
         else // clicked on either choice1 or choice2 button
         {
-            currentTextID += currentText.answerList[value - 1].advanceDialogueBy;
+            nextTextIndex = GetTextIndex(currentText.answerList[value - 1].jumpTo);
         }
-        currentText = dialogue.listeText[currentTextID];
+        currentText = dialogue.listeText[nextTextIndex];
         ResetVariables();
 
         //Display Choice Container or Next Button
@@ -119,6 +119,16 @@ public class DialogueManager : MonoBehaviour
         betweenLettersTimer = 0f;
         displayText.maxVisibleCharacters = 1;
         displayText.text = currentText.text;
+    }
+
+    private int GetTextIndex(string targetTextId)
+    {
+        for(int i=0; i < dialogue.listeText.Count; i++)
+        {
+            if (dialogue.listeText[i].id == targetTextId) return i;
+        }
+        //target id not found
+        return nextTextIndex++;
     }
 
     private void FillChoiceButtons()
