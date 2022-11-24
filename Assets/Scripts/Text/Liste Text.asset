@@ -13,13 +13,15 @@ MonoBehaviour:
   m_Name: Liste Text
   m_EditorClassIdentifier: 
   listeText:
-  - text: "Bonjour, C'est la premi\xE8re ligne de dialogue"
+  - text: "Bonjour, la s\xE9quence qui va suivre est une conversation originale"
     id: start
+    whoIsTalking: 0
     jumpTo: 
     isQuestion: 0
     answerList: []
   - text: grosse question, skip ou no skip?
     id: 
+    whoIsTalking: 2
     jumpTo: 
     isQuestion: 1
     answerList:
@@ -27,18 +29,33 @@ MonoBehaviour:
       jumpTo: NoSkipCase
     - answer: Yes skip
       jumpTo: YesSkipCase
-  - text: you get the full dialogue experience
+  - text: J'aime le lore, balance la sauce.
     id: NoSkipCase
+    whoIsTalking: 1
+    jumpTo: 
+    isQuestion: 0
+    answerList: []
+  - text: you get the full dialogue experience
+    id: 
+    whoIsTalking: 2
     jumpTo: end
     isQuestion: 0
     answerList: []
-  - text: Too bad.
+  - text: "je suis du genre \xE0 skip les cin\xE9matiques."
     id: YesSkipCase
+    whoIsTalking: 1
+    jumpTo: 
+    isQuestion: 0
+    answerList: []
+  - text: "Tu me d\xE9go\xFBtes"
+    id: 
+    whoIsTalking: 2
     jumpTo: end
     isQuestion: 0
     answerList: []
   - text: 'The End. '
     id: end
+    whoIsTalking: 0
     jumpTo: start
     isQuestion: 0
     answerList: []
