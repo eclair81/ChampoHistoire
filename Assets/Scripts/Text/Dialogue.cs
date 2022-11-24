@@ -13,6 +13,7 @@ public class MyText
 {
     public string text;
     public string id;
+    public CurrentlyTalking whoIsTalking;
     public string jumpTo;
     public bool isQuestion;
     public List<Answer> answerList;
@@ -23,4 +24,11 @@ public class Answer
 {
     public string answer;
     public string jumpTo;
+}
+
+public enum CurrentlyTalking
+{
+    Narrator,
+    Player,
+    Professor
 }

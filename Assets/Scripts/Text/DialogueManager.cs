@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class DialogueManager : MonoBehaviour
@@ -17,15 +16,21 @@ public class DialogueManager : MonoBehaviour
     private TextMeshProUGUI choice1;
     private TextMeshProUGUI choice2;
 
+    [SerializeField] private Image playerImage;
+    [SerializeField] private Image professorImage;
+    [SerializeField] private Color talkingColor;
+    [SerializeField] private Color notTalkingColor;
+
     private MyText currentText;
-    private int nextTextIndex;
+    private int currentTextIndex;
 
     // Start is called before the first frame update
     void Start()
     {
-        nextTextIndex = 0;
-        currentText = dialogue.listeText[nextTextIndex];
+        currentTextIndex = 0;
+        currentText = dialogue.listeText[currentTextIndex];
         ResetVariables();
+        UpdateWhosTalking();
 
         //get next false button ref
         nextFalseButton = nextButton.transform.GetChild(0).gameObject;
@@ -64,8 +69,7 @@ public class DialogueManager : MonoBehaviour
             }
             else
             {
-                //show false next button
-                ShowNextButton();
+                ShowFalseNextButton();
             }
         }
     }
@@ -82,34 +86,35 @@ public class DialogueManager : MonoBehaviour
                 return;
             }
 
-            if (currentText.jumpTo != "")
+            if (currentText.jumpTo != "") //jump in the dialogue
             {
-                nextTextIndex = GetTextIndex(currentText.jumpTo);
+                currentTextIndex = GetTextIndex(currentText.jumpTo);
             }
             else
             {
-                nextTextIndex++;
+                currentTextIndex++;
             }
         }
         else // clicked on either choice1 or choice2 button
         {
-            nextTextIndex = GetTextIndex(currentText.answerList[value - 1].jumpTo);
+            currentTextIndex = GetTextIndex(currentText.answerList[value - 1].jumpTo);
         }
-        currentText = dialogue.listeText[nextTextIndex];
+        currentText = dialogue.listeText[currentTextIndex];
         ResetVariables();
+        UpdateWhosTalking();
 
         //Display Choice Container or Next Button
         if (currentText.isQuestion)
         {
-            ActivateNextButton(); // To allow to instantly display the question
-            HideNextButton();     // Hide false next button from previous text
+            ActivateNextButton();  // To allow to instantly display the question
+            HideFalseNextButton(); // Hide false next button from previous text
             FillChoiceButtons();
         }
         else
         {
             HideChoiceContainer();
             ActivateNextButton();
-            HideNextButton(); // Hide false next button from previous text
+            HideFalseNextButton(); // Hide false next button from previous text
         }
     }
 
@@ -128,7 +133,7 @@ public class DialogueManager : MonoBehaviour
             if (dialogue.listeText[i].id == targetTextId) return i;
         }
         //target id not found
-        return nextTextIndex++;
+        return currentTextIndex++;
     }
 
     private void FillChoiceButtons()
@@ -137,6 +142,7 @@ public class DialogueManager : MonoBehaviour
         choice2.text = currentText.answerList[1].answer;
     }
 
+    #region button functions
     private void ActivateNextButton()
     {
         nextButton.SetActive(true);
@@ -147,12 +153,12 @@ public class DialogueManager : MonoBehaviour
         nextButton.SetActive(false);
     }
 
-    private void ShowNextButton() 
+    private void ShowFalseNextButton() 
     {
         nextFalseButton.SetActive(true);
     }
 
-    private void HideNextButton()
+    private void HideFalseNextButton()
     {
         nextFalseButton.SetActive(false);
     }
@@ -165,5 +171,26 @@ public class DialogueManager : MonoBehaviour
     private void HideChoiceContainer() 
     {
         choiceContainer.SetActive(false);
+    }
+    #endregion
+
+    //Grey out the non talking character
+    private void UpdateWhosTalking()
+    {
+        switch (dialogue.listeText[currentTextIndex].whoIsTalking)
+        {
+            case CurrentlyTalking.Player:
+                playerImage.color = talkingColor;
+                professorImage.color = notTalkingColor;
+                break;
+            case CurrentlyTalking.Professor:
+                playerImage.color = notTalkingColor;
+                professorImage.color = talkingColor;
+                break;
+            case CurrentlyTalking.Narrator:
+                playerImage.color = notTalkingColor;
+                professorImage.color = notTalkingColor;
+                break;
+        }
     }
 }
