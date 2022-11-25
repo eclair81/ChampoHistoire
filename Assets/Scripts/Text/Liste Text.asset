@@ -16,12 +16,14 @@ MonoBehaviour:
   - text: "Bonjour, la s\xE9quence qui va suivre est une conversation originale"
     id: start
     whoIsTalking: 0
+    whichExpression: 0
     jumpTo: 
     isQuestion: 0
     answerList: []
   - text: grosse question, skip ou no skip?
     id: 
     whoIsTalking: 2
+    whichExpression: 0
     jumpTo: 
     isQuestion: 1
     answerList:
@@ -32,30 +34,35 @@ MonoBehaviour:
   - text: J'aime le lore, balance la sauce.
     id: NoSkipCase
     whoIsTalking: 1
+    whichExpression: 0
     jumpTo: 
     isQuestion: 0
     answerList: []
   - text: you get the full dialogue experience
     id: 
     whoIsTalking: 2
+    whichExpression: 0
     jumpTo: end
     isQuestion: 0
     answerList: []
   - text: "je suis du genre \xE0 skip les cin\xE9matiques."
     id: YesSkipCase
     whoIsTalking: 1
+    whichExpression: 0
     jumpTo: 
     isQuestion: 0
     answerList: []
   - text: "Tu me d\xE9go\xFBtes"
     id: 
     whoIsTalking: 2
+    whichExpression: 2
     jumpTo: end
     isQuestion: 0
     answerList: []
   - text: 'The End. '
     id: end
     whoIsTalking: 0
+    whichExpression: 0
     jumpTo: start
     isQuestion: 0
     answerList: []

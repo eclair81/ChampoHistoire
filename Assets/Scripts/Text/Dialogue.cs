@@ -14,6 +14,7 @@ public class MyText
     public string text;
     public string id;
     public CurrentlyTalking whoIsTalking;
+    public Expression whichExpression;
     public string jumpTo;
     public bool isQuestion;
     public List<Answer> answerList;
@@ -31,4 +32,12 @@ public enum CurrentlyTalking
     Narrator,
     Player,
     Professor
+}
+
+public enum Expression
+{
+    Happy,
+    Sad, 
+    Angry,
+    Fear
 }
