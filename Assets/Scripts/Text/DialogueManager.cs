@@ -10,16 +10,14 @@ public class DialogueManager : MonoBehaviour
     private float betweenLettersTimer;
     private bool printingText;
 
-    [SerializeField] private GameObject nextButton;
-    private GameObject nextFalseButton;
+    [SerializeField] private GameObject nextButton; // real next button -> can be clicked on
+    private GameObject nextFalseButton;             // false next button -> just a visual gimmick
     [SerializeField] private GameObject choiceContainer;
     private TextMeshProUGUI choice1;
     private TextMeshProUGUI choice2;
 
-    [SerializeField] private Image playerImage;
-    [SerializeField] private Image professorImage;
-    [SerializeField] private Color talkingColor;
-    [SerializeField] private Color notTalkingColor;
+    [SerializeField] private DialogueCharacter playerChar;
+    [SerializeField] private DialogueCharacter professorChar;
 
     private MyText currentText;
     private int currentTextIndex;
@@ -174,23 +172,10 @@ public class DialogueManager : MonoBehaviour
     }
     #endregion
 
-    //Grey out the non talking character
+    //Grey out the non talking character, Change Sprite according to expression
     private void UpdateWhosTalking()
     {
-        switch (dialogue.listeText[currentTextIndex].whoIsTalking)
-        {
-            case CurrentlyTalking.Player:
-                playerImage.color = talkingColor;
-                professorImage.color = notTalkingColor;
-                break;
-            case CurrentlyTalking.Professor:
-                playerImage.color = notTalkingColor;
-                professorImage.color = talkingColor;
-                break;
-            case CurrentlyTalking.Narrator:
-                playerImage.color = notTalkingColor;
-                professorImage.color = notTalkingColor;
-                break;
-        }
+        playerChar.UpdateCharacter(dialogue.listeText[currentTextIndex].whoIsTalking, dialogue.listeText[currentTextIndex].whichExpression);
+        professorChar.UpdateCharacter(dialogue.listeText[currentTextIndex].whoIsTalking, dialogue.listeText[currentTextIndex].whichExpression);
     }
 }
