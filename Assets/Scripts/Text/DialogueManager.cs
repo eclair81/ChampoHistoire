@@ -59,7 +59,7 @@ public class DialogueManager : MonoBehaviour
         {
             printingText = false;
             //Show button since text is now fully printed
-            if (currentText.isQuestion)
+            if (currentText.thisTextIs == TypeOfText.Question)
             {
                 //show choice container
                 DeactivateNextButton(); // To prevent going to next dialogue without answering the question 
@@ -84,7 +84,7 @@ public class DialogueManager : MonoBehaviour
                 return;
             }
 
-            if (currentText.jumpTo != "") //jump in the dialogue
+            if (currentText.thisTextIs == TypeOfText.JumpAfter) //jump in the dialogue
             {
                 currentTextIndex = GetTextIndex(currentText.jumpTo);
             }
@@ -95,14 +95,22 @@ public class DialogueManager : MonoBehaviour
         }
         else // clicked on either choice1 or choice2 button
         {
-            currentTextIndex = GetTextIndex(currentText.answerList[value - 1].jumpTo);
+            switch (value)
+            {
+                case 1:
+                    currentTextIndex = GetTextIndex(currentText.repA.jumpTo);
+                    break;
+                case 2:
+                    currentTextIndex = GetTextIndex(currentText.repB.jumpTo);
+                    break;
+            }
         }
         currentText = dialogue.listeText[currentTextIndex];
         ResetVariables();
         UpdateWhosTalking();
 
         //Display Choice Container or Next Button
-        if (currentText.isQuestion)
+        if (currentText.thisTextIs == TypeOfText.Question)
         {
             ActivateNextButton();  // To allow to instantly display the question
             HideFalseNextButton(); // Hide false next button from previous text
@@ -136,8 +144,8 @@ public class DialogueManager : MonoBehaviour
 
     private void FillChoiceButtons()
     {
-        choice1.text = currentText.answerList[0].answer;
-        choice2.text = currentText.answerList[1].answer;
+        choice1.text = currentText.repA.answer;
+        choice2.text = currentText.repB.answer;
     }
 
     #region button functions
