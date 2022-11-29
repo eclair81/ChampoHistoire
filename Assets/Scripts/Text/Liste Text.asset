@@ -17,52 +17,83 @@ MonoBehaviour:
     id: start
     whoIsTalking: 0
     whichExpression: 0
+    thisTextIs: 0
     jumpTo: 
-    isQuestion: 0
-    answerList: []
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
   - text: grosse question, skip ou no skip?
     id: 
     whoIsTalking: 2
     whichExpression: 0
+    thisTextIs: 2
     jumpTo: 
-    isQuestion: 1
-    answerList:
-    - answer: No skip
+    repA:
+      answer: NoSkip
       jumpTo: NoSkipCase
-    - answer: Yes skip
+    repB:
+      answer: YesSkip
       jumpTo: YesSkipCase
   - text: J'aime le lore, balance la sauce.
     id: NoSkipCase
     whoIsTalking: 1
     whichExpression: 0
+    thisTextIs: 0
     jumpTo: 
-    isQuestion: 0
-    answerList: []
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
   - text: you get the full dialogue experience
     id: 
     whoIsTalking: 2
     whichExpression: 0
+    thisTextIs: 1
     jumpTo: end
-    isQuestion: 0
-    answerList: []
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
   - text: "je suis du genre \xE0 skip les cin\xE9matiques."
     id: YesSkipCase
     whoIsTalking: 1
     whichExpression: 0
+    thisTextIs: 0
     jumpTo: 
-    isQuestion: 0
-    answerList: []
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
   - text: "Tu me d\xE9go\xFBtes"
     id: 
     whoIsTalking: 2
     whichExpression: 2
+    thisTextIs: 1
     jumpTo: end
-    isQuestion: 0
-    answerList: []
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
   - text: 'The End. '
     id: end
     whoIsTalking: 0
     whichExpression: 0
+    thisTextIs: 1
     jumpTo: start
-    isQuestion: 0
-    answerList: []
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
