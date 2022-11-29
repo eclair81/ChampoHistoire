@@ -20,6 +20,10 @@ public class MyText
     [AllowNesting]
     public Expression whichExpression;
 
+    [HideIf("whoIsTalking", CurrentlyTalking.Narrator)]
+    [AllowNesting]
+    public Animation whichAnimation;
+
     public TypeOfText thisTextIs;
 
     [ShowIf("thisTextIs", TypeOfText.JumpAfter)]
@@ -57,6 +61,12 @@ public enum Expression
     Sad, 
     Angry,
     Fear
+}
+
+public enum Animation
+{
+    UpDown,
+    Tantrum
 }
 
 public enum TypeOfText
