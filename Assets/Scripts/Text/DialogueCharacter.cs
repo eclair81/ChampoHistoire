@@ -13,14 +13,37 @@ public class DialogueCharacter : MonoBehaviour
     [SerializeField] private Color talkingColor;
     [SerializeField] private Color notTalkingColor;
 
+    private Vector3 posBase;
+    private Vector2 scaleBase;
+
+    [SerializeField] private AnimationCurve upDownCurve;
+    [SerializeField] private AnimationCurve tantrumCurve;
+    private Animation whichAnim;
+    private float lastFrameCurve;
+    private float animTimer = 0f;
+    private bool doAnim = false;
+
     private Image currentImage;
 
     private void Awake()
     {
         currentImage = GetComponent<Image>();
+        doAnim = false;
+        posBase = transform.position;
+        scaleBase = transform.localScale;
+
     }
 
-    public void UpdateCharacter(CurrentlyTalking who, Expression how)
+    private void Update()
+    {
+        if (doAnim)
+        {
+            Debug.Log("anim: " + name);
+            Anim();
+        }
+    }
+
+    public void UpdateCharacter(CurrentlyTalking who, Expression how, Animation anim)
     {
         if(iAm == who)
         {
@@ -44,10 +67,57 @@ public class DialogueCharacter : MonoBehaviour
                     //Debug.Log(name + " is now fearful");
                     break;
             }
+
+            Keyframe lastFrame;
+            switch (anim)
+            {
+                case Animation.UpDown:
+                    whichAnim = Animation.UpDown;
+                    lastFrame = upDownCurve[upDownCurve.length - 1];
+                    lastFrameCurve = lastFrame.time;
+                    doAnim = true;
+                    break;
+                case Animation.Tantrum:
+                    whichAnim = Animation.Tantrum;
+                    lastFrame = tantrumCurve[tantrumCurve.length - 1];
+                    lastFrameCurve = lastFrame.time;
+                    doAnim = true;
+                    break;
+            }
         }
         else
         {
             currentImage.color = notTalkingColor;
+            StopAnim();
         }
+    }
+
+    private void Anim()
+    {
+        animTimer += Time.deltaTime;
+        if (animTimer <= lastFrameCurve)
+        {
+            switch (whichAnim)
+            {
+                case Animation.UpDown:
+                    transform.position = posBase + new Vector3(0, upDownCurve.Evaluate(animTimer));
+                    break;
+                case Animation.Tantrum:
+                    transform.localScale = new Vector3(-1f + tantrumCurve.Evaluate(animTimer), 1, 1);
+                    break;
+            }
+            return;
+        }
+        animTimer = 0f;
+        transform.position = posBase;
+        transform.localScale = scaleBase;
+    }
+
+    public void StopAnim()
+    {
+        doAnim = false;
+        animTimer = 0f;
+        transform.position = posBase;
+        transform.localScale = scaleBase;
     }
 }

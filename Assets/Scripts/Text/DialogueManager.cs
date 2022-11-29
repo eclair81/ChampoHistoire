@@ -69,6 +69,10 @@ public class DialogueManager : MonoBehaviour
             {
                 ShowFalseNextButton();
             }
+
+            //stop talking animation
+            playerChar.StopAnim();
+            professorChar.StopAnim();
         }
     }
 
@@ -183,7 +187,7 @@ public class DialogueManager : MonoBehaviour
     //Grey out the non talking character, Change Sprite according to expression
     private void UpdateWhosTalking()
     {
-        playerChar.UpdateCharacter(dialogue.listeText[currentTextIndex].whoIsTalking, dialogue.listeText[currentTextIndex].whichExpression);
-        professorChar.UpdateCharacter(dialogue.listeText[currentTextIndex].whoIsTalking, dialogue.listeText[currentTextIndex].whichExpression);
+        playerChar.UpdateCharacter(dialogue.listeText[currentTextIndex].whoIsTalking, dialogue.listeText[currentTextIndex].whichExpression, dialogue.listeText[currentTextIndex].whichAnimation);
+        professorChar.UpdateCharacter(dialogue.listeText[currentTextIndex].whoIsTalking, dialogue.listeText[currentTextIndex].whichExpression, dialogue.listeText[currentTextIndex].whichAnimation);
     }
 }
