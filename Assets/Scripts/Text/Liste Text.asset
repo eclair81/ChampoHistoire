@@ -17,6 +17,7 @@ MonoBehaviour:
     id: start
     whoIsTalking: 0
     whichExpression: 0
+    whichAnimation: 0
     thisTextIs: 0
     jumpTo: 
     repA:
@@ -29,6 +30,7 @@ MonoBehaviour:
     id: 
     whoIsTalking: 2
     whichExpression: 0
+    whichAnimation: 0
     thisTextIs: 2
     jumpTo: 
     repA:
@@ -41,6 +43,7 @@ MonoBehaviour:
     id: NoSkipCase
     whoIsTalking: 1
     whichExpression: 0
+    whichAnimation: 0
     thisTextIs: 0
     jumpTo: 
     repA:
@@ -53,6 +56,20 @@ MonoBehaviour:
     id: 
     whoIsTalking: 2
     whichExpression: 0
+    whichAnimation: 0
+    thisTextIs: 0
+    jumpTo: end
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
+  - text: This was the full dialogue episode
+    id: 
+    whoIsTalking: 2
+    whichExpression: 0
+    whichAnimation: 0
     thisTextIs: 1
     jumpTo: end
     repA:
@@ -65,6 +82,7 @@ MonoBehaviour:
     id: YesSkipCase
     whoIsTalking: 1
     whichExpression: 0
+    whichAnimation: 0
     thisTextIs: 0
     jumpTo: 
     repA:
@@ -77,6 +95,7 @@ MonoBehaviour:
     id: 
     whoIsTalking: 2
     whichExpression: 2
+    whichAnimation: 1
     thisTextIs: 1
     jumpTo: end
     repA:
@@ -89,6 +108,7 @@ MonoBehaviour:
     id: end
     whoIsTalking: 0
     whichExpression: 0
+    whichAnimation: 0
     thisTextIs: 1
     jumpTo: start
     repA:
