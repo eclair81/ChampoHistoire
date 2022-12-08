@@ -86,6 +86,9 @@ public class TouchInput : MonoBehaviour
 
     private void SendRaycast(Vector2 touchPos)
     {
+        //Disable movement when not in Grid state (ex: Dialogue state)
+        if (GameManager.Instance.currentGameState != GameState.Grid) return;
+
         RaycastHit2D hit = Physics2D.Raycast(touchPos, Camera.main.transform.forward);
 
         if(hit.collider != null)
