@@ -25,10 +25,10 @@ public class DialogueManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentTextIndex = 0;
-        currentText = dialogue.listeText[currentTextIndex];
-        ResetVariables();
-        UpdateWhosTalking();
+        //currenttextindex = 0;
+        //currenttext = dialogue.listetext[currenttextindex];
+        //resetvariables();
+        //updatewhostalking();
 
         //get next false button ref
         nextFalseButton = nextButton.transform.GetChild(0).gameObject;
@@ -49,6 +49,16 @@ public class DialogueManager : MonoBehaviour
                 AddLetter();
             }
         }
+    }
+
+    public void StartDialogue(Dialogue newDialogue)
+    {
+        dialogue = newDialogue;
+
+        currentTextIndex = 0;
+        currentText = dialogue.listeText[currentTextIndex];
+        ResetVariables();
+        UpdateWhosTalking();
     }
 
     private void AddLetter()
@@ -95,6 +105,12 @@ public class DialogueManager : MonoBehaviour
             else
             {
                 currentTextIndex++;
+                //If at end of Dialogue list -> Hide DialogueUI
+                if (dialogue.listeText.Count == currentTextIndex) 
+                {
+                    GameManager.Instance.HideDialogueUI();
+                    return;
+                }
             }
         }
         else // clicked on either choice1 or choice2 button
