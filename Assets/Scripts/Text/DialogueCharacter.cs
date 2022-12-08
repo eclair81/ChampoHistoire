@@ -38,7 +38,7 @@ public class DialogueCharacter : MonoBehaviour
     {
         if (doAnim)
         {
-            Debug.Log("anim: " + name);
+            //Debug.Log("anim: " + name);
             Anim();
         }
     }
