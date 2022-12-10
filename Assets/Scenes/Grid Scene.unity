@@ -464,9 +464,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16019a861d73f5d4ea95ac01daba5764, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allDialogues:
-  - {fileID: 11400000, guid: e472a339dd55a1c47baf48daba5c581e, type: 2}
+  allObjects:
+  - dialogue: {fileID: 11400000, guid: e472a339dd55a1c47baf48daba5c581e, type: 2}
+    sprite: {fileID: 21300000, guid: 8670eda5111cb5e48bd1e9b806a290e5, type: 3}
+  objectEventDialoguePrefab: {fileID: -6620000488221984780, guid: 32fc1410490892a49877be01a9796610, type: 3}
   dialogueUI: {fileID: 854189728}
+  currentGameState: 0
 --- !u!4 &1932521027
 Transform:
   m_ObjectHideFlags: 0
