@@ -15,8 +15,8 @@ public class Tile : MonoBehaviour
     private float animTimer = 0f;
     private bool doAnim = false;
 
-    public Dialogue thisEventDialogue;
-
+    //public Dialogue thisEventDialogue;
+    public EventObject thisEventObject;
 
     void Awake()
     {
@@ -51,7 +51,7 @@ public class Tile : MonoBehaviour
                 Interact();
                 break;
             case "event":
-                thisEventDialogue = GameManager.Instance.SendThisTileDialogue();
+                thisEventObject = GameManager.Instance.SendThisTileEventObject();
                 break;
         }
     }
@@ -70,7 +70,8 @@ public class Tile : MonoBehaviour
             Debug.Log("You interacted with an event tile!");
             //TODO
             //Spawn Dialogue / Object found
-            GameManager.Instance.ShowDialogueUI(thisEventDialogue);
+            //GameManager.Instance.ShowDialogueUI(thisEventObject.dialogue);
+            StartCoroutine(GameManager.Instance.SpawnObject(thisEventObject, transform.position));
         }
         
         doAnim = true;
