@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public GameState currentGameState;
 
+    private bool newObject;
+
     private void Awake()
     {
         Instance = this;
@@ -25,6 +27,8 @@ public class GameManager : MonoBehaviour
         dialogueManager = dialogueUI.GetComponentInChildren<DialogueManager>();
 
         currentGameState = GameState.Grid;
+
+        newObject = false;
     }
 
     public IEnumerator SpawnObject(EventObject eventObject, Vector2 pos)
@@ -34,16 +38,19 @@ public class GameManager : MonoBehaviour
         //spawn object
         currentObjectEvent = Instantiate(objectEventDialoguePrefab, pos, Quaternion.identity);
         StartCoroutine(currentObjectEvent.Spawn(eventObject));
+        newObject = true;
 
         //wait spawn animation
         yield return new WaitForSeconds(1.5f);
 
         //start dialogue
-        ShowDialogueUI(eventObject.dialogue);
+        ShowDialogueUI(eventObject.initialDialogue);
     }
 
     public void ShowDialogueUI(Dialogue newDialogue)
     {
+        currentGameState = GameState.Dialogue; // Needs to be repeated because ShowDialogueUI can be called from the object when it's in the inventory
+
         dialogueUI.SetActive(true);
         dialogueManager.StartDialogue(newDialogue);
     }
@@ -52,7 +59,13 @@ public class GameManager : MonoBehaviour
     {
         currentGameState = GameState.Grid;
         dialogueUI.SetActive(false);
-        StartCoroutine(currentObjectEvent.PutAway(new Vector2(-1.5f, -3)));
+
+        //Checks if This function is called after a new object was found (to avoid repeating the "put away" animation if it's an object from the inventory)
+        if (newObject)
+        {
+            newObject = false;
+            StartCoroutine(currentObjectEvent.PutAway(new Vector2(-1.5f, -3)));
+        }
     }
 
     //Call this function from an Event Tile
@@ -69,7 +82,8 @@ public class GameManager : MonoBehaviour
 [System.Serializable]
 public class EventObject
 {
-    public Dialogue dialogue;
+    public Dialogue initialDialogue;
+    public Dialogue inventoryDialogue;
     public Sprite sprite;
 }
 
