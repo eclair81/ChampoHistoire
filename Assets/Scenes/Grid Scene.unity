@@ -465,7 +465,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allObjects:
-  - dialogue: {fileID: 11400000, guid: e472a339dd55a1c47baf48daba5c581e, type: 2}
+  - initialDialogue: {fileID: 11400000, guid: e472a339dd55a1c47baf48daba5c581e, type: 2}
+    inventoryDialogue: {fileID: 11400000, guid: e53b2cd4ebc1b674eaff77ae1b9cee05, type: 2}
     sprite: {fileID: 21300000, guid: 8670eda5111cb5e48bd1e9b806a290e5, type: 3}
   objectEventDialoguePrefab: {fileID: -6620000488221984780, guid: 32fc1410490892a49877be01a9796610, type: 3}
   dialogueUI: {fileID: 854189728}
