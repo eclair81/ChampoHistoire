@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ObjectEventDialogue : MonoBehaviour
 {
-    public Dialogue thisEventDialogue;
+    public Dialogue inventoryDialogue;
     //public AnimationCurve animationCurve;
 
     private SpriteRenderer spriteRenderer;
@@ -18,10 +18,11 @@ public class ObjectEventDialogue : MonoBehaviour
 
     public IEnumerator Spawn(EventObject eventObject)
     {
+        inventoryDialogue = eventObject.inventoryDialogue;
         spriteRenderer.sprite = eventObject.sprite;
         //Debug.Log("spawned!");
 
-        for(int i=0; i < 100; i++)
+        for (int i=0; i < 100; i++)
         {
             transform.localScale = scaleBase * i;
             transform.localRotation = Quaternion.Euler(new Vector3(0, 3.6f * i, 0));
@@ -38,5 +39,13 @@ public class ObjectEventDialogue : MonoBehaviour
             transform.position = Vector2.Lerp(transform.position, newpos, 0.05f);
             yield return new WaitForSeconds(0.015f);
         }
+
+        //Add a box collider after the object is in the inventory (not before because the user could clic on it during the "put away" animation)
+        gameObject.AddComponent<BoxCollider2D>();
+    }
+
+    public void Interact()
+    {
+        GameManager.Instance.ShowDialogueUI(inventoryDialogue);
     }
 }
