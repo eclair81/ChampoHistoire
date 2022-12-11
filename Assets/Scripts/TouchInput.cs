@@ -93,6 +93,12 @@ public class TouchInput : MonoBehaviour
 
         if(hit.collider != null)
         {
+            if (hit.collider.GetComponent<ObjectEventDialogue>())
+            {
+                hit.collider.GetComponent<ObjectEventDialogue>().Interact();
+                return;
+            }
+
             //Check if it's an adjacent tile
             if(MoveOnGrid.Instance.TryToMove(new Vector2(hit.transform.position.x, hit.transform.position.y)))
             {
