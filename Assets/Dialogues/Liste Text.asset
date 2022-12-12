@@ -109,7 +109,7 @@ MonoBehaviour:
     whoIsTalking: 0
     whichExpression: 0
     whichAnimation: 0
-    thisTextIs: 1
+    thisTextIs: 0
     jumpTo: start
     repA:
       answer: 

@@ -86,10 +86,19 @@ public class TouchInput : MonoBehaviour
 
     private void SendRaycast(Vector2 touchPos)
     {
+        //Disable movement when not in Grid state (ex: Dialogue state)
+        if (GameManager.Instance.currentGameState != GameState.Grid) return;
+
         RaycastHit2D hit = Physics2D.Raycast(touchPos, Camera.main.transform.forward);
 
         if(hit.collider != null)
         {
+            if (hit.collider.GetComponent<ObjectEventDialogue>())
+            {
+                hit.collider.GetComponent<ObjectEventDialogue>().Interact();
+                return;
+            }
+
             //Check if it's an adjacent tile
             if(MoveOnGrid.Instance.TryToMove(new Vector2(hit.transform.position.x, hit.transform.position.y)))
             {

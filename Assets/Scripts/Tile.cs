@@ -15,6 +15,8 @@ public class Tile : MonoBehaviour
     private float animTimer = 0f;
     private bool doAnim = false;
 
+    //public Dialogue thisEventDialogue;
+    public EventObject thisEventObject;
 
     void Awake()
     {
@@ -40,10 +42,18 @@ public class Tile : MonoBehaviour
         spriteRenderer.color = isOffset ? color1 : color2;
         myState = etat;
 
-        if(myState == "start") Interact();
-
         //force sprite order base on y value (low y -> high order)
         spriteRenderer.sortingOrder = 100 - (int)(transform.position.y * 4); // *4 because each row is 0.25 higher than the last -> 0.25 * 4 -> sprite order decreases by 1 each row
+
+        switch (myState)
+        {
+            case "start":
+                Interact();
+                break;
+            case "event":
+                thisEventObject = GameManager.Instance.SendThisTileEventObject();
+                break;
+        }
     }
 
     public void Interact()
@@ -55,8 +65,13 @@ public class Tile : MonoBehaviour
         spriteRenderer.color = (spriteRenderer.color == color1) ? color3 : color4;
 
         if(myState == "event")
+        //if(thisEventDialogue != null)
         {
             Debug.Log("You interacted with an event tile!");
+            //TODO
+            //Spawn Dialogue / Object found
+            //GameManager.Instance.ShowDialogueUI(thisEventObject.dialogue);
+            StartCoroutine(GameManager.Instance.SpawnObject(thisEventObject, transform.position));
         }
         
         doAnim = true;
