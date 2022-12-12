@@ -258,7 +258,7 @@ GameObject:
   - component: {fileID: 536724950}
   - component: {fileID: 536724949}
   m_Layer: 5
-  m_Name: Titre
+  m_Name: Canva
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -989,7 +989,7 @@ GameObject:
   - component: {fileID: 1690037794}
   - component: {fileID: 1690037793}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Titre
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
