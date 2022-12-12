@@ -7,7 +7,7 @@ public class ButtonHandler : MonoBehaviour
 {
     
     public void StartGame(){
-        SceneManager.LoadScene("Grid scene");
+        SceneManager.LoadScene("Grid Scene");
     }
 
     public void Encyclopedia(){
