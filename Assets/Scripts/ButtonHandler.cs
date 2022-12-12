@@ -11,7 +11,7 @@ public class ButtonHandler : MonoBehaviour
     }
 
     public void Encyclopedia(){
-        //SceneManager.LoadScene("EncyclopediaScene");
+        SceneManager.LoadScene("Encyclopedia Scene");
     }
 
     public void Options(){
