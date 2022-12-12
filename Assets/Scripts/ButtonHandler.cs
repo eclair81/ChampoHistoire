@@ -17,5 +17,9 @@ public class ButtonHandler : MonoBehaviour
     public void Options(){
         //SceneManager.LoadScene("OptionsScene");
     }
+
+    public void Menu(){
+        SceneManager.LoadScene("HomeScreen Scene");
+    }
     
 }
