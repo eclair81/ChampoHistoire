@@ -15,7 +15,7 @@ public class ButtonHandler : MonoBehaviour
     }
 
     public void Credits(){
-        //SceneManager.LoadScene("Credits Scene");
+        SceneManager.LoadScene("Credits Scene");
     }
 
     public void Menu(){
