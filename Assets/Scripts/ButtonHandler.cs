@@ -14,8 +14,8 @@ public class ButtonHandler : MonoBehaviour
         SceneManager.LoadScene("Encyclopedia Scene");
     }
 
-    public void Options(){
-        //SceneManager.LoadScene("OptionsScene");
+    public void Credits(){
+        //SceneManager.LoadScene("Credits Scene");
     }
 
     public void Menu(){
