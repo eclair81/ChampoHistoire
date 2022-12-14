@@ -4,29 +4,26 @@ using UnityEngine;
 
 public class GridGenerator : MonoBehaviour
 {
-    //[SerializeField] private GameObject tilePrefab;
     [SerializeField] private GameObject isoTilePrefab;
     //[Header("Camera")]
     //[SerializeField] private Transform cam;
-    [Header("Custom Grid")]
-    [SerializeField] private Texture2D map;
     [Header("Player")]
     [SerializeField] private GameObject player;
     [Header("Container")]
     [SerializeField] private Transform parent;
 
     private bool startAlreadyPlaced;
-
-    void Start()
-    {
-        GenerateCustomGrid();
-    }
+    private int numberOfEventTileAlreadyPlaced;
+    private int maxNumberOfEventTile;
 
     //Generate a custom grid based on a Texture2D
-    private void GenerateCustomGrid(/*Texture2D map*/)
+    public void GenerateCustomGrid(Texture2D map)
     {
         startAlreadyPlaced = false;
-        
+        numberOfEventTileAlreadyPlaced = 0;
+        maxNumberOfEventTile = GameManager.Instance.NumberOfObjectsInLevel();
+
+
         for (int x = 0; x < map.width; x++)
         {
             for (int y = 0; y < map.height; y++)
@@ -54,7 +51,15 @@ public class GridGenerator : MonoBehaviour
         //If Green Pixel -> event tile
         if(pixel.r == 0 && pixel.g == 1.0f && pixel.b == 0)
         {
-            SpawnTile(x, y, "event");
+            //Don't place more event tiles than there are objects in levelList
+            if (numberOfEventTileAlreadyPlaced < maxNumberOfEventTile)
+            {
+                numberOfEventTileAlreadyPlaced++;
+                SpawnTile(x, y, "event");
+                return;
+            }
+
+            SpawnTile(x, y, "normal");
             return;
         }
 
@@ -79,7 +84,6 @@ public class GridGenerator : MonoBehaviour
 
     private void SpawnTile(int x, int y, string etat)
     {
-        //GameObject tile = Instantiate(tilePrefab, new Vector3(x, y), Quaternion.identity, parent);
         GameObject tile = Instantiate(isoTilePrefab, Convert.GridToIso(new Vector2(x, y)), Quaternion.identity, parent);
         Tile tileScript = tile.GetComponent<Tile>();
         bool offset = ((x + y) % 2 == 1); //alternate for a checkboard grid, remove since we now use iso?

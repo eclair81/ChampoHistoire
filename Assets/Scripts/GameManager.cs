@@ -65,6 +65,7 @@ public class GameManager : MonoBehaviour
         MoveOnGrid.Instance.UpdateLevelIndex(levelIndex);
 
         GameObject currentLevel = Instantiate(levelPrefab, allLevelsContainer);
+        currentLevel.GetComponentInChildren<GridGenerator>().GenerateCustomGrid(levelList[levelIndex].level);
     }
 
     public IEnumerator SpawnObject(EventObject eventObject, Vector2 pos)
@@ -124,6 +125,11 @@ public class GameManager : MonoBehaviour
 
         return thisEventObject;
     }
+
+    public int NumberOfObjectsInLevel()
+    {
+        return levelList[levelIndex].objectInLevel.Count;
+    }
 }
 
 
@@ -131,7 +137,7 @@ public class GameManager : MonoBehaviour
 public class InfoLevel
 {
     public Texture2D level;
-    public int objectFound;
+    [HideInInspector]public int objectFound;
     public List<EventObject> objectInLevel;
 }
 
