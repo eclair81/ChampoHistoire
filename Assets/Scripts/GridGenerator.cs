@@ -6,8 +6,8 @@ public class GridGenerator : MonoBehaviour
 {
     //[SerializeField] private GameObject tilePrefab;
     [SerializeField] private GameObject isoTilePrefab;
-    [Header("Camera")]
-    [SerializeField] private Transform cam;
+    //[Header("Camera")]
+    //[SerializeField] private Transform cam;
     [Header("Custom Grid")]
     [SerializeField] private Texture2D map;
     [Header("Player")]
@@ -37,7 +37,7 @@ public class GridGenerator : MonoBehaviour
             }
         }
         //cam.transform.position = new Vector3((float)map.width/2 - 0.5f, (float)map.height/2 -0.5f, -10);
-        cam.gameObject.GetComponent<Camera>().orthographicSize = map.height;
+        //cam.gameObject.GetComponent<Camera>().orthographicSize = map.height;
     }
 
     private void GenerateTile(int x, int y, Color pixel)

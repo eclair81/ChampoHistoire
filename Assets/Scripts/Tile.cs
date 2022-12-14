@@ -65,12 +65,7 @@ public class Tile : MonoBehaviour
         spriteRenderer.color = (spriteRenderer.color == color1) ? color3 : color4;
 
         if(myState == "event")
-        //if(thisEventDialogue != null)
         {
-            Debug.Log("You interacted with an event tile!");
-            //TODO
-            //Spawn Dialogue / Object found
-            //GameManager.Instance.ShowDialogueUI(thisEventObject.dialogue);
             StartCoroutine(GameManager.Instance.SpawnObject(thisEventObject, transform.position));
         }
         
