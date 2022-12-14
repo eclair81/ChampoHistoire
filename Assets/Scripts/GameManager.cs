@@ -4,10 +4,18 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    //[SerializeField] private List<Dialogue> allDialogues;
-    [SerializeField] private List<EventObject> allObjects;
-    private int index;
+    //public List<Texture2D> levelList;
+    [SerializeField] private List<InfoLevel> levelList;
+    public int levelIndex;
 
+    //[SerializeField] private List<EventObject> allObjects;
+    private int objectIndex;
+    private bool newObject;
+
+    [Header("Levels")]
+    [SerializeField] private GameObject levelPrefab;
+    [SerializeField] private Transform allLevelsContainer;
+    [Header("Dialogue")]
     [SerializeField] private ObjectEventDialogue objectEventDialoguePrefab;
     private ObjectEventDialogue currentObjectEvent;
 
@@ -15,15 +23,20 @@ public class GameManager : MonoBehaviour
     private DialogueManager dialogueManager;
 
     public static GameManager Instance;
-    public GameState currentGameState;
+    [HideInInspector] public GameState currentGameState;
 
-    private bool newObject;
+    //Inventory position
+    private float[,] inv;
 
     private void Awake()
     {
         Instance = this;
 
-        index = 0;
+        inv = new float[,] { { -1.5f, -3f }, { 0f, -3f }, { 1.5f, -3f }};
+
+        objectIndex = 0;
+        levelIndex = 0;
+
         dialogueManager = dialogueUI.GetComponentInChildren<DialogueManager>();
 
         currentGameState = GameState.Grid;
@@ -31,12 +44,38 @@ public class GameManager : MonoBehaviour
         newObject = false;
     }
 
+    private void Start()
+    {
+        MoveOnGrid.Instance.AddSpaceInAllPos(levelList.Count);
+
+        SpawnLevel(levelIndex);
+        //Test Generating multiple levels, delete later
+        //Invoke("test", 1);  //need to be invoke because we can't generate multiple levels at the same time -> otherwise the 2 SpawnLevel are called in parralel and objectIndex isn't right
+    }
+
+    public void test()
+    {
+        SpawnLevel(levelIndex);
+    }
+
+    public void SpawnLevel(int index)
+    {
+        levelIndex = index;
+        objectIndex = 0;
+        MoveOnGrid.Instance.UpdateLevelIndex(levelIndex);
+
+        GameObject currentLevel = Instantiate(levelPrefab, allLevelsContainer);
+    }
+
     public IEnumerator SpawnObject(EventObject eventObject, Vector2 pos)
     {
         currentGameState = GameState.Dialogue;
 
+        //Get currentLevel Inventory container
+        Transform inventory = allLevelsContainer.GetChild(levelIndex).GetChild(2);
+
         //spawn object
-        currentObjectEvent = Instantiate(objectEventDialoguePrefab, pos, Quaternion.identity);
+        currentObjectEvent = Instantiate(objectEventDialoguePrefab, pos, Quaternion.identity, inventory);
         StartCoroutine(currentObjectEvent.Spawn(eventObject));
         newObject = true;
 
@@ -64,19 +103,36 @@ public class GameManager : MonoBehaviour
         if (newObject)
         {
             newObject = false;
-            StartCoroutine(currentObjectEvent.PutAway(new Vector2(-1.5f, -3)));
+
+            float newPosX = inv[levelList[levelIndex].objectFound, 0];
+            float newPosY = inv[levelList[levelIndex].objectFound, 1];
+            StartCoroutine(currentObjectEvent.PutAway(new Vector2(newPosX, newPosY)));
+
+            levelList[levelIndex].objectFound++;
+            if (levelList[levelIndex].objectFound == levelList[levelIndex].objectInLevel.Count)
+            {
+                Debug.Log("Found all objects on this level !");
+            }
         }
     }
 
     //Call this function from an Event Tile
     public EventObject SendThisTileEventObject()
     {
-        //Dialogue thisDialogue = allDialogues[index];
-        EventObject thisEventObject = allObjects[index];
-        index++; //Increment for next time
+        EventObject thisEventObject = levelList[levelIndex].objectInLevel[objectIndex];
+        objectIndex++; //Increment for next time
 
         return thisEventObject;
     }
+}
+
+
+[System.Serializable]
+public class InfoLevel
+{
+    public Texture2D level;
+    public int objectFound;
+    public List<EventObject> objectInLevel;
 }
 
 [System.Serializable]
