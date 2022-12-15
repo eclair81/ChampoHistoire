@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5631186201713083449}
   - component: {fileID: 757757223356494999}
   m_Layer: 0
-  m_Name: IsoTile
+  m_Name: Grass Tile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 3675721073016662359}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.125, y: 3.125, z: 1}
+  m_LocalScale: {x: 0.5208, y: 0.5208, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -75,12 +75,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 135703ae384f6d646a88bcb8eba969ea, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 090084c7e2f7f074596c57e544552a47, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.32, y: 0.32}
+  m_Size: {x: 1.92, y: 1.92}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -98,10 +98,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 820842857f5e85c449d107bdf76a4178, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color1: {r: 1, g: 1, b: 1, a: 1}
-  color2: {r: 1, g: 1, b: 1, a: 1}
-  color3: {r: 0.16078432, g: 0.21176471, b: 0.98039216, a: 1}
-  color4: {r: 0.07450981, g: 0.11764706, b: 0.74509805, a: 1}
+  spritesVariation:
+  - baseSprite: {fileID: 21300000, guid: 090084c7e2f7f074596c57e544552a47, type: 3}
+    interacted: {fileID: 21300000, guid: 340a45e2b7b1b9042b0017d41dd9339a, type: 3}
   curve:
     serializedVersion: 2
     m_Curve:
@@ -144,6 +143,10 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  thisEventObject:
+    initialDialogue: {fileID: 0}
+    inventoryDialogue: {fileID: 0}
+    sprite: {fileID: 0}
 --- !u!60 &757757223356494999
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -161,15 +164,15 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
-    newSize: {x: 0.32, y: 0.32}
+    oldSize: {x: 1.92, y: 1.92}
+    newSize: {x: 1.92, y: 1.92}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.16, y: 0.07}
-      - {x: 0, y: 0.155}
-      - {x: -0.16, y: 0.07}
-      - {x: 0, y: 0}
+    - - {x: 0.93, y: 0.43}
+      - {x: 0, y: 0.94}
+      - {x: -0.93, y: 0.43}
+      - {x: 0, y: -0.05}

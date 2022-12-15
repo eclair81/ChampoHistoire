@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &7925510048594517944
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 181990924207563517, guid: 25384f9cf93678e4d8be38563b78b346, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 181990924207563517, guid: 25384f9cf93678e4d8be38563b78b346, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 181990924207563517, guid: 25384f9cf93678e4d8be38563b78b346, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 181990924207563517, guid: 25384f9cf93678e4d8be38563b78b346, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 181990924207563517, guid: 25384f9cf93678e4d8be38563b78b346, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 181990924207563517, guid: 25384f9cf93678e4d8be38563b78b346, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 181990924207563517, guid: 25384f9cf93678e4d8be38563b78b346, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 181990924207563517, guid: 25384f9cf93678e4d8be38563b78b346, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 181990924207563517, guid: 25384f9cf93678e4d8be38563b78b346, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 181990924207563517, guid: 25384f9cf93678e4d8be38563b78b346, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 181990924207563517, guid: 25384f9cf93678e4d8be38563b78b346, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2649162638278587800, guid: 25384f9cf93678e4d8be38563b78b346, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 92cf99ceba65ed84789146638af9b73a, type: 3}
+    - target: {fileID: 3675721073016662359, guid: 25384f9cf93678e4d8be38563b78b346, type: 3}
+      propertyPath: m_Name
+      value: Dirt Tile
+      objectReference: {fileID: 0}
+    - target: {fileID: 5631186201713083449, guid: 25384f9cf93678e4d8be38563b78b346, type: 3}
+      propertyPath: spritesVariation.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5631186201713083449, guid: 25384f9cf93678e4d8be38563b78b346, type: 3}
+      propertyPath: spritesVariation.Array.data[0].baseSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 92cf99ceba65ed84789146638af9b73a, type: 3}
+    - target: {fileID: 5631186201713083449, guid: 25384f9cf93678e4d8be38563b78b346, type: 3}
+      propertyPath: spritesVariation.Array.data[0].interacted
+      value: 
+      objectReference: {fileID: 21300000, guid: 94dad650267224041a40f6e1cb76a533, type: 3}
+    - target: {fileID: 5631186201713083449, guid: 25384f9cf93678e4d8be38563b78b346, type: 3}
+      propertyPath: spritesVariation.Array.data[1].baseSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 23c6a7930fb653d49add7bfddb233b9b, type: 3}
+    - target: {fileID: 5631186201713083449, guid: 25384f9cf93678e4d8be38563b78b346, type: 3}
+      propertyPath: spritesVariation.Array.data[1].interacted
+      value: 
+      objectReference: {fileID: 21300000, guid: e20c34dc7531b0945a91f0c748e78c56, type: 3}
+    - target: {fileID: 5631186201713083449, guid: 25384f9cf93678e4d8be38563b78b346, type: 3}
+      propertyPath: spritesVariation.Array.data[2].baseSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5f1aa04814e357940b5bf91ab9a87ba3, type: 3}
+    - target: {fileID: 5631186201713083449, guid: 25384f9cf93678e4d8be38563b78b346, type: 3}
+      propertyPath: spritesVariation.Array.data[2].interacted
+      value: 
+      objectReference: {fileID: 21300000, guid: 7a45228cd4ab054449e32514e02847ae, type: 3}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 25384f9cf93678e4d8be38563b78b346, type: 3}
