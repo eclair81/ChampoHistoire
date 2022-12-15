@@ -4,11 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    //public List<Texture2D> levelList;
     [SerializeField] private List<InfoLevel> levelList;
     public int levelIndex;
-
-    //[SerializeField] private List<EventObject> allObjects;
     private int objectIndex;
     private bool newObject;
 
@@ -21,6 +18,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameObject dialogueUI;
     private DialogueManager dialogueManager;
+
+    [SerializeField] private GameObject nextLevelButton;
 
     public static GameManager Instance;
     [HideInInspector] public GameState currentGameState;
@@ -47,32 +46,37 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         MoveOnGrid.Instance.AddSpaceInAllPos(levelList.Count);
-
-        SpawnLevel(0);
-        //Test Generating multiple levels, delete later
-        //Invoke("test", 1);  //need to be invoke because we can't generate multiple levels at the same time -> otherwise the 2 SpawnLevel are called in parralel and objectIndex isn't right
+        NextLevel();
     }
 
-    public void test()
+    //Spawn new level according to levelIndex
+    public void SpawnLevel()
     {
-        SpawnLevel(1);
+        GameObject currentLevel = Instantiate(levelPrefab, allLevelsContainer);
+        currentLevel.GetComponentInChildren<GridGenerator>().GenerateCustomGrid(levelList[levelIndex].level, levelList[levelIndex].tileUsed);
     }
 
-    public void SpawnLevel(int index)
+    public void NextLevel()
     {
-        //Hide previous level before spawning the new one
+        //Hide previous level
         if (levelIndex != -1)
         {
             allLevelsContainer.GetChild(levelIndex).gameObject.SetActive(false);
         }
 
-        //Spawn new level
-        levelIndex = index;
+        levelIndex++;
+
+        if (levelIndex == levelList.Count)
+        {
+            Debug.Log("The End");
+            return;
+        }
+
         objectIndex = 0;
+        nextLevelButton.SetActive(false);
         MoveOnGrid.Instance.UpdateLevelIndex(levelIndex);
 
-        GameObject currentLevel = Instantiate(levelPrefab, allLevelsContainer);
-        currentLevel.GetComponentInChildren<GridGenerator>().GenerateCustomGrid(levelList[levelIndex].level, levelList[levelIndex].tileUsed);
+        SpawnLevel();
     }
 
     public IEnumerator SpawnObject(EventObject eventObject, Vector2 pos)
@@ -120,6 +124,7 @@ public class GameManager : MonoBehaviour
             if (levelList[levelIndex].objectFound == levelList[levelIndex].objectInLevel.Count)
             {
                 Debug.Log("Found all objects on this level !");
+                nextLevelButton.SetActive(true); //Show next level button for now (change later)
             }
         }
     }
