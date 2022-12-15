@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
-    [SerializeField] private Color color1, color2, color3, color4;
+    [SerializeField] private List<CoupleSprite> spritesVariation;
     private SpriteRenderer spriteRenderer;
+    private int randomVariationIndex;
+
     private Vector3 posBase;
     private bool alreadyInteracted;
     private string myState;
@@ -24,6 +26,9 @@ public class Tile : MonoBehaviour
         alreadyInteracted = false;
         posBase = transform.position;
 
+        //Select which sprites to use among the variations
+        randomVariationIndex = (int)Random.Range(0f, (float)spritesVariation.Count - 0.001f); // -0.001 because Random.Range is inclusive
+
         //Get length of the animation curve
         Keyframe lastFrame = curve[curve.length - 1];
         lastFrameCurve = lastFrame.time;
@@ -39,7 +44,7 @@ public class Tile : MonoBehaviour
 
     public void Init(bool isOffset, string etat)
     {
-        spriteRenderer.color = isOffset ? color1 : color2;
+        spriteRenderer.sprite = spritesVariation[randomVariationIndex].baseSprite;
         myState = etat;
 
         //force sprite order base on y value (low y -> high order)
@@ -62,9 +67,9 @@ public class Tile : MonoBehaviour
         if(alreadyInteracted) return;
         alreadyInteracted = true;
 
-        spriteRenderer.color = (spriteRenderer.color == color1) ? color3 : color4;
+        spriteRenderer.sprite = spritesVariation[randomVariationIndex].interacted;
 
-        if(myState == "event")
+        if (myState == "event")
         {
             StartCoroutine(GameManager.Instance.SpawnObject(thisEventObject, transform.position));
         }
@@ -83,4 +88,11 @@ public class Tile : MonoBehaviour
         transform.position = posBase;
         doAnim = false;
     }
+}
+
+[System.Serializable]
+public class CoupleSprite
+{
+    public Sprite baseSprite;
+    public Sprite interacted;
 }
