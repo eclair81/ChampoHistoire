@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
         inv = new float[,] { { -1.5f, -3f }, { 0f, -3f }, { 1.5f, -3f }};
 
         objectIndex = 0;
-        levelIndex = 0;
+        levelIndex = -1;
 
         dialogueManager = dialogueUI.GetComponentInChildren<DialogueManager>();
 
@@ -48,24 +48,31 @@ public class GameManager : MonoBehaviour
     {
         MoveOnGrid.Instance.AddSpaceInAllPos(levelList.Count);
 
-        SpawnLevel(levelIndex);
+        SpawnLevel(0);
         //Test Generating multiple levels, delete later
         //Invoke("test", 1);  //need to be invoke because we can't generate multiple levels at the same time -> otherwise the 2 SpawnLevel are called in parralel and objectIndex isn't right
     }
 
     public void test()
     {
-        SpawnLevel(levelIndex);
+        SpawnLevel(1);
     }
 
     public void SpawnLevel(int index)
     {
+        //Hide previous level before spawning the new one
+        if (levelIndex != -1)
+        {
+            allLevelsContainer.GetChild(levelIndex).gameObject.SetActive(false);
+        }
+
+        //Spawn new level
         levelIndex = index;
         objectIndex = 0;
         MoveOnGrid.Instance.UpdateLevelIndex(levelIndex);
 
         GameObject currentLevel = Instantiate(levelPrefab, allLevelsContainer);
-        currentLevel.GetComponentInChildren<GridGenerator>().GenerateCustomGrid(levelList[levelIndex].level);
+        currentLevel.GetComponentInChildren<GridGenerator>().GenerateCustomGrid(levelList[levelIndex].level, levelList[levelIndex].tileUsed);
     }
 
     public IEnumerator SpawnObject(EventObject eventObject, Vector2 pos)
@@ -137,6 +144,7 @@ public class GameManager : MonoBehaviour
 public class InfoLevel
 {
     public Texture2D level;
+    public GameObject tileUsed;
     [HideInInspector]public int objectFound;
     public List<EventObject> objectInLevel;
 }

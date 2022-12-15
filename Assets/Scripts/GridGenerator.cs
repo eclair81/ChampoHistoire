@@ -17,8 +17,10 @@ public class GridGenerator : MonoBehaviour
     private int maxNumberOfEventTile;
 
     //Generate a custom grid based on a Texture2D
-    public void GenerateCustomGrid(Texture2D map)
+    public void GenerateCustomGrid(Texture2D map, GameObject tilePrefab)
     {
+        isoTilePrefab = tilePrefab;
+
         startAlreadyPlaced = false;
         numberOfEventTileAlreadyPlaced = 0;
         maxNumberOfEventTile = GameManager.Instance.NumberOfObjectsInLevel();
