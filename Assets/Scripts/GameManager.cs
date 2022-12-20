@@ -4,26 +4,38 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    //[SerializeField] private List<Dialogue> allDialogues;
-    [SerializeField] private List<EventObject> allObjects;
-    private int index;
+    [SerializeField] private List<InfoLevel> levelList;
+    public int levelIndex;
+    private int objectIndex;
+    private bool newObject;
 
+    [Header("Levels")]
+    [SerializeField] private GameObject levelPrefab;
+    [SerializeField] private Transform allLevelsContainer;
+    [Header("Dialogue")]
     [SerializeField] private ObjectEventDialogue objectEventDialoguePrefab;
     private ObjectEventDialogue currentObjectEvent;
 
     [SerializeField] private GameObject dialogueUI;
     private DialogueManager dialogueManager;
 
-    public static GameManager Instance;
-    public GameState currentGameState;
+    [SerializeField] private GameObject nextLevelButton;
 
-    private bool newObject;
+    public static GameManager Instance;
+    [HideInInspector] public GameState currentGameState;
+
+    //Inventory position
+    private float[,] inv;
 
     private void Awake()
     {
         Instance = this;
 
-        index = 0;
+        inv = new float[,] { { -1.5f, -3f }, { 0f, -3f }, { 1.5f, -3f }};
+
+        objectIndex = 0;
+        levelIndex = -1;
+
         dialogueManager = dialogueUI.GetComponentInChildren<DialogueManager>();
 
         currentGameState = GameState.Grid;
@@ -31,12 +43,51 @@ public class GameManager : MonoBehaviour
         newObject = false;
     }
 
+    private void Start()
+    {
+        MoveOnGrid.Instance.AddSpaceInAllPos(levelList.Count);
+        NextLevel();
+    }
+
+    //Spawn new level according to levelIndex
+    public void SpawnLevel()
+    {
+        GameObject currentLevel = Instantiate(levelPrefab, allLevelsContainer);
+        currentLevel.GetComponentInChildren<GridGenerator>().GenerateCustomGrid(levelList[levelIndex].level, levelList[levelIndex].tileUsed);
+    }
+
+    public void NextLevel()
+    {
+        //Hide previous level
+        if (levelIndex != -1)
+        {
+            allLevelsContainer.GetChild(levelIndex).gameObject.SetActive(false);
+        }
+
+        levelIndex++;
+
+        if (levelIndex == levelList.Count)
+        {
+            Debug.Log("The End");
+            return;
+        }
+
+        objectIndex = 0;
+        nextLevelButton.SetActive(false);
+        MoveOnGrid.Instance.UpdateLevelIndex(levelIndex);
+
+        SpawnLevel();
+    }
+
     public IEnumerator SpawnObject(EventObject eventObject, Vector2 pos)
     {
         currentGameState = GameState.Dialogue;
 
+        //Get currentLevel Inventory container
+        Transform inventory = allLevelsContainer.GetChild(levelIndex).GetChild(2);
+
         //spawn object
-        currentObjectEvent = Instantiate(objectEventDialoguePrefab, pos, Quaternion.identity);
+        currentObjectEvent = Instantiate(objectEventDialoguePrefab, pos, Quaternion.identity, inventory);
         StartCoroutine(currentObjectEvent.Spawn(eventObject));
         newObject = true;
 
@@ -64,19 +115,43 @@ public class GameManager : MonoBehaviour
         if (newObject)
         {
             newObject = false;
-            StartCoroutine(currentObjectEvent.PutAway(new Vector2(-1.5f, -3)));
+
+            float newPosX = inv[levelList[levelIndex].objectFound, 0];
+            float newPosY = inv[levelList[levelIndex].objectFound, 1];
+            StartCoroutine(currentObjectEvent.PutAway(new Vector2(newPosX, newPosY)));
+
+            levelList[levelIndex].objectFound++;
+            if (levelList[levelIndex].objectFound == levelList[levelIndex].objectInLevel.Count)
+            {
+                Debug.Log("Found all objects on this level !");
+                nextLevelButton.SetActive(true); //Show next level button for now (change later)
+            }
         }
     }
 
     //Call this function from an Event Tile
     public EventObject SendThisTileEventObject()
     {
-        //Dialogue thisDialogue = allDialogues[index];
-        EventObject thisEventObject = allObjects[index];
-        index++; //Increment for next time
+        EventObject thisEventObject = levelList[levelIndex].objectInLevel[objectIndex];
+        objectIndex++; //Increment for next time
 
         return thisEventObject;
     }
+
+    public int NumberOfObjectsInLevel()
+    {
+        return levelList[levelIndex].objectInLevel.Count;
+    }
+}
+
+
+[System.Serializable]
+public class InfoLevel
+{
+    public Texture2D level;
+    public GameObject tileUsed;
+    [HideInInspector]public int objectFound;
+    public List<EventObject> objectInLevel;
 }
 
 [System.Serializable]

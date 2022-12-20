@@ -26,7 +26,7 @@ MonoBehaviour:
     repB:
       answer: 
       jumpTo: 
-  - text: "Enorme point d'int\xE9rogation?"
+  - text: "Enorme point d'int\xE9rrogation?"
     id: 
     whoIsTalking: 1
     whichExpression: 0
