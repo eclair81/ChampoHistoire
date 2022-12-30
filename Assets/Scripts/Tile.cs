@@ -42,13 +42,13 @@ public class Tile : MonoBehaviour
         }
     }
 
-    public void Init(bool isOffset, string etat)
+    public void Init(string etat)
     {
         spriteRenderer.sprite = spritesVariation[randomVariationIndex].baseSprite;
         myState = etat;
 
         //force sprite order base on y value (low y -> high order)
-        spriteRenderer.sortingOrder = 100 - (int)(transform.position.y * 4); // *4 because each row is 0.25 higher than the last -> 0.25 * 4 -> sprite order decreases by 1 each row
+        //spriteRenderer.sortingOrder = 100 - (int)(transform.position.y * 4); // *4 because each row is 0.25 higher than the last -> 0.25 * 4 -> sprite order decreases by 1 each row
 
         switch (myState)
         {
@@ -73,8 +73,10 @@ public class Tile : MonoBehaviour
         {
             StartCoroutine(GameManager.Instance.SpawnObject(thisEventObject, transform.position));
         }
-        
-        doAnim = true;
+
+        // Disable tile anim to avoid animating the tile without moving the decor on top of it
+        // (an easy fix would be to instantiate the decor elements with the tile as a parent, but project manager said animating the tile wasn't in the GDD)
+        //doAnim = true; 
     }
 
     private void Anim()

@@ -1,0 +1,135 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 246864f3c3f35584b99d4ada9b9b0b57, type: 3}
+  m_Name: DecorLevel 0
+  m_EditorClassIdentifier: 
+  allDecorOnThisLevel:
+  - decorationOnThisTile: []
+  - decorationOnThisTile:
+    - correctionXY: {x: -0.18145, y: 0.295383}
+      spriteOrder: 4
+      decoSprite: {fileID: 21300000, guid: ca7207cb764e7c84fad3352b470170c0, type: 3}
+  - decorationOnThisTile:
+    - correctionXY: {x: 0.11055, y: 0.294383}
+      spriteOrder: 2
+      decoSprite: {fileID: 21300000, guid: 7fedb855bd3154a4bb814d02917d02c4, type: 3}
+    - correctionXY: {x: 0.02355, y: 0.025383}
+      spriteOrder: 3
+      decoSprite: {fileID: 21300000, guid: 230f6945c5e874e48bcdb45741b02088, type: 3}
+  - decorationOnThisTile:
+    - correctionXY: {x: 0.07555, y: 0.317383}
+      spriteOrder: 2
+      decoSprite: {fileID: 21300000, guid: f430b86726af6444095c79f1e44bc05e, type: 3}
+    - correctionXY: {x: -0.44945, y: 0.2543833}
+      spriteOrder: 1
+      decoSprite: {fileID: 21300000, guid: a30c67e00d7aebc4ea093ec7cc00bfb4, type: 3}
+  - decorationOnThisTile:
+    - correctionXY: {x: 0.00355, y: 0.244383}
+      spriteOrder: 1
+      decoSprite: {fileID: 21300000, guid: 94e03f029b179074388d44e42daf01bd, type: 3}
+  - decorationOnThisTile: []
+  - decorationOnThisTile:
+    - correctionXY: {x: -0.19645, y: 0.404383}
+      spriteOrder: 0
+      decoSprite: {fileID: 21300000, guid: 8f7d11f265e53174ba73fb6f52a07506, type: 3}
+  - decorationOnThisTile:
+    - correctionXY: {x: 0.06755, y: 0.257383}
+      spriteOrder: 0
+      decoSprite: {fileID: 21300000, guid: 19ec0830d27ebe34da9f38e95c245237, type: 3}
+  - decorationOnThisTile: []
+  - decorationOnThisTile: []
+  - decorationOnThisTile:
+    - correctionXY: {x: 0.40055, y: 0.273383}
+      spriteOrder: 0
+      decoSprite: {fileID: 21300000, guid: d57bdea68251c204889732486331cfa1, type: 3}
+  - decorationOnThisTile:
+    - correctionXY: {x: 0.04155, y: 0.279383}
+      spriteOrder: 0
+      decoSprite: {fileID: 21300000, guid: 020e533eb4b4fa545a385d71839285d0, type: 3}
+  - decorationOnThisTile:
+    - correctionXY: {x: -0.31945, y: 0.264383}
+      spriteOrder: 0
+      decoSprite: {fileID: 21300000, guid: 272a89a6373bdcb49927c2c8d13af846, type: 3}
+  - decorationOnThisTile:
+    - correctionXY: {x: -0.08645, y: 0.278383}
+      spriteOrder: 0
+      decoSprite: {fileID: 21300000, guid: 188f6b307256bd94ea40b251b35a95de, type: 3}
+  - decorationOnThisTile:
+    - correctionXY: {x: -0.06445, y: 0.200383}
+      spriteOrder: 1
+      decoSprite: {fileID: 21300000, guid: 08783cd3842ec884cb523f11be49eacd, type: 3}
+  - decorationOnThisTile:
+    - correctionXY: {x: -0.16245, y: 0.253383}
+      spriteOrder: 0
+      decoSprite: {fileID: 21300000, guid: 43d9a0e2de27baa44ae1f32da58a4781, type: 3}
+  - decorationOnThisTile:
+    - correctionXY: {x: 0.02655, y: 0.269383}
+      spriteOrder: 0
+      decoSprite: {fileID: 21300000, guid: 7f1213d75dee4ae4ab95ad9d9e076bc2, type: 3}
+  - decorationOnThisTile:
+    - correctionXY: {x: -0.13045, y: 0.254383}
+      spriteOrder: 1
+      decoSprite: {fileID: 21300000, guid: d472adc3f40fc7f428e40277f9412b35, type: 3}
+  - decorationOnThisTile: []
+  - decorationOnThisTile:
+    - correctionXY: {x: -0.35945, y: 0.312383}
+      spriteOrder: 0
+      decoSprite: {fileID: 21300000, guid: 269636cb986bc3e4cb36840f68f2efb2, type: 3}
+  - decorationOnThisTile:
+    - correctionXY: {x: 0.18555, y: 0.201383}
+      spriteOrder: 0
+      decoSprite: {fileID: 21300000, guid: c68e824582f30604aa654905b490adba, type: 3}
+  - decorationOnThisTile: []
+  - decorationOnThisTile:
+    - correctionXY: {x: 0.13755, y: 0.167383}
+      spriteOrder: 0
+      decoSprite: {fileID: 21300000, guid: e7efe9509d77f5042a074a9eac165821, type: 3}
+  - decorationOnThisTile:
+    - correctionXY: {x: -0.20745, y: 0.365383}
+      spriteOrder: 1
+      decoSprite: {fileID: 21300000, guid: 2753929dbaba737438c98f11883b81d0, type: 3}
+  - decorationOnThisTile: []
+  - decorationOnThisTile: []
+  - decorationOnThisTile:
+    - correctionXY: {x: 0.07255, y: 0.134383}
+      spriteOrder: 0
+      decoSprite: {fileID: 21300000, guid: 0c1900251e7147a4daa744ced3bad1f9, type: 3}
+    - correctionXY: {x: 0.05155, y: 0.394383}
+      spriteOrder: 0
+      decoSprite: {fileID: 21300000, guid: b35206de8f8dd9c47b865eeb10736f8a, type: 3}
+  - decorationOnThisTile:
+    - correctionXY: {x: 0.27055, y: 0.314383}
+      spriteOrder: 0
+      decoSprite: {fileID: 21300000, guid: 241089e35ca521d41a8bd80172a1ded0, type: 3}
+  - decorationOnThisTile:
+    - correctionXY: {x: 0.10455, y: 0.130383}
+      spriteOrder: 0
+      decoSprite: {fileID: 21300000, guid: 85faf0a9b199f5444aa237aa6713f778, type: 3}
+  - decorationOnThisTile:
+    - correctionXY: {x: -0.21545, y: 0.368383}
+      spriteOrder: 0
+      decoSprite: {fileID: 21300000, guid: a1ac8cdce06b773479745720e3a025d5, type: 3}
+  - decorationOnThisTile: []
+  - decorationOnThisTile:
+    - correctionXY: {x: 0.03755, y: 0.298383}
+      spriteOrder: 0
+      decoSprite: {fileID: 21300000, guid: d90f64889639cb243ac2e93a089a96c7, type: 3}
+  - decorationOnThisTile: []
+  - decorationOnThisTile: []
+  - decorationOnThisTile:
+    - correctionXY: {x: 0.16155, y: 0.230383}
+      spriteOrder: 0
+      decoSprite: {fileID: 21300000, guid: 8c67a15ed03748349a5b9092b766fb0e, type: 3}
+  - decorationOnThisTile:
+    - correctionXY: {x: -0.26045, y: 0.348383}
+      spriteOrder: 0
+      decoSprite: {fileID: 21300000, guid: 13bbf793f0efad741b90f83e3a411ce9, type: 3}

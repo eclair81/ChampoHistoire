@@ -5,21 +5,25 @@ using UnityEngine;
 public class GridGenerator : MonoBehaviour
 {
     [SerializeField] private GameObject isoTilePrefab;
+    [SerializeField] private GameObject decorPrefab;
     //[Header("Camera")]
     //[SerializeField] private Transform cam;
     [Header("Player")]
     [SerializeField] private GameObject player;
-    [Header("Container")]
-    [SerializeField] private Transform parent;
+    [Header("Containers")]
+    [SerializeField] private Transform tileContainer;
+    [SerializeField] private Transform decorContainer;
+    [SerializeField] private Transform buildingContainer;
 
     private bool startAlreadyPlaced;
     private int numberOfEventTileAlreadyPlaced;
     private int maxNumberOfEventTile;
 
     //Generate a custom grid based on a Texture2D
-    public void GenerateCustomGrid(Texture2D map, GameObject tilePrefab)
+    public void GenerateCustomGrid(Texture2D map, GameObject tilePrefab, List<DecorOnTile> decorList, List<Building> buildingList)
     {
         isoTilePrefab = tilePrefab;
+        int index = 0; // index for decorList
 
         startAlreadyPlaced = false;
         numberOfEventTileAlreadyPlaced = 0;
@@ -31,12 +35,16 @@ public class GridGenerator : MonoBehaviour
             for (int y = 0; y < map.height; y++)
             {
                 Color pixel = map.GetPixel(x, y);
-                //Debug.Log(pixel);
+
                 GenerateTile(x, y, pixel);
+                GenerateDecor(x, y, decorList[index].decorationOnThisTile);
+                index++;
             }
         }
         //cam.transform.position = new Vector3((float)map.width/2 - 0.5f, (float)map.height/2 -0.5f, -10);
         //cam.gameObject.GetComponent<Camera>().orthographicSize = map.height;
+
+        GenerateBuildings(buildingList);
     }
 
     private void GenerateTile(int x, int y, Color pixel)
@@ -86,9 +94,35 @@ public class GridGenerator : MonoBehaviour
 
     private void SpawnTile(int x, int y, string etat)
     {
-        GameObject tile = Instantiate(isoTilePrefab, Convert.GridToIso(new Vector2(x, y)), Quaternion.identity, parent);
+        GameObject tile = Instantiate(isoTilePrefab, Convert.GridToIso(new Vector2(x, y)), Quaternion.identity, tileContainer);
         Tile tileScript = tile.GetComponent<Tile>();
-        bool offset = ((x + y) % 2 == 1); //alternate for a checkboard grid, remove since we now use iso?
-        tileScript.Init(offset, etat);
+        tileScript.Init(etat);
+    }
+
+
+    private void GenerateDecor(int x, int y, List<Decoration> decorList)
+    {
+        foreach(Decoration deco in decorList)
+        {
+            //Spawn deco
+            GameObject decor = Instantiate(decorPrefab, Convert.GridToIso(new Vector2(x, y)), Quaternion.identity, decorContainer);
+            //Apply correction
+            decor.transform.position += (Vector3)deco.correctionXY;
+            //Apply Sprite
+            SpriteRenderer spriteRenderer = decor.GetComponent<SpriteRenderer>();
+            spriteRenderer.sprite = deco.decoSprite;
+
+            if(deco.spriteOrder != 0) spriteRenderer.sortingOrder = deco.spriteOrder;
+        }
+    }
+
+
+    private void GenerateBuildings(List<Building> buildingList)
+    {
+        foreach (Building batiment in buildingList)
+        {
+            GameObject thisBuilding = Instantiate(batiment.buildingPrefab, batiment.posXY, Quaternion.identity, buildingContainer);
+            thisBuilding.GetComponent<SpriteRenderer>().sortingOrder = batiment.spriteOrder;
+        }
     }
 }

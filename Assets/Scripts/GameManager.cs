@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
     public void SpawnLevel()
     {
         GameObject currentLevel = Instantiate(levelPrefab, allLevelsContainer);
-        currentLevel.GetComponentInChildren<GridGenerator>().GenerateCustomGrid(levelList[levelIndex].level, levelList[levelIndex].tileUsed);
+        currentLevel.GetComponentInChildren<GridGenerator>().GenerateCustomGrid(levelList[levelIndex].level, levelList[levelIndex].tileUsed, levelList[levelIndex].decor.allDecorOnThisLevel, levelList[levelIndex].buildings.buildingsOnThisLevel);
     }
 
     public void NextLevel()
@@ -150,6 +150,8 @@ public class InfoLevel
 {
     public Texture2D level;
     public GameObject tileUsed;
+    public Decor decor;
+    public Buildings buildings;
     [HideInInspector]public int objectFound;
     public List<EventObject> objectInLevel;
 }
