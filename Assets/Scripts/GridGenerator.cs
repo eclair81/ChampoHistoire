@@ -13,13 +13,14 @@ public class GridGenerator : MonoBehaviour
     [Header("Containers")]
     [SerializeField] private Transform tileContainer;
     [SerializeField] private Transform decorContainer;
+    [SerializeField] private Transform buildingContainer;
 
     private bool startAlreadyPlaced;
     private int numberOfEventTileAlreadyPlaced;
     private int maxNumberOfEventTile;
 
     //Generate a custom grid based on a Texture2D
-    public void GenerateCustomGrid(Texture2D map, GameObject tilePrefab, List<DecorOnTile> decorList)
+    public void GenerateCustomGrid(Texture2D map, GameObject tilePrefab, List<DecorOnTile> decorList, List<Building> buildingList)
     {
         isoTilePrefab = tilePrefab;
         int index = 0; // index for decorList
@@ -42,6 +43,8 @@ public class GridGenerator : MonoBehaviour
         }
         //cam.transform.position = new Vector3((float)map.width/2 - 0.5f, (float)map.height/2 -0.5f, -10);
         //cam.gameObject.GetComponent<Camera>().orthographicSize = map.height;
+
+        GenerateBuildings(buildingList);
     }
 
     private void GenerateTile(int x, int y, Color pixel)
@@ -110,6 +113,16 @@ public class GridGenerator : MonoBehaviour
             spriteRenderer.sprite = deco.decoSprite;
 
             if(deco.spriteOrder != 0) spriteRenderer.sortingOrder = deco.spriteOrder;
+        }
+    }
+
+
+    private void GenerateBuildings(List<Building> buildingList)
+    {
+        foreach (Building batiment in buildingList)
+        {
+            GameObject thisBuilding = Instantiate(batiment.buildingPrefab, batiment.posXY, Quaternion.identity, buildingContainer);
+            thisBuilding.GetComponent<SpriteRenderer>().sortingOrder = batiment.spriteOrder;
         }
     }
 }
