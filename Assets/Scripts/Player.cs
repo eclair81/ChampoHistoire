@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
     private bool doSmoothTransition = false;
     [SerializeField] private float lerpTime = 0.1f;
 
-    void Start()
+    /*void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
 
@@ -32,7 +32,7 @@ public class Player : MonoBehaviour
         spriteSheet.Add(spriteSheet1.ToArray());
         spriteSheet.Add(spriteSheet3.ToArray());
         spriteSheet.Add(spriteSheet2.ToArray());
-    }
+    }*/
 
     void Update()
     {
@@ -48,8 +48,8 @@ public class Player : MonoBehaviour
     {
         Vector2 newTargetPos = Convert.GridToIso(MoveOnGrid.Instance.GetPos());
 
-        sheetNumber = Convert.AngleToDir(newTargetPos - (Vector2)transform.position); // Update sheetNumber to current moving direction
-        spriteRenderer.sprite = spriteSheet[sheetNumber][spriteNumber]; // Quick update to display correct direction before next normal changement
+        //sheetNumber = Convert.AngleToDir(newTargetPos - (Vector2)transform.position); // Update sheetNumber to current moving direction
+        //spriteRenderer.sprite = spriteSheet[sheetNumber][spriteNumber]; // Quick update to display correct direction before next normal changement
 
         //transform.position = targetPos;
         targetPos = newTargetPos;
@@ -70,6 +70,7 @@ public class Player : MonoBehaviour
         }
     }
 
+    /*
     private void SpriteAnim()
     {
         animTimer += Time.deltaTime;
@@ -80,4 +81,5 @@ public class Player : MonoBehaviour
             spriteRenderer.sprite = spriteSheet[sheetNumber][spriteNumber];
         }
     }
+    */
 }

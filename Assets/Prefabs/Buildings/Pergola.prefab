@@ -23,6 +23,50 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4153731848493053008, guid: 7365e6c3462e4764faeb95acc030fed3, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4153731848493053008, guid: 7365e6c3462e4764faeb95acc030fed3, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4153731848493053008, guid: 7365e6c3462e4764faeb95acc030fed3, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 0.77
+      objectReference: {fileID: 0}
+    - target: {fileID: 4153731848493053008, guid: 7365e6c3462e4764faeb95acc030fed3, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 0.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 4153731848493053008, guid: 7365e6c3462e4764faeb95acc030fed3, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.77
+      objectReference: {fileID: 0}
+    - target: {fileID: 4153731848493053008, guid: 7365e6c3462e4764faeb95acc030fed3, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 4153731848493053008, guid: 7365e6c3462e4764faeb95acc030fed3, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].x
+      value: -1.0777271
+      objectReference: {fileID: 0}
+    - target: {fileID: 4153731848493053008, guid: 7365e6c3462e4764faeb95acc030fed3, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].y
+      value: -0.122793764
+      objectReference: {fileID: 0}
+    - target: {fileID: 4153731848493053008, guid: 7365e6c3462e4764faeb95acc030fed3, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].x
+      value: -0.17610598
+      objectReference: {fileID: 0}
+    - target: {fileID: 4153731848493053008, guid: 7365e6c3462e4764faeb95acc030fed3, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].y
+      value: -0.07545912
+      objectReference: {fileID: 0}
+    - target: {fileID: 4153731848493053008, guid: 7365e6c3462e4764faeb95acc030fed3, type: 3}
+      propertyPath: m_SpriteTilingProperty.adaptiveTilingThreshold
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4843729003522395700, guid: 7365e6c3462e4764faeb95acc030fed3, type: 3}
       propertyPath: m_Name
       value: Pergola
@@ -71,5 +115,27 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4153731848493053008, guid: 7365e6c3462e4764faeb95acc030fed3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7365e6c3462e4764faeb95acc030fed3, type: 3}
+--- !u!1 &1620804763818362920 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4843729003522395700, guid: 7365e6c3462e4764faeb95acc030fed3, type: 3}
+  m_PrefabInstance: {fileID: 6144634501333124636}
+  m_PrefabAsset: {fileID: 0}
+--- !u!70 &2054238064684048230
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620804763818362920}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0052336683, y: 0.08844356}
+  m_Size: {x: 0.6014308, y: 0.34068844}
+  m_Direction: 1
