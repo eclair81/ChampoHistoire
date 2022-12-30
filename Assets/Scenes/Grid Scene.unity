@@ -801,6 +801,7 @@ MonoBehaviour:
   - level: {fileID: 2800000, guid: 7e3f9b19fc5cae044a3f19b0f99b6047, type: 3}
     tileUsed: {fileID: 3675721073016662359, guid: 25384f9cf93678e4d8be38563b78b346, type: 3}
     decor: {fileID: 11400000, guid: c18330b685ff55347ae36d33edae36fc, type: 2}
+    buildings: {fileID: 11400000, guid: 4081efe60a66fc04eabd93a6d12b11bb, type: 2}
     objectFound: 0
     objectInLevel:
     - initialDialogue: {fileID: 11400000, guid: e472a339dd55a1c47baf48daba5c581e, type: 2}
@@ -812,6 +813,7 @@ MonoBehaviour:
   - level: {fileID: 2800000, guid: 7e3f9b19fc5cae044a3f19b0f99b6047, type: 3}
     tileUsed: {fileID: 6845429320187426543, guid: 421204b5e69b90944adf2c9c3669b1bf, type: 3}
     decor: {fileID: 0}
+    buildings: {fileID: 0}
     objectFound: 0
     objectInLevel:
     - initialDialogue: {fileID: 11400000, guid: e472a339dd55a1c47baf48daba5c581e, type: 2}
