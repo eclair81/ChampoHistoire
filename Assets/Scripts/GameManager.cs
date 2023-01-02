@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,7 +21,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject dialogueUI;
     private DialogueManager dialogueManager;
 
-    [SerializeField] private GameObject nextLevelButton;
+    [SerializeField] private GameObject nextLevelUI;
+    private GameObject sliderGameObject;
+    private Slider slider;
+    private TextMeshProUGUI year1;
+    private TextMeshProUGUI year2;
+    private TextMeshProUGUI year3;
+    public bool sliderTouched;
 
     public static GameManager Instance;
     [HideInInspector] public GameState currentGameState;
@@ -38,9 +46,17 @@ public class GameManager : MonoBehaviour
 
         dialogueManager = dialogueUI.GetComponentInChildren<DialogueManager>();
 
+        //Get sliderGameObject and years references 
+        sliderGameObject = nextLevelUI.transform.GetChild(1).gameObject;
+        slider = sliderGameObject.GetComponent<Slider>();
+        year1 = sliderGameObject.transform.GetChild(3).GetComponentInChildren<TextMeshProUGUI>();
+        year2 = sliderGameObject.transform.GetChild(4).GetComponentInChildren<TextMeshProUGUI>();
+        year3 = sliderGameObject.transform.GetChild(5).GetComponentInChildren<TextMeshProUGUI>();
+
         currentGameState = GameState.Grid;
 
         newObject = false;
+        sliderTouched = false;
     }
 
     private void Start()
@@ -73,7 +89,8 @@ public class GameManager : MonoBehaviour
         }
 
         objectIndex = 0;
-        nextLevelButton.SetActive(false);
+        UpdateSliderYears();
+        nextLevelUI.SetActive(false);
         MoveOnGrid.Instance.UpdateLevelIndex(levelIndex);
 
         SpawnLevel();
@@ -124,7 +141,7 @@ public class GameManager : MonoBehaviour
             if (levelList[levelIndex].objectFound == levelList[levelIndex].objectInLevel.Count)
             {
                 Debug.Log("Found all objects on this level !");
-                nextLevelButton.SetActive(true); //Show next level button for now (change later)
+                nextLevelUI.SetActive(true); //Show next level button & slider
             }
         }
     }
@@ -142,6 +159,34 @@ public class GameManager : MonoBehaviour
     {
         return levelList[levelIndex].objectInLevel.Count;
     }
+
+    public void UpdateSliderYears()
+    {
+        year1.text = levelList[levelIndex].sliderInfo.year1.ToString();
+        year2.text = levelList[levelIndex].sliderInfo.year2.ToString();
+        year3.text = levelList[levelIndex].sliderInfo.year3.ToString();
+    }
+
+    public void IsCorrectYearSelected()
+    {
+        int sliderValue = (int)slider.value;
+        if (sliderValue == levelList[levelIndex].sliderInfo.correctSliderPos)
+        {
+            //Maybe start a conversation before loading the next level?
+            //Add a transition effect?
+            NextLevel();
+            return;
+        }
+
+        Debug.Log("Bad year selected");
+        //Maybe start a conversation explaining why it's not the right choice ?
+    }
+
+    //only useful to avoid moving the player when touching the slider
+    public void ChangedSliderValue()
+    {
+        sliderTouched = true;
+    }
 }
 
 
@@ -154,6 +199,7 @@ public class InfoLevel
     public Buildings buildings;
     [HideInInspector]public int objectFound;
     public List<EventObject> objectInLevel;
+    public SliderInfo sliderInfo;
 }
 
 [System.Serializable]
@@ -162,6 +208,16 @@ public class EventObject
     public Dialogue initialDialogue;
     public Dialogue inventoryDialogue;
     public Sprite sprite;
+}
+
+[System.Serializable]
+public class SliderInfo
+{
+    [Range(0, 3)]
+    public int correctSliderPos;
+    public int year1;
+    public int year2;
+    public int year3;
 }
 
 public enum GameState
