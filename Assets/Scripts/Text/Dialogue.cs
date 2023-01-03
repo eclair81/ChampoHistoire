@@ -51,12 +51,19 @@ public class Answer
 public enum CurrentlyTalking
 {
     Narrator,
-    Player,
-    Professor
+    Professor,
+    Mme_Gilbert,
+    Soldat_1,
+    Soldat_2,
+    Soldat_3,
+    Soldat_4,
+    Etudiant_1,
+    Etudiant_2
 }
 
 public enum Expression
 {
+    Neutral,
     Happy,
     Sad, 
     Angry,

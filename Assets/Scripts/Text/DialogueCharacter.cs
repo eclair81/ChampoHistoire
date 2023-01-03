@@ -4,11 +4,7 @@ using UnityEngine.UI;
 public class DialogueCharacter : MonoBehaviour
 {
     [SerializeField] private CurrentlyTalking iAm;
-
-    [SerializeField] private Sprite happyImage;
-    [SerializeField] private Sprite sadImage;
-    [SerializeField] private Sprite angryImage;
-    [SerializeField] private Sprite fearImage;
+    [HideInInspector] private SpritesExpression thisCharacterSprites;
 
     [SerializeField] private Color talkingColor;
     [SerializeField] private Color notTalkingColor;
@@ -38,11 +34,11 @@ public class DialogueCharacter : MonoBehaviour
     {
         if (doAnim)
         {
-            //Debug.Log("anim: " + name);
             Anim();
         }
     }
 
+    //Call this function from the DialogueManager with each new dialogue text box 
     public void UpdateCharacter(CurrentlyTalking who, Expression how, Animation anim)
     {
         if(iAm == who)
@@ -50,21 +46,20 @@ public class DialogueCharacter : MonoBehaviour
             currentImage.color = talkingColor;
             switch (how)
             {
+                case Expression.Neutral:
+                    currentImage.sprite = thisCharacterSprites.neutral;
+                    break;
                 case Expression.Happy:
-                    currentImage.sprite = happyImage;
-                    //Debug.Log(name + " is now happy");
+                    currentImage.sprite = thisCharacterSprites.happy;
                     break;
                 case Expression.Sad:
-                    currentImage.sprite = sadImage;
-                    //Debug.Log(name + " is now sad");
+                    currentImage.sprite = thisCharacterSprites.sad;
                     break;
                 case Expression.Angry:
-                    currentImage.sprite = angryImage;
-                    //Debug.Log(name + " is now angry");
+                    currentImage.sprite = thisCharacterSprites.angry;
                     break;
                 case Expression.Fear:
-                    currentImage.sprite = fearImage;
-                    //Debug.Log(name + " is now fearful");
+                    currentImage.sprite = thisCharacterSprites.fear;
                     break;
             }
 
@@ -90,6 +85,18 @@ public class DialogueCharacter : MonoBehaviour
             currentImage.color = notTalkingColor;
             StopAnim();
         }
+    }
+
+    //Only call this function to update this character's info
+    public void UpdateCharacterInfo(CurrentlyTalking whoAmI, SpritesExpression spriteExpressionSet)
+    {
+        iAm = whoAmI;
+        thisCharacterSprites = spriteExpressionSet;
+    }
+
+    public CurrentlyTalking WhoAmI()
+    {
+        return iAm;
     }
 
     private void Anim()
