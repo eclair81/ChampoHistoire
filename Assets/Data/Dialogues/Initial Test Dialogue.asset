@@ -15,8 +15,8 @@ MonoBehaviour:
   listeText:
   - text: Qu'est ce qu'il se passe!?
     id: 
-    whoIsTalking: 1
-    whichExpression: 0
+    whoIsTalking: 7
+    whichExpression: 4
     whichAnimation: 0
     thisTextIs: 0
     jumpTo: 
@@ -28,7 +28,7 @@ MonoBehaviour:
       jumpTo: 
   - text: Tkt, c'est rien. Tu viens juste de marcher sur une case Event
     id: 
-    whoIsTalking: 2
+    whoIsTalking: 1
     whichExpression: 0
     whichAnimation: 0
     thisTextIs: 0
@@ -41,7 +41,7 @@ MonoBehaviour:
       jumpTo: 
   - text: "Cette interface va dispara\xEEtre au prochain clic"
     id: 
-    whoIsTalking: 2
+    whoIsTalking: 1
     whichExpression: 0
     whichAnimation: 0
     thisTextIs: 0

@@ -15,7 +15,7 @@ MonoBehaviour:
   listeText:
   - text: "Cet art\xE9fact semble \xEAtre un..."
     id: 
-    whoIsTalking: 2
+    whoIsTalking: 1
     whichExpression: 0
     whichAnimation: 0
     thisTextIs: 0
@@ -28,7 +28,7 @@ MonoBehaviour:
       jumpTo: 
   - text: "Enorme point d'int\xE9rrogation?"
     id: 
-    whoIsTalking: 1
+    whoIsTalking: 7
     whichExpression: 0
     whichAnimation: 0
     thisTextIs: 0
@@ -42,8 +42,8 @@ MonoBehaviour:
   - text: "Surement le placeholder d'un pauvre Dev \xE0 qui la DA n'a pas fil\xE9
       d'assets"
     id: 
-    whoIsTalking: 1
-    whichExpression: 0
+    whoIsTalking: 7
+    whichExpression: 3
     whichAnimation: 1
     thisTextIs: 0
     jumpTo: 
@@ -55,8 +55,8 @@ MonoBehaviour:
       jumpTo: 
   - text: '!'
     id: 
-    whoIsTalking: 2
-    whichExpression: 0
+    whoIsTalking: 1
+    whichExpression: 4
     whichAnimation: 1
     thisTextIs: 0
     jumpTo: 

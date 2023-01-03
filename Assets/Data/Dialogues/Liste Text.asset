@@ -28,7 +28,7 @@ MonoBehaviour:
       jumpTo: 
   - text: grosse question, skip ou no skip?
     id: 
-    whoIsTalking: 2
+    whoIsTalking: 1
     whichExpression: 0
     whichAnimation: 0
     thisTextIs: 2
@@ -41,7 +41,7 @@ MonoBehaviour:
       jumpTo: YesSkipCase
   - text: J'aime le lore, balance la sauce.
     id: NoSkipCase
-    whoIsTalking: 1
+    whoIsTalking: 7
     whichExpression: 0
     whichAnimation: 0
     thisTextIs: 0
@@ -54,7 +54,7 @@ MonoBehaviour:
       jumpTo: 
   - text: you get the full dialogue experience
     id: 
-    whoIsTalking: 2
+    whoIsTalking: 1
     whichExpression: 0
     whichAnimation: 0
     thisTextIs: 0
@@ -67,7 +67,7 @@ MonoBehaviour:
       jumpTo: 
   - text: This was the full dialogue episode
     id: 
-    whoIsTalking: 2
+    whoIsTalking: 1
     whichExpression: 0
     whichAnimation: 0
     thisTextIs: 1
@@ -80,7 +80,7 @@ MonoBehaviour:
       jumpTo: 
   - text: "je suis du genre \xE0 skip les cin\xE9matiques."
     id: YesSkipCase
-    whoIsTalking: 1
+    whoIsTalking: 7
     whichExpression: 0
     whichAnimation: 0
     thisTextIs: 0
@@ -93,8 +93,8 @@ MonoBehaviour:
       jumpTo: 
   - text: "Tu me d\xE9go\xFBtes"
     id: 
-    whoIsTalking: 2
-    whichExpression: 2
+    whoIsTalking: 1
+    whichExpression: 3
     whichAnimation: 1
     thisTextIs: 1
     jumpTo: end

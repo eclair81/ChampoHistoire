@@ -15,7 +15,7 @@ MonoBehaviour:
   listeText:
   - text: test2 initial
     id: 
-    whoIsTalking: 2
+    whoIsTalking: 1
     whichExpression: 0
     whichAnimation: 0
     thisTextIs: 0
