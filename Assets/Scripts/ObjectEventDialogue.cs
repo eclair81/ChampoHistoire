@@ -30,7 +30,7 @@ public class ObjectEventDialogue : MonoBehaviour
         }
     }
 
-    public IEnumerator PutAway(Vector2 newpos)
+    public IEnumerator PutAway(Vector3 newpos)
     {
 
         for (int i = 100; i > 20; i--)
