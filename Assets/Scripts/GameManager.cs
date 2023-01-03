@@ -104,7 +104,8 @@ public class GameManager : MonoBehaviour
         Transform inventory = allLevelsContainer.GetChild(levelIndex).GetChild(2);
 
         //spawn object
-        currentObjectEvent = Instantiate(objectEventDialoguePrefab, pos, Quaternion.identity, inventory);
+        Vector3 correctedPos = new Vector3(pos.x, pos.y, -3f); // added Z axis to avoid the object sprite being renderer under the player mesh
+        currentObjectEvent = Instantiate(objectEventDialoguePrefab, correctedPos, Quaternion.identity, inventory);
         StartCoroutine(currentObjectEvent.Spawn(eventObject));
         newObject = true;
 
@@ -135,12 +136,13 @@ public class GameManager : MonoBehaviour
 
             float newPosX = inv[levelList[levelIndex].objectFound, 0];
             float newPosY = inv[levelList[levelIndex].objectFound, 1];
-            StartCoroutine(currentObjectEvent.PutAway(new Vector2(newPosX, newPosY)));
+            StartCoroutine(currentObjectEvent.PutAway(new Vector3(newPosX, newPosY, -3f)));
 
             levelList[levelIndex].objectFound++;
             if (levelList[levelIndex].objectFound == levelList[levelIndex].objectInLevel.Count)
             {
                 Debug.Log("Found all objects on this level !");
+                //Maybe add a dialogue here to explain slider for the first time
                 nextLevelUI.SetActive(true); //Show next level button & slider
             }
         }
