@@ -89,6 +89,13 @@ public class TouchInput : MonoBehaviour
         //Disable movement when not in Grid state (ex: Dialogue state)
         if (GameManager.Instance.currentGameState != GameState.Grid) return;
 
+        //Don't move if interacting with the year slider
+        if (GameManager.Instance.sliderTouched)
+        {
+            GameManager.Instance.sliderTouched = false;
+            return;
+        }
+
         RaycastHit2D hit = Physics2D.Raycast(touchPos, Camera.main.transform.forward);
 
         if(hit.collider != null)
