@@ -1,0 +1,150 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc7ee81a66519a49a248a73bbf52a2c, type: 3}
+  m_Name: Object 2 Dialogue
+  m_EditorClassIdentifier: 
+  firstCharNotProf: 2
+  listeText:
+  - text: "Cette carte postale pourrait nous \xEAtre utile\u2026 Mais elle ne suffira
+      pas."
+    id: 
+    whoIsTalking: 0
+    isAloneAtStart: 1
+    entersTheStage: 0
+    leavesTheStage: 0
+    whichExpression: 0
+    whichAnimation: 0
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
+  - text: "Je vais aller voir si quelqu\u2019un peut nous aider, sans \xEAtre trop
+      directe."
+    id: 
+    whoIsTalking: 0
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 0
+    whichExpression: 0
+    whichAnimation: 0
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
+  - text: "Si on posait des questions trop \xE9videntes, on passerait pour des fous
+      !"
+    id: 
+    whoIsTalking: 0
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 0
+    whichExpression: 1
+    whichAnimation: 0
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
+  - text: Excusez-moi, Monsieur. Comment vous sentez-vous dans cette nouvelle caserne
+      ?
+    id: 
+    whoIsTalking: 0
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 0
+    whichExpression: 0
+    whichAnimation: 0
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
+  - text: "[C\u2019est quoi cet accoutrement\u2026 ?]"
+    id: 
+    whoIsTalking: 2
+    isAloneAtStart: 0
+    entersTheStage: 1
+    leavesTheStage: 0
+    whichExpression: 0
+    whichAnimation: 2
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
+  - text: "Eh bien, \xE9coutez, j\u2019ai fait mes classes \xE0 celles de la Visitation
+      et de Villeneuve dans le centre, et il n\u2019y a pas \xE0 dire, on est mille
+      fois moins serr\xE9s ici !"
+    id: 
+    whoIsTalking: 2
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 0
+    whichExpression: 0
+    whichAnimation: 0
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
+  - text: "Je veux bien vous croire, celle-ci m\u2019a l\u2019air spacieuse."
+    id: 
+    whoIsTalking: 0
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 0
+    whichExpression: 1
+    whichAnimation: 0
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
+  - text: "Regardez ce souvenir que j'ai conserv\xE9 et v\xE9rifiez par vous-m\xEAme."
+    id: 
+    whoIsTalking: 2
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 0
+    whichExpression: 0
+    whichAnimation: 0
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
