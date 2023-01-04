@@ -1,0 +1,124 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc7ee81a66519a49a248a73bbf52a2c, type: 3}
+  m_Name: Object 12 Dialogue
+  m_EditorClassIdentifier: 
+  firstCharNotProf: 0
+  listeText:
+  - text: "\"J'ai une id\xE9e ! Nous devons aller voir du c\xF4t\xE9 des archives
+      de la FAC. Si elles n'ont pas  chang\xE9 d'emplacement, elles devraient \xEAtre
+      par l\xE0-bas \""
+    id: 
+    whoIsTalking: 0
+    isAloneAtStart: 1
+    entersTheStage: 0
+    leavesTheStage: 0
+    whichExpression: 1
+    whichAnimation: 0
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
+  - text: "Bon, voyons voir ce qu'il peut y avoir ... C'est assez ancien, ici j'ai
+      des archives de la Seconde Guerre mondiale. \xC7a me semble \xEAtre tri\xE9
+      par date de communicabilit\xE9, si on regarde les derni\xE8res qui ont \xE9t\xE9
+      d\xE9class\xE9es, on pourrait obtenir un indice. "
+    id: 
+    whoIsTalking: 0
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 0
+    whichExpression: 0
+    whichAnimation: 0
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
+  - text: "Voil\xE0 la plus r\xE9cente, il est mentionn\xE9 : \u201Cp\xE9riode d\u2019intransmissibilit\xE9
+      : 50 ans\u201D, Quel que soit ce document, on doit \xE0 peine avoir d\xE9pass\xE9
+      ses 50 ans. Si on peut le dater, \xE7a nous renseignerait pas mal. Voyons-voir
+      en quoi il consiste."
+    id: 
+    whoIsTalking: 0
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 0
+    whichExpression: 0
+    whichAnimation: 0
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
+  - text: "C'est une photo de \"la Chambre Chaude de la Caserne Lap\xE9rouse pendant
+      l'occupation\" ... "
+    id: 
+    whoIsTalking: 0
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 0
+    whichExpression: 4
+    whichAnimation: 0
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
+  - text: "Vous vous souvenez quand je vous ai dit qu'on avait rat\xE9 des choses
+      ? On dirait que la caserne a accueilli une salle de torture  pendant la Seconde
+      Guerre mondiale. "
+    id: 
+    whoIsTalking: 0
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 0
+    whichExpression: 2
+    whichAnimation: 0
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
+  - text: "Enfin, si cette photo a \xE9t\xE9 prise \xE0 la Lib\xE9ration, \xE7a nous
+      donne un bon indice."
+    id: 
+    whoIsTalking: 0
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 0
+    whichExpression: 2
+    whichAnimation: 0
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
