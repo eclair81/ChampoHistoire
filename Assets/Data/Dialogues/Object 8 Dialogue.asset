@@ -12,5 +12,123 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbc7ee81a66519a49a248a73bbf52a2c, type: 3}
   m_Name: Object 8 Dialogue
   m_EditorClassIdentifier: 
-  firstCharNotProf: 0
-  listeText: []
+  firstCharNotProf: 6
+  listeText:
+  - text: Salut, tu viens t'inscrire en Sciences, toi aussi ?
+    id: 
+    whoIsTalking: 6
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 0
+    whichExpression: 0
+    whichAnimation: 0
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
+  - text: '*Le regarde en souriant*'
+    id: 
+    whoIsTalking: 0
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 0
+    whichExpression: 0
+    whichAnimation: 2
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
+  - text: Non, nous sommes des voyageurs spatio-temporels.
+    id: 
+    whoIsTalking: 0
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 0
+    whichExpression: 0
+    whichAnimation: 0
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
+  - text: "*Rigole* T\u2019aurais d\xFB voir ta t\xEAte !"
+    id: 
+    whoIsTalking: 0
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 0
+    whichExpression: 1
+    whichAnimation: 0
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
+  - text: "Bien s\xFBr, il va s\u2019inscrire en Sciences pour suivre les traces
+      de sa m\xE8re. D\u2019ailleurs, cette formation existe depuis quand sur le
+      campus ?"
+    id: 
+    whoIsTalking: 0
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 0
+    whichExpression: 0
+    whichAnimation: 0
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
+  - text: "Haha, vous \xEAtes marrante. Je ne sais pas exactement, mais on est l\u2019une
+      des premi\xE8res promotions, \xE7a c'est s\xFBr ! Prenez cette brochure, elle
+      vous renseignera peut-\xEAtre."
+    id: 
+    whoIsTalking: 6
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 0
+    whichExpression: 0
+    whichAnimation: 0
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
+  - text: "Il semble y avoir d\xE9j\xE0 une bonne vari\xE9t\xE9 de cours et d\u2019options,
+      la formation m\u2019a tout de m\xEAme l\u2019air d\u2019\xEAtre d\xE9j\xE0
+      bien lanc\xE9e."
+    id: 
+    whoIsTalking: 0
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 0
+    whichExpression: 0
+    whichAnimation: 0
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 

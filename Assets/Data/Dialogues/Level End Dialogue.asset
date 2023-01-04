@@ -18,7 +18,7 @@ MonoBehaviour:
       nous allons devoir entrer une date dans ma machine. Avez-vous une id\xE9e ?"
     id: 
     whoIsTalking: 0
-    isAloneAtStart: 0
+    isAloneAtStart: 1
     entersTheStage: 0
     leavesTheStage: 0
     whichExpression: 0

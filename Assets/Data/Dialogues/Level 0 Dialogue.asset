@@ -37,7 +37,7 @@ MonoBehaviour:
     entersTheStage: 0
     leavesTheStage: 0
     whichExpression: 4
-    whichAnimation: 0
+    whichAnimation: 1
     thisTextIs: 0
     jumpTo: 
     repA:
