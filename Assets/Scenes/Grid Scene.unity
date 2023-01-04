@@ -1579,7 +1579,7 @@ MonoBehaviour:
     buildings: {fileID: 11400000, guid: 4081efe60a66fc04eabd93a6d12b11bb, type: 2}
     objectFound: 0
     objectInLevel:
-    - initialDialogue: {fileID: 11400000, guid: e472a339dd55a1c47baf48daba5c581e, type: 2}
+    - initialDialogue: {fileID: 11400000, guid: c93e836c4d5a2354f8714eae405f72b0, type: 2}
       inventoryDialogue: {fileID: 11400000, guid: e53b2cd4ebc1b674eaff77ae1b9cee05, type: 2}
       sprite: {fileID: 21300000, guid: 8670eda5111cb5e48bd1e9b806a290e5, type: 3}
     - initialDialogue: {fileID: 11400000, guid: 553c4db4c2243644b8b14cdab5ac88bb, type: 2}
