@@ -1959,6 +1959,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8293884110305554100, guid: 56a1456c5de33334a9b49f3915b6e238, type: 3}
+      propertyPath: maxLinesInABox
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8293884110580467036, guid: 56a1456c5de33334a9b49f3915b6e238, type: 3}
       propertyPath: m_IsActive
       value: 0

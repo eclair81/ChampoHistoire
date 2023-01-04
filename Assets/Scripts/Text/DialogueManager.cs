@@ -1,10 +1,15 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.UI;
 using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
+    [SerializeField] private int maxLinesInABox;
+    private int formattedTextIndex;
+    private List<string> formattedText;
+
     [SerializeField] private Dialogue dialogue; 
     [SerializeField] private TextMeshProUGUI displayText;
     [SerializeField] private float delayBetweenLetters = 0.1f;
@@ -80,9 +85,20 @@ public class DialogueManager : MonoBehaviour
     {
         displayText.maxVisibleCharacters ++;
 
-        if (displayText.maxVisibleCharacters >= currentText.text.Length)
+        if (displayText.maxVisibleCharacters >= formattedText[formattedTextIndex].Length)
         {
             printingText = false;
+
+            //is there still more text?
+            if (formattedTextIndex < formattedText.Count - 1)
+            {
+                //still some text, only show false next button
+                ShowFalseNextButton();
+                return;
+            }
+
+            //no more text
+
             //Show button since text is now fully printed
             if (currentText.thisTextIs == TypeOfText.Question)
             {
@@ -115,22 +131,42 @@ public class DialogueManager : MonoBehaviour
             if (printingText)
             {
                 //display full text
-                displayText.maxVisibleCharacters = currentText.text.Length;
+                displayText.maxVisibleCharacters = formattedText[formattedTextIndex].Length;
                 yield break;
             }
 
-            if (currentText.thisTextIs == TypeOfText.JumpAfter) //jump in the dialogue
+            //check for more text
+            if (formattedTextIndex < formattedText.Count - 1)
             {
-                currentTextIndex = GetTextIndex(currentText.jumpTo);
+                //more text
+
+                formattedTextIndex++;
+                displayText.text = formattedText[formattedTextIndex];
+
+                //reset some (not all) variables;
+                printingText = true;
+                betweenLettersTimer = 0f;
+                displayText.maxVisibleCharacters = 1;
+                HideFalseNextButton();
+                yield break;
             }
             else
             {
-                currentTextIndex++;
-                //If at end of Dialogue list -> Hide DialogueUI
-                if (dialogue.listeText.Count == currentTextIndex) 
+                //no more text
+
+                if (currentText.thisTextIs == TypeOfText.JumpAfter) //jump in the dialogue
                 {
-                    GameManager.Instance.HideDialogueUI();
-                    yield break;
+                    currentTextIndex = GetTextIndex(currentText.jumpTo);
+                }
+                else
+                {
+                    currentTextIndex++;
+                    //If at end of Dialogue list -> Hide DialogueUI
+                    if (dialogue.listeText.Count == currentTextIndex)
+                    {
+                        GameManager.Instance.HideDialogueUI();
+                        yield break;
+                    }
                 }
             }
         }
@@ -187,8 +223,17 @@ public class DialogueManager : MonoBehaviour
     {
         printingText = true;
         betweenLettersTimer = 0f;
+        formattedTextIndex = 0;
         displayText.maxVisibleCharacters = 1;
+
+        //need to first assign it here to pass the correct type ( TMP_Text ) to FormatText
         displayText.text = currentText.text;
+
+        //formate text here
+        formattedText = FormatText(displayText);
+
+        //Assign text for real this time
+        displayText.text = formattedText[formattedTextIndex];
     }
 
     private int GetTextIndex(string targetTextId)
@@ -280,6 +325,43 @@ public class DialogueManager : MonoBehaviour
         }
 
         otherChar.UpdateCharacterInfo(setToWho, correctExpression);
+    }
+
+
+    //Function to cut the text into smaller chunks if it doesn't fit inside a single box
+    //Each element of formatedText will fit inside a single box
+    //ex: if 3 elements -> will need 3 boxes
+    public List<string> FormatText(TMP_Text allText)
+    {
+        List<string> goodFormat = new List<string>();
+        TMP_TextInfo textInfo = allText.GetTextInfo(allText.text);
+
+        // if already formated
+        if (textInfo.lineCount <= maxLinesInABox)
+        {
+            goodFormat.Add(allText.text);
+            return goodFormat;
+        }
+
+        for (int i = 0; i < textInfo.lineCount; i += maxLinesInABox)
+        {
+            string subText = "";
+            for (int j = 0; j < maxLinesInABox; j++)
+            {
+                TMP_LineInfo line = textInfo.lineInfo[i+j];
+                subText += allText.text.Substring(line.firstCharacterIndex, line.characterCount);
+
+                if (i + j == textInfo.lineCount - 1 ) //Got all the lines
+                {
+                    goodFormat.Add(subText);
+                    return goodFormat;
+                }
+            }
+            goodFormat.Add(subText);
+        }
+        //never supposed to get here, should exit before
+        Debug.Log("FormatText not supposed to pass here");
+        return goodFormat;
     }
 }
 
