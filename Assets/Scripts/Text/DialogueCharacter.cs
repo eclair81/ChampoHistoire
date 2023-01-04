@@ -1,20 +1,20 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class DialogueCharacter : MonoBehaviour
 {
     [SerializeField] private CurrentlyTalking iAm;
-
-    [SerializeField] private Sprite happyImage;
-    [SerializeField] private Sprite sadImage;
-    [SerializeField] private Sprite angryImage;
-    [SerializeField] private Sprite fearImage;
+    [HideInInspector] private SpritesExpression thisCharacterSprites;
 
     [SerializeField] private Color talkingColor;
     [SerializeField] private Color notTalkingColor;
 
     private Vector3 posBase;
+    private Vector3 posOutStage;
     private Vector2 scaleBase;
+
+    [HideInInspector] public bool ok;
 
     [SerializeField] private AnimationCurve upDownCurve;
     [SerializeField] private AnimationCurve tantrumCurve;
@@ -30,6 +30,7 @@ public class DialogueCharacter : MonoBehaviour
         currentImage = GetComponent<Image>();
         doAnim = false;
         posBase = transform.position;
+        posOutStage = new Vector3(1200, transform.position.y, 0);
         scaleBase = transform.localScale;
 
     }
@@ -38,11 +39,11 @@ public class DialogueCharacter : MonoBehaviour
     {
         if (doAnim)
         {
-            //Debug.Log("anim: " + name);
             Anim();
         }
     }
 
+    //Call this function from the DialogueManager with each new dialogue text box 
     public void UpdateCharacter(CurrentlyTalking who, Expression how, Animation anim)
     {
         if(iAm == who)
@@ -50,21 +51,20 @@ public class DialogueCharacter : MonoBehaviour
             currentImage.color = talkingColor;
             switch (how)
             {
+                case Expression.Neutral:
+                    currentImage.sprite = thisCharacterSprites.neutral;
+                    break;
                 case Expression.Happy:
-                    currentImage.sprite = happyImage;
-                    //Debug.Log(name + " is now happy");
+                    currentImage.sprite = thisCharacterSprites.happy;
                     break;
                 case Expression.Sad:
-                    currentImage.sprite = sadImage;
-                    //Debug.Log(name + " is now sad");
+                    currentImage.sprite = thisCharacterSprites.sad;
                     break;
                 case Expression.Angry:
-                    currentImage.sprite = angryImage;
-                    //Debug.Log(name + " is now angry");
+                    currentImage.sprite = thisCharacterSprites.angry;
                     break;
                 case Expression.Fear:
-                    currentImage.sprite = fearImage;
-                    //Debug.Log(name + " is now fearful");
+                    currentImage.sprite = thisCharacterSprites.fear;
                     break;
             }
 
@@ -83,6 +83,9 @@ public class DialogueCharacter : MonoBehaviour
                     lastFrameCurve = lastFrame.time;
                     doAnim = true;
                     break;
+                case Animation.NoAnim:
+                    currentImage.color = notTalkingColor; //this case is used for the staging -> if no animation, character stays grey 
+                    break;
             }
         }
         else
@@ -90,6 +93,19 @@ public class DialogueCharacter : MonoBehaviour
             currentImage.color = notTalkingColor;
             StopAnim();
         }
+    }
+
+    //Only call this function to update this character's info
+    public void UpdateCharacterInfo(CurrentlyTalking whoAmI, SpritesExpression spriteExpressionSet)
+    {
+        iAm = whoAmI;
+        thisCharacterSprites = spriteExpressionSet;
+        currentImage.sprite = thisCharacterSprites.neutral;
+    }
+
+    public CurrentlyTalking WhoAmI()
+    {
+        return iAm;
     }
 
     private void Anim()
@@ -119,5 +135,34 @@ public class DialogueCharacter : MonoBehaviour
         animTimer = 0f;
         transform.position = posBase;
         transform.localScale = scaleBase;
+    }
+
+    public IEnumerator EnterStage()
+    {
+        currentImage.sprite = thisCharacterSprites.neutral;
+        ok = false;
+        transform.position = posOutStage;
+        int i = 1;
+        while (transform.position.x > posBase.x )
+        {
+            transform.position = new Vector3(posOutStage.x - (i*5), posBase.y, 0);
+            i++;
+            yield return new WaitForSeconds(0.01f);
+        }
+        transform.position = posBase;
+        ok = true;
+    }
+
+    public IEnumerator LeaveStage()
+    {
+        ok = false;
+        int i = 1;
+        while (transform.position.x < posOutStage.x)
+        {
+            transform.position = new Vector3(posBase.x + (i * 5), posBase.y, 0);
+            i++;
+            yield return new WaitForSeconds(0.01f);
+        }
+        ok = true;
     }
 }

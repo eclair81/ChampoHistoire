@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 using UnityEngine.UI;
 using TMPro;
 
@@ -16,8 +17,12 @@ public class DialogueManager : MonoBehaviour
     private TextMeshProUGUI choice1;
     private TextMeshProUGUI choice2;
 
-    [SerializeField] private DialogueCharacter playerChar;
     [SerializeField] private DialogueCharacter professorChar;
+    [SerializeField] private DialogueCharacter otherChar;
+    [Header("Sprites for all characters")]
+    [SerializeField] private CharactersSprites allCharactersSprites;
+
+
 
     private MyText currentText;
     private int currentTextIndex;
@@ -25,17 +30,15 @@ public class DialogueManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //currenttextindex = 0;
-        //currenttext = dialogue.listetext[currenttextindex];
-        //resetvariables();
-        //updatewhostalking();
-
         //get next false button ref
         nextFalseButton = nextButton.transform.GetChild(0).gameObject;
 
         //get choice buttons text ref
         choice1 = choiceContainer.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>(); // get button -> get TMP
         choice2 = choiceContainer.transform.GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>();
+
+        //set professor here
+        professorChar.UpdateCharacterInfo(CurrentlyTalking.Professor, allCharactersSprites.professor);
     }
 
     void Update()
@@ -58,6 +61,18 @@ public class DialogueManager : MonoBehaviour
         currentTextIndex = 0;
         currentText = dialogue.listeText[currentTextIndex];
         ResetVariables();
+        SetOther(dialogue.firstCharNotProf); // set correct other character from the start
+
+        //check if prof starts alone
+        if (currentText.isAloneAtStart)
+        {
+            otherChar.gameObject.SetActive(false);
+        }
+        else
+        {
+            otherChar.gameObject.SetActive(true);
+        }
+
         UpdateWhosTalking();
     }
 
@@ -81,12 +96,18 @@ public class DialogueManager : MonoBehaviour
             }
 
             //stop talking animation
-            playerChar.StopAnim();
             professorChar.StopAnim();
+            otherChar.StopAnim();
         }
     }
 
-    public void NextText(int value)
+    //Wrapper for the coroutine since it can't be called directly from the button
+    public void NextTextButton(int value)
+    {
+        StartCoroutine(NextText(value));
+    }
+
+    public IEnumerator NextText(int value)
     {
         if(value == 0) // next button clicked
         {
@@ -95,7 +116,7 @@ public class DialogueManager : MonoBehaviour
             {
                 //display full text
                 displayText.maxVisibleCharacters = currentText.text.Length;
-                return;
+                yield break;
             }
 
             if (currentText.thisTextIs == TypeOfText.JumpAfter) //jump in the dialogue
@@ -109,7 +130,7 @@ public class DialogueManager : MonoBehaviour
                 if (dialogue.listeText.Count == currentTextIndex) 
                 {
                     GameManager.Instance.HideDialogueUI();
-                    return;
+                    yield break;
                 }
             }
         }
@@ -125,11 +146,29 @@ public class DialogueManager : MonoBehaviour
                     break;
             }
         }
+
+        if (currentText.leavesTheStage)
+        {
+            StartCoroutine(otherChar.LeaveStage());
+            yield return new WaitUntil(() => otherChar.ok);
+            otherChar.gameObject.SetActive(false);
+        }
+
+
+        //next Dialogue box
         currentText = dialogue.listeText[currentTextIndex];
+        if (currentText.entersTheStage)
+        {
+            otherChar.gameObject.SetActive(true);
+            SetOther(currentText.whoIsTalking);
+            StartCoroutine(otherChar.EnterStage());
+            yield return new WaitUntil(() => otherChar.ok);
+        }
+
         ResetVariables();
         UpdateWhosTalking();
 
-        //Display Choice Container or Next Button
+        //Prepare Answers Buttons
         if (currentText.thisTextIs == TypeOfText.Question)
         {
             ActivateNextButton();  // To allow to instantly display the question
@@ -203,7 +242,66 @@ public class DialogueManager : MonoBehaviour
     //Grey out the non talking character, Change Sprite according to expression
     private void UpdateWhosTalking()
     {
-        playerChar.UpdateCharacter(dialogue.listeText[currentTextIndex].whoIsTalking, dialogue.listeText[currentTextIndex].whichExpression, dialogue.listeText[currentTextIndex].whichAnimation);
         professorChar.UpdateCharacter(dialogue.listeText[currentTextIndex].whoIsTalking, dialogue.listeText[currentTextIndex].whichExpression, dialogue.listeText[currentTextIndex].whichAnimation);
+        otherChar.UpdateCharacter(dialogue.listeText[currentTextIndex].whoIsTalking, dialogue.listeText[currentTextIndex].whichExpression, dialogue.listeText[currentTextIndex].whichAnimation);
     }
+
+    private void SetOther(CurrentlyTalking setToWho)
+    {
+        SpritesExpression correctExpression;
+
+        switch (setToWho)
+        {
+            case CurrentlyTalking.Mme_Gilbert:
+                correctExpression = allCharactersSprites.mme_Gilbert;
+                break;
+            case CurrentlyTalking.Soldat_1:
+                correctExpression = allCharactersSprites.soldat_1;
+                break;
+            case CurrentlyTalking.Soldat_2:
+                correctExpression = allCharactersSprites.soldat_2;
+                break;
+            case CurrentlyTalking.Soldat_3:
+                correctExpression = allCharactersSprites.soldat_3;
+                break;
+            case CurrentlyTalking.Soldat_4:
+                correctExpression = allCharactersSprites.soldat_4;
+                break;
+            case CurrentlyTalking.Etudiant_1:
+                correctExpression = allCharactersSprites.etudiant_1;
+                break;
+            case CurrentlyTalking.Etudiant_2:
+                correctExpression = allCharactersSprites.etudiant_2;
+                break;
+            //Not supposed to pass by default case.
+            default:
+                correctExpression = allCharactersSprites.professor;
+                break;
+        }
+
+        otherChar.UpdateCharacterInfo(setToWho, correctExpression);
+    }
+}
+
+[System.Serializable]
+public class CharactersSprites
+{
+    public SpritesExpression professor;
+    public SpritesExpression mme_Gilbert;
+    public SpritesExpression soldat_1;
+    public SpritesExpression soldat_2;
+    public SpritesExpression soldat_3;
+    public SpritesExpression soldat_4;
+    public SpritesExpression etudiant_1;
+    public SpritesExpression etudiant_2;
+}
+
+[System.Serializable]
+public class SpritesExpression
+{
+    public Sprite neutral;
+    public Sprite happy;
+    public Sprite sad;
+    public Sprite angry;
+    public Sprite fear;
 }
