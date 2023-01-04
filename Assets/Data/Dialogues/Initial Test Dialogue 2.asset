@@ -12,10 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbc7ee81a66519a49a248a73bbf52a2c, type: 3}
   m_Name: Initial Test Dialogue 2
   m_EditorClassIdentifier: 
+  firstCharNotProf: 6
   listeText:
   - text: test2 initial
     id: 
-    whoIsTalking: 1
+    whoIsTalking: 0
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 0
     whichExpression: 0
     whichAnimation: 0
     thisTextIs: 0

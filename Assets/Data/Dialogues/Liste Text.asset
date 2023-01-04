@@ -12,12 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbc7ee81a66519a49a248a73bbf52a2c, type: 3}
   m_Name: Liste Text
   m_EditorClassIdentifier: 
+  firstCharNotProf: 6
   listeText:
   - text: "Bonjour, la s\xE9quence qui va suivre est une conversation originale"
     id: start
     whoIsTalking: 0
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 0
     whichExpression: 0
-    whichAnimation: 0
+    whichAnimation: 2
     thisTextIs: 0
     jumpTo: 
     repA:
@@ -28,7 +32,10 @@ MonoBehaviour:
       jumpTo: 
   - text: grosse question, skip ou no skip?
     id: 
-    whoIsTalking: 1
+    whoIsTalking: 0
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 0
     whichExpression: 0
     whichAnimation: 0
     thisTextIs: 2
@@ -41,7 +48,10 @@ MonoBehaviour:
       jumpTo: YesSkipCase
   - text: J'aime le lore, balance la sauce.
     id: NoSkipCase
-    whoIsTalking: 7
+    whoIsTalking: 6
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 0
     whichExpression: 0
     whichAnimation: 0
     thisTextIs: 0
@@ -54,7 +64,10 @@ MonoBehaviour:
       jumpTo: 
   - text: you get the full dialogue experience
     id: 
-    whoIsTalking: 1
+    whoIsTalking: 0
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 0
     whichExpression: 0
     whichAnimation: 0
     thisTextIs: 0
@@ -67,7 +80,10 @@ MonoBehaviour:
       jumpTo: 
   - text: This was the full dialogue episode
     id: 
-    whoIsTalking: 1
+    whoIsTalking: 0
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 0
     whichExpression: 0
     whichAnimation: 0
     thisTextIs: 1
@@ -80,7 +96,10 @@ MonoBehaviour:
       jumpTo: 
   - text: "je suis du genre \xE0 skip les cin\xE9matiques."
     id: YesSkipCase
-    whoIsTalking: 7
+    whoIsTalking: 6
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 0
     whichExpression: 0
     whichAnimation: 0
     thisTextIs: 0
@@ -93,7 +112,10 @@ MonoBehaviour:
       jumpTo: 
   - text: "Tu me d\xE9go\xFBtes"
     id: 
-    whoIsTalking: 1
+    whoIsTalking: 0
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 0
     whichExpression: 3
     whichAnimation: 1
     thisTextIs: 1
@@ -107,8 +129,11 @@ MonoBehaviour:
   - text: 'The End. '
     id: end
     whoIsTalking: 0
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 0
     whichExpression: 0
-    whichAnimation: 0
+    whichAnimation: 2
     thisTextIs: 0
     jumpTo: start
     repA:

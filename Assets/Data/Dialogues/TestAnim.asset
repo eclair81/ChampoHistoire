@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dbc7ee81a66519a49a248a73bbf52a2c, type: 3}
-  m_Name: Initial Test Dialogue
+  m_Name: TestAnim
   m_EditorClassIdentifier: 
   firstCharNotProf: 6
   listeText:
-  - text: Qu'est ce qu'il se passe!?
+  - text: hmm... j'ai besoin d'aide.
     id: 
-    whoIsTalking: 6
-    isAloneAtStart: 0
+    whoIsTalking: 0
+    isAloneAtStart: 1
     entersTheStage: 0
     leavesTheStage: 0
-    whichExpression: 4
+    whichExpression: 0
     whichAnimation: 0
     thisTextIs: 0
     jumpTo: 
@@ -30,7 +30,7 @@ MonoBehaviour:
     repB:
       answer: 
       jumpTo: 
-  - text: Tkt, c'est rien. Tu viens juste de marcher sur une case Event
+  - text: "H\xE9 toi! Viens ici"
     id: 
     whoIsTalking: 0
     isAloneAtStart: 0
@@ -46,7 +46,39 @@ MonoBehaviour:
     repB:
       answer: 
       jumpTo: 
-  - text: "Cette interface va dispara\xEEtre au prochain clic"
+  - text: "Qui \xE7a? Moi?"
+    id: 
+    whoIsTalking: 6
+    isAloneAtStart: 0
+    entersTheStage: 1
+    leavesTheStage: 0
+    whichExpression: 0
+    whichAnimation: 0
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
+  - text: "D\xE9so pad\xE9zo, j'ai pas le temps!"
+    id: 
+    whoIsTalking: 6
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 1
+    whichExpression: 0
+    whichAnimation: 0
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
+  - text: Fichtre!
     id: 
     whoIsTalking: 0
     isAloneAtStart: 0
