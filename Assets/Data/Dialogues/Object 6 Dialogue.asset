@@ -1,0 +1,188 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc7ee81a66519a49a248a73bbf52a2c, type: 3}
+  m_Name: Object 6 Dialogue
+  m_EditorClassIdentifier: 
+  firstCharNotProf: 5
+  listeText:
+  - text: Mazette ! Ces odeurs insupportables vont me rendre fou !
+    id: 
+    whoIsTalking: 5
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 0
+    whichExpression: 0
+    whichAnimation: 0
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
+  - text: "Nous pouvons sentir \xE7a\u2026 D\u2019o\xF9 est-ce-que \xE7a va vient
+      ?"
+    id: 
+    whoIsTalking: 0
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 0
+    whichExpression: 2
+    whichAnimation: 0
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
+  - text: "C\u2019est la tannerie de la m\xE8re Gilbert qui nous empoisonne en nous
+      balan\xE7ant toutes ses eaux us\xE9es ! Depuis 92 que \xE7a dure, et si \xE7a
+      n\u2019\xE9tait que l\u2019odeur\u2026 Toutes les semaines, des camarades tombent
+      malades. J\u2019esp\xE8re que la plainte qu\u2019on a d\xE9pos\xE9e \xE0 la
+      pr\xE9fecture va pouvoir aboutir."
+    id: 
+    whoIsTalking: 5
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 0
+    whichExpression: 0
+    whichAnimation: 0
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
+  - text: "Tant que vous \xEAtes l\xE0, vous remplirez ce formulaire et irez le donner
+      \xE0 la pr\xE9fecture. Plus on en d\xE9posera, plus notre plainte aura de poids
+      !"
+    id: 
+    whoIsTalking: 5
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 1
+    whichExpression: 0
+    whichAnimation: 0
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
+  - text: Pssst ! Eh, vous deux. Venez !
+    id: 
+    whoIsTalking: 1
+    isAloneAtStart: 0
+    entersTheStage: 1
+    leavesTheStage: 0
+    whichExpression: 0
+    whichAnimation: 0
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
+  - text: "Qu\u2019est-ce qu\u2019elle nous veut ?"
+    id: 
+    whoIsTalking: 0
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 0
+    whichExpression: 2
+    whichAnimation: 0
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
+  - text: "Vous ne semblez pas \xEAtre des militaires. Ecoutez, je suis bien emb\xEAt\xE9e.
+      Je suis la propri\xE9taire de la tannerie d\u2019\xE0 c\xF4t\xE9 et j\u2019ai
+      entendu dire qu\u2019ils me voulaient des probl\xE8mes."
+    id: 
+    whoIsTalking: 1
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 0
+    whichExpression: 0
+    whichAnimation: 0
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
+  - text: "Vous devez \xEAtre Madame Gilbert ! C\u2019est un probl\xE8me d\u2019eaux
+      us\xE9es, c\u2019est \xE7a ?"
+    id: 
+    whoIsTalking: 0
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 0
+    whichExpression: 0
+    whichAnimation: 0
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
+  - text: "Ces jeunes vivent vraiment trop dans le confort ! Quelques lointaines
+      effluves et ils arrivent \xE0 se plaindre ! Il faut bien qu\u2019il y en ait
+      qui travaillent, dans ce pays !"
+    id: 
+    whoIsTalking: 1
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 0
+    whichExpression: 0
+    whichAnimation: 0
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
+  - text: "Bon, on ne lui soutira rien \xE0 celle-l\xE0, allons voir ailleurs."
+    id: 
+    whoIsTalking: 0
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 0
+    whichExpression: 3
+    whichAnimation: 0
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
