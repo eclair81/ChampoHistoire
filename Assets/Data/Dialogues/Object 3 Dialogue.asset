@@ -1,0 +1,103 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc7ee81a66519a49a248a73bbf52a2c, type: 3}
+  m_Name: Object 3 Dialogue
+  m_EditorClassIdentifier: 
+  firstCharNotProf: 3
+  listeText:
+  - text: "Regardez, une caisse m\xE9tallique ! Il y a un bon de livraison dessus.
+      Il est sans doute dat\xE9 !"
+    id: 
+    whoIsTalking: 0
+    isAloneAtStart: 1
+    entersTheStage: 0
+    leavesTheStage: 0
+    whichExpression: 1
+    whichAnimation: 0
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
+  - text: Hep ! Vous deux, que faites-vous ?
+    id: 
+    whoIsTalking: 3
+    isAloneAtStart: 0
+    entersTheStage: 1
+    leavesTheStage: 0
+    whichExpression: 0
+    whichAnimation: 0
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
+  - text: "Ce serait un peu compliqu\xE9 de vous expliquer. Vous \xEAtes rattach\xE9
+      \xE0 cette caserne ? Comment se passe la vie ici ?"
+    id: 
+    whoIsTalking: 0
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 0
+    whichExpression: 0
+    whichAnimation: 0
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
+  - text: "Absolument ! Les conservateurs avaient peur que la construction de trop
+      de petites casernes d\xE9t\xE9riore l\u2019ambiance au sein des compagnies,
+      mais ce projet est pour l\u2019instant une r\xE9ussite. Je vois que vous vous
+      int\xE9ressez \xE0 la caisse, ce sont des pi\xE8ces de rechange pour des obusiers
+      de type Baquet, qu'on utilise depuis quelques ann\xE9es."
+    id: 
+    whoIsTalking: 0
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 0
+    whichExpression: 0
+    whichAnimation: 0
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
+  - text: Je crois me souvenir que la production de ces canons date de la fin du
+      XIXe.
+    id: 
+    whoIsTalking: 0
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 0
+    whichExpression: 0
+    whichAnimation: 0
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
