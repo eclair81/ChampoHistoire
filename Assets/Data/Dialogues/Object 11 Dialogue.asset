@@ -1,0 +1,151 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc7ee81a66519a49a248a73bbf52a2c, type: 3}
+  m_Name: Object 11 Dialogue
+  m_EditorClassIdentifier: 
+  firstCharNotProf: 7
+  listeText:
+  - text: "Allons parler \xE0 un \xE9tudiant pour lui demander son avis sur le campus,
+      \xE7a nous renseignera s\xFBrement."
+    id: 
+    whoIsTalking: 0
+    isAloneAtStart: 1
+    entersTheStage: 0
+    leavesTheStage: 0
+    whichExpression: 0
+    whichAnimation: 0
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
+  - text: "Bonjour, vous \xEAtes l\xE0 pour l\u2019inscription ?"
+    id: 
+    whoIsTalking: 0
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 0
+    whichExpression: 0
+    whichAnimation: 0
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
+  - text: "Ouais ! Je viens juste de terminer. L\u2019an prochain, je commence en
+      DEUG Lettres !"
+    id: 
+    whoIsTalking: 7
+    isAloneAtStart: 0
+    entersTheStage: 1
+    leavesTheStage: 0
+    whichExpression: 0
+    whichAnimation: 0
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
+  - text: Super ! Et pourquoi avoir choisi Albi ?
+    id: 
+    whoIsTalking: 0
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 0
+    whichExpression: 0
+    whichAnimation: 0
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
+  - text: "Mes parents habitent \xE0 Lavaur, au sud du Tarn. Ici, la vie est beaucoup
+      moins ch\xE8re qu\u2019\xE0 Toulouse, notamment les appartements ! \xC7a fait
+      plaisir de pouvoir \xE9tudier \xE0 c\xF4t\xE9 de chez soi, dans un campus \xE0
+      taille humaine."
+    id: 
+    whoIsTalking: 7
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 0
+    whichExpression: 0
+    whichAnimation: 0
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
+  - text: "C\u2019est vrai que c\u2019est sympa comme cadre ! J\u2019esp\xE8re que
+      vous vous plairez ici. Bonne rentr\xE9e en Lettres, du coup !"
+    id: 
+    whoIsTalking: 0
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 0
+    whichExpression: 1
+    whichAnimation: 0
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
+  - text: Merci ! Au revoir.
+    id: 
+    whoIsTalking: 7
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 1
+    whichExpression: 0
+    whichAnimation: 0
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
+  - text: "Regardez, il a fait tomber quelque chose\u2026 C\u2019est une pi\xE8ce
+      de cinq francs ! Voil\xE0 que notre enqu\xEAte se pr\xE9cise\u2026"
+    id: 
+    whoIsTalking: 0
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 0
+    whichExpression: 0
+    whichAnimation: 0
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
