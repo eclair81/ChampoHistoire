@@ -6,6 +6,7 @@ using NaughtyAttributes; //https://dbrizov.github.io/na-docs/
 [CreateAssetMenu(fileName = "Dialogue", menuName = "Data/Dialogue", order = 0)]
 public class Dialogue : ScriptableObject 
 {
+    public CurrentlyTalking firstCharNotProf;
     public List<MyText> listeText;
 }
 
@@ -16,12 +17,20 @@ public class MyText
     public string id;
     public CurrentlyTalking whoIsTalking;
 
-    [HideIf("whoIsTalking", CurrentlyTalking.Narrator)]
+    [ShowIf("whoIsTalking", CurrentlyTalking.Professor)]
     [AllowNesting]
+    public bool isAloneAtStart;
+
+    [HideIf("whoIsTalking", CurrentlyTalking.Professor)]
+    [AllowNesting]
+    public bool entersTheStage;
+
+    [HideIf("whoIsTalking", CurrentlyTalking.Professor)]
+    [AllowNesting]
+    public bool leavesTheStage;
+
     public Expression whichExpression;
 
-    [HideIf("whoIsTalking", CurrentlyTalking.Narrator)]
-    [AllowNesting]
     public Animation whichAnimation;
 
     public TypeOfText thisTextIs;
@@ -50,7 +59,6 @@ public class Answer
 
 public enum CurrentlyTalking
 {
-    Narrator,
     Professor,
     Mme_Gilbert,
     Soldat_1,
@@ -73,7 +81,8 @@ public enum Expression
 public enum Animation
 {
     UpDown,
-    Tantrum
+    Tantrum,
+    NoAnim
 }
 
 public enum TypeOfText

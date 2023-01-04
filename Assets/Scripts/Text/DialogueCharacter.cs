@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,7 +11,10 @@ public class DialogueCharacter : MonoBehaviour
     [SerializeField] private Color notTalkingColor;
 
     private Vector3 posBase;
+    private Vector3 posOutStage;
     private Vector2 scaleBase;
+
+    [HideInInspector] public bool ok;
 
     [SerializeField] private AnimationCurve upDownCurve;
     [SerializeField] private AnimationCurve tantrumCurve;
@@ -26,6 +30,7 @@ public class DialogueCharacter : MonoBehaviour
         currentImage = GetComponent<Image>();
         doAnim = false;
         posBase = transform.position;
+        posOutStage = new Vector3(1200, transform.position.y, 0);
         scaleBase = transform.localScale;
 
     }
@@ -78,6 +83,9 @@ public class DialogueCharacter : MonoBehaviour
                     lastFrameCurve = lastFrame.time;
                     doAnim = true;
                     break;
+                case Animation.NoAnim:
+                    currentImage.color = notTalkingColor; //this case is used for the staging -> if no animation, character stays grey 
+                    break;
             }
         }
         else
@@ -92,6 +100,7 @@ public class DialogueCharacter : MonoBehaviour
     {
         iAm = whoAmI;
         thisCharacterSprites = spriteExpressionSet;
+        currentImage.sprite = thisCharacterSprites.neutral;
     }
 
     public CurrentlyTalking WhoAmI()
@@ -126,5 +135,34 @@ public class DialogueCharacter : MonoBehaviour
         animTimer = 0f;
         transform.position = posBase;
         transform.localScale = scaleBase;
+    }
+
+    public IEnumerator EnterStage()
+    {
+        currentImage.sprite = thisCharacterSprites.neutral;
+        ok = false;
+        transform.position = posOutStage;
+        int i = 1;
+        while (transform.position.x > posBase.x )
+        {
+            transform.position = new Vector3(posOutStage.x - (i*5), posBase.y, 0);
+            i++;
+            yield return new WaitForSeconds(0.01f);
+        }
+        transform.position = posBase;
+        ok = true;
+    }
+
+    public IEnumerator LeaveStage()
+    {
+        ok = false;
+        int i = 1;
+        while (transform.position.x < posOutStage.x)
+        {
+            transform.position = new Vector3(posBase.x + (i * 5), posBase.y, 0);
+            i++;
+            yield return new WaitForSeconds(0.01f);
+        }
+        ok = true;
     }
 }
