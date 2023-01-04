@@ -1,0 +1,140 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc7ee81a66519a49a248a73bbf52a2c, type: 3}
+  m_Name: Level 4 Dialogue
+  m_EditorClassIdentifier: 
+  firstCharNotProf: 0
+  listeText:
+  - text: "Enfin ! Nous sommes rentr\xE9s !"
+    id: 
+    whoIsTalking: 0
+    isAloneAtStart: 1
+    entersTheStage: 0
+    leavesTheStage: 0
+    whichExpression: 1
+    whichAnimation: 1
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
+  - text: "Ca, c\u2019est la fac actuelle ! Avec la pergola au centre, les deux statues
+      massives et les extensions des b\xE2timents de sciences et de lettres\u2026
+      Elle m\u2019aurait presque manqu\xE9 ! Il n\u2019y avait pas beaucoup de verdure
+      avant."
+    id: 
+    whoIsTalking: 0
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 0
+    whichExpression: 1
+    whichAnimation: 0
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
+  - text: "Vous voyez, jeune homme, comme c\u2019est int\xE9ressant de se plonger
+      dans l\u2019histoire ? Litt\xE9ralement, hihi ! Quelle aventure !"
+    id: 
+    whoIsTalking: 0
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 0
+    whichExpression: 1
+    whichAnimation: 0
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
+  - text: "Finalement, peut-\xEAtre que je changerai le bug de ma machine en fonctionnalit\xE9
+      ! Ou m\xEAme, pourquoi pas, en m\xE9canique de jeu vid\xE9o ! Il para\xEEt
+      qu\u2019il y a des \xE9tudiants de master capables de faire \xE7a, ici, \xE0
+      Champollion\u2026"
+    id: 
+    whoIsTalking: 0
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 0
+    whichExpression: 1
+    whichAnimation: 0
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
+  - text: "Enfin, en tout cas, je vous remercie de votre aide, ce fut un plaisir.
+      Je vous laisse tous ces objets que nous avons ramen\xE9 et l\u2019encyclop\xE9die
+      que nous avons compl\xE9t\xE9 ensemble, je n\u2019en ai pas besoin. Je vous
+      conseille de les confier aux Archives d\xE9partementales, \xE7a devrait les
+      int\xE9resser. Voici ma carte de visite, si jamais vous voulez plus d\u2019informations
+      ou retenter l\u2019exp\xE9rience !"
+    id: 
+    whoIsTalking: 0
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 0
+    whichExpression: 0
+    whichAnimation: 0
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
+  - text: "*Clin d\u2019oeil*"
+    id: 
+    whoIsTalking: 0
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 0
+    whichExpression: 1
+    whichAnimation: 2
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
+  - text: "\xC0 une prochaine fois !"
+    id: 
+    whoIsTalking: 0
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 0
+    whichExpression: 0
+    whichAnimation: 0
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
