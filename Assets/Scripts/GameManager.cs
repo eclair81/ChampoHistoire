@@ -139,6 +139,8 @@ public class GameManager : MonoBehaviour
             StartCoroutine(currentObjectEvent.PutAway(new Vector3(newPosX, newPosY, -3f)));
 
             levelList[levelIndex].objectFound++;
+            StartCoroutine(CheckForDialogueTrigger());
+
             if (levelList[levelIndex].objectFound == levelList[levelIndex].objectInLevel.Count)
             {
                 Debug.Log("Found all objects on this level !");
@@ -160,6 +162,29 @@ public class GameManager : MonoBehaviour
     public int NumberOfObjectsInLevel()
     {
         return levelList[levelIndex].objectInLevel.Count;
+    }
+
+    //Start a new dialogue after a delay if there is a dialogueAfterXObjects entry
+    public IEnumerator CheckForDialogueTrigger()
+    {
+        foreach (DialogueAfterXObjects entry in levelList[levelIndex].dialogueAfterXObjects)
+        {
+            if(entry.trigger == levelList[levelIndex].objectFound)
+            {
+                //need to start a new dialogue
+
+                //Stop movement, as to not go on another tile and risk triggering another dialogue
+                currentGameState = GameState.Dialogue;
+
+                //slight delay to let the found object go into the inventory
+                yield return new WaitForSeconds(1.5f);
+
+                //Launch Dialogue
+                ShowDialogueUI(entry.dialogue);
+                yield break;
+            }
+        }
+        //no dialogue for current number of objects found
     }
 
     public void UpdateSliderYears()
@@ -201,6 +226,7 @@ public class InfoLevel
     public Buildings buildings;
     [HideInInspector]public int objectFound;
     public List<EventObject> objectInLevel;
+    public List<DialogueAfterXObjects> dialogueAfterXObjects;
     public SliderInfo sliderInfo;
 }
 
@@ -220,6 +246,13 @@ public class SliderInfo
     public int year1;
     public int year2;
     public int year3;
+}
+
+[System.Serializable]
+public class DialogueAfterXObjects
+{
+    public int trigger;
+    public Dialogue dialogue;
 }
 
 public enum GameState
