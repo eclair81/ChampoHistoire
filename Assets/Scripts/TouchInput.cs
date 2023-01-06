@@ -65,6 +65,7 @@ public class TouchInput : MonoBehaviour
 
         // Get the swipe direction
         int dir = Convert.AngleToDir(vectDir);
+        player.lastDirFromInput = dir;
         Vector2 currentPos = MoveOnGrid.Instance.GetPos();
 
         switch(dir)
@@ -88,6 +89,9 @@ public class TouchInput : MonoBehaviour
     {
         //Disable movement when not in Grid state (ex: Dialogue state)
         if (GameManager.Instance.currentGameState != GameState.Grid) return;
+
+        //Don't move if already walking
+        if (player.isWalking) return;
 
         //Don't move if interacting with the year slider
         if (GameManager.Instance.sliderTouched)
