@@ -74,6 +74,11 @@ public class Tile : MonoBehaviour
             StartCoroutine(GameManager.Instance.SpawnObject(thisEventObject, transform.position));
         }
 
+        if (myState == "prof")
+        {
+            Debug.Log("on prof tile");
+        }
+
         // Disable tile anim to avoid animating the tile without moving the decor on top of it
         // (an easy fix would be to instantiate the decor elements with the tile as a parent, but project manager said animating the tile wasn't in the GDD)
         //doAnim = true; 
