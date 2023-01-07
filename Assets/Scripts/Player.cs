@@ -28,8 +28,7 @@ public class Player : MonoBehaviour
         {
             notAlone = true;
 
-            hitbox1.SetActive(false);
-            hitbox2.SetActive(true);
+            UpdateHitbox();
             profGameObject.SetActive(true);
         }
     }
@@ -68,4 +67,21 @@ public class Player : MonoBehaviour
         playerAnimator.StopAnimation();
         if(notAlone) profAnimator.StopAnimation();
     }
+
+    //Call this function from GameManager after the new level finishes it's animation to avoid the player being displayed on top of a building 
+    public void UpdateHitbox()
+    {
+        //deactive the hitboxes first
+        hitbox1.SetActive(false);
+        hitbox2.SetActive(false);
+ 
+        if (notAlone)
+        {
+            hitbox2.SetActive(true);
+        }
+        else
+        {
+            hitbox1.SetActive(true);
+        }
+    } 
 }

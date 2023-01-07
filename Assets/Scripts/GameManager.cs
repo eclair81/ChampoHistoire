@@ -103,6 +103,9 @@ public class GameManager : MonoBehaviour
         {
             currentGameState = GameState.Grid;
         }
+
+        //Refesh player hitbox
+        newLevel.transform.GetComponentInChildren<Player>().UpdateHitbox();
     }
 
     public GameObject SpawnLevel()
