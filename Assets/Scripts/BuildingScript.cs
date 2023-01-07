@@ -18,6 +18,9 @@ public class BuildingScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //ignore triggers during the switching level animation -> to avoid some batiments being missplaced during minimazing/maximazing 
+        if (GameManager.Instance.currentGameState == GameState.Transition) return;
+
         spriteRenderer.color = transparent;
         transform.position += displacement;
     }

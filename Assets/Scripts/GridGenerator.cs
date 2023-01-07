@@ -10,22 +10,26 @@ public class GridGenerator : MonoBehaviour
     //[SerializeField] private Transform cam;
     [Header("Player")]
     [SerializeField] private GameObject player;
+    [Header("Prof")]
+    [SerializeField] private GameObject profPrefab; // should only be used for the first level
     [Header("Containers")]
     [SerializeField] private Transform tileContainer;
     [SerializeField] private Transform decorContainer;
     [SerializeField] private Transform buildingContainer;
 
     private bool startAlreadyPlaced;
+    private bool profAlreadyPlaced;
     private int numberOfEventTileAlreadyPlaced;
     private int maxNumberOfEventTile;
 
-    //Generate a custom grid based on a Texture2D
+    //Generate a custom grid based on a Texture2D, a type of tile, a decor and some buildings
     public void GenerateCustomGrid(Texture2D map, GameObject tilePrefab, List<DecorOnTile> decorList, List<Building> buildingList)
     {
         isoTilePrefab = tilePrefab;
         int index = 0; // index for decorList
 
         startAlreadyPlaced = false;
+        profAlreadyPlaced = false;
         numberOfEventTileAlreadyPlaced = 0;
         maxNumberOfEventTile = GameManager.Instance.NumberOfObjectsInLevel();
 
@@ -73,8 +77,28 @@ public class GridGenerator : MonoBehaviour
             return;
         }
 
+        //If Red Pixel -> prof on this tile
+        if (pixel.r == 1.0f && pixel.g == 0 && pixel.b == 0)
+        {
+            if (profAlreadyPlaced)
+            {
+                SpawnTile(x, y, "normal");
+                return;
+            }
+
+            SpawnTile(x, y, "prof");
+            GameObject prof = Instantiate(profPrefab);
+            prof.transform.SetParent(decorContainer);
+            Vector2 posProfIso = Convert.GridToIso(new Vector2(x, y));
+            prof.transform.position = new Vector3(posProfIso.x + 0.15f, posProfIso.y + 0.28f, -0.2f);
+            prof.transform.GetChild(0).localRotation = Quaternion.Euler(new Vector3(0, 192, 0));
+
+            profAlreadyPlaced = true;
+            return;
+        }
+
         //If Blue pixel -> start tile, 
-        if(pixel.r == 0 && pixel.g == 0 && pixel.b == 1.0f)
+        if (pixel.r == 0 && pixel.g == 0 && pixel.b == 1.0f)
         {
             // only one start tile per grid
             if(startAlreadyPlaced)
@@ -86,7 +110,6 @@ public class GridGenerator : MonoBehaviour
             SpawnTile(x, y, "start");
             MoveOnGrid.Instance.SetPos(x, y);
             startAlreadyPlaced = true;
-            //Instantiate(player, Convert.GridToIso(new Vector2(x, y)), Quaternion.identity);
             player.transform.position = Convert.GridToIso(new Vector2(x, y));
             return;
         }

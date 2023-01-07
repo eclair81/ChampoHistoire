@@ -65,21 +65,58 @@ public class GameManager : MonoBehaviour
         NextLevel();
     }
 
-    //Spawn new level according to levelIndex
-    public void SpawnLevel()
+    //Spawn new level according to levelIndex with an "animation"
+    public IEnumerator SpawnLevelWithAnimation()
+    {
+        currentGameState = GameState.Transition;
+        WaitForSeconds timerTrans = new WaitForSeconds(0.01f);
+
+        //spawn new level -> it's important to spawn the new level before minimizing
+        //if it spawns when the level container is small, all the element will be extremelly far of each others when the level container regains it's normal size
+        GameObject newLevel = SpawnLevel();
+        //Hide it
+        newLevel.SetActive(false);
+
+        //level gets smaller and smaller
+        for (float i = 0.01f; i < 1f; i += 0.01f)
+        {
+            allLevelsContainer.localScale = new Vector3(1f - i, 1f - i, 1f - i);
+            yield return timerTrans;
+        }
+
+        //Hide previous level
+        allLevelsContainer.GetChild(levelIndex - 1).gameObject.SetActive(false);
+        //Show new level
+        newLevel.SetActive(true);
+
+        //level gets Bigger and bigger
+        for (float i = 0.01f; i < 1f; i += 0.01f)
+        {
+            allLevelsContainer.localScale = new Vector3(0.01f + i, 0.01f + i, 0.01f + i);
+            yield return timerTrans;
+        }
+
+        //if current state still transition, go back to grid state
+        //check necessary because a dialogue could be triggered while a new level is "loading"
+        //don't want to pass into grid state while in a dialogue
+        if(currentGameState == GameState.Transition)
+        {
+            currentGameState = GameState.Grid;
+        }
+
+        //Refesh player hitbox
+        newLevel.transform.GetComponentInChildren<Player>().UpdateHitbox();
+    }
+
+    public GameObject SpawnLevel()
     {
         GameObject currentLevel = Instantiate(levelPrefab, allLevelsContainer);
         currentLevel.GetComponentInChildren<GridGenerator>().GenerateCustomGrid(levelList[levelIndex].level, levelList[levelIndex].tileUsed, levelList[levelIndex].decor.allDecorOnThisLevel, levelList[levelIndex].buildings.buildingsOnThisLevel);
+        return currentLevel;
     }
 
     public void NextLevel()
     {
-        //Hide previous level
-        if (levelIndex != -1)
-        {
-            allLevelsContainer.GetChild(levelIndex).gameObject.SetActive(false);
-        }
-
         levelIndex++;
 
         if (levelIndex == levelList.Count)
@@ -93,7 +130,14 @@ public class GameManager : MonoBehaviour
         nextLevelUI.SetActive(false);
         MoveOnGrid.Instance.UpdateLevelIndex(levelIndex);
 
-        SpawnLevel();
+        //First level shouldn't have a spawning animation
+        if(levelIndex == 0)
+        {
+            SpawnLevel();
+            return;
+        }
+
+        StartCoroutine(SpawnLevelWithAnimation());
     }
 
     public IEnumerator SpawnObject(EventObject eventObject, Vector2 pos)
@@ -258,5 +302,6 @@ public class DialogueAfterXObjects
 public enum GameState
 {
     Grid,
-    Dialogue
+    Dialogue,
+    Transition
 }

@@ -4,43 +4,32 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private float animDelay;
-    private float animTimer = 0f;
-
-    private SpriteRenderer spriteRenderer;
-    [SerializeField] private List<Sprite> spriteSheet0 = new List<Sprite>();
-    [SerializeField] private List<Sprite> spriteSheet1 = new List<Sprite>();
-    [SerializeField] private List<Sprite> spriteSheet2 = new List<Sprite>();
-    [SerializeField] private List<Sprite> spriteSheet3 = new List<Sprite>();
-
-    private List<Sprite[]> spriteSheet = new List<Sprite[]>();
-
-    private int sheetNumber = 0;
-    private int spriteNumber = 0;
-
     private Vector3 targetPos;
-    [SerializeField]private float posTransDelay = 1;
-    private float posTransTimer = 0f;
-    private bool doSmoothTransition = false;
-    [SerializeField] private float lerpTime = 0.1f;
 
-    /*void Start()
+    [SerializeField] private CharacterAnim playerAnimator;
+    [SerializeField] private CharacterAnim profAnimator;
+
+    private GameObject hitbox1;
+    private GameObject hitbox2;
+    private GameObject profGameObject;
+
+    [HideInInspector] public int lastDirFromInput;
+    [HideInInspector] public bool isWalking;
+    private bool notAlone;
+
+    private void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        hitbox1 = transform.GetChild(0).gameObject;
+        hitbox2 = transform.GetChild(1).gameObject;
+        profGameObject = transform.GetChild(3).gameObject;
 
-        spriteSheet.Add(spriteSheet0.ToArray());
-        spriteSheet.Add(spriteSheet1.ToArray());
-        spriteSheet.Add(spriteSheet3.ToArray());
-        spriteSheet.Add(spriteSheet2.ToArray());
-    }*/
-
-    void Update()
-    {
-        //SpriteAnim();
-
-        if(doSmoothTransition)
+        //Player is alone on first level
+        if (GameManager.Instance.levelIndex != 0)
         {
-            SmoothTransition();
+            notAlone = true;
+
+            UpdateHitbox();
+            profGameObject.SetActive(true);
         }
     }
 
@@ -48,38 +37,51 @@ public class Player : MonoBehaviour
     {
         Vector2 newTargetPos = Convert.GridToIso(MoveOnGrid.Instance.GetPos());
 
-        //sheetNumber = Convert.AngleToDir(newTargetPos - (Vector2)transform.position); // Update sheetNumber to current moving direction
-        //spriteRenderer.sprite = spriteSheet[sheetNumber][spriteNumber]; // Quick update to display correct direction before next normal changement
-
-        //transform.position = targetPos;
         targetPos = newTargetPos;
-        posTransTimer = 0f;
-        doSmoothTransition = true;
+        StartCoroutine(Move());
     }
 
-    private void SmoothTransition()
+    private IEnumerator Move()
     {
-        transform.position = Vector3.Lerp(transform.position, targetPos, lerpTime);
+        isWalking = true;
 
-        posTransTimer += Time.deltaTime;
-        if(posTransTimer >= posTransDelay)
+        //play walking animation
+        playerAnimator.RotateToDir(lastDirFromInput);
+        playerAnimator.PlayAnimation("WalkAnim");
+        if (notAlone)
         {
-            posTransTimer = 0f;
-            doSmoothTransition = false;
-            transform.position = targetPos;
+            profAnimator.RotateToDir(lastDirFromInput);
+            profAnimator.PlayAnimation("WalkAnim");
         }
+        
+
+        Vector3 oldPos = transform.position;
+        float dist = Vector3.Distance(oldPos, targetPos);
+        for (float i = 0.0f; i < 1.0f; i += Time.deltaTime / dist)
+        {
+            transform.position = Vector3.Lerp(oldPos, targetPos, i);
+            yield return new WaitForSeconds(0.01f);
+        }
+
+        isWalking = false;
+        playerAnimator.StopAnimation();
+        if(notAlone) profAnimator.StopAnimation();
     }
 
-    /*
-    private void SpriteAnim()
+    //Call this function from GameManager after the new level finishes it's animation to avoid the player being displayed on top of a building 
+    public void UpdateHitbox()
     {
-        animTimer += Time.deltaTime;
-        if(animTimer >= animDelay)
+        //deactive the hitboxes first
+        hitbox1.SetActive(false);
+        hitbox2.SetActive(false);
+ 
+        if (notAlone)
         {
-            animTimer = 0f;
-            spriteNumber = (spriteNumber + 1) % spriteSheet[sheetNumber].Length; // Next sprite in sheet, loop
-            spriteRenderer.sprite = spriteSheet[sheetNumber][spriteNumber];
+            hitbox2.SetActive(true);
         }
-    }
-    */
+        else
+        {
+            hitbox1.SetActive(true);
+        }
+    } 
 }
