@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &7378628957645010663
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 181990924207563517, guid: 25384f9cf93678e4d8be38563b78b346, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 181990924207563517, guid: 25384f9cf93678e4d8be38563b78b346, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 181990924207563517, guid: 25384f9cf93678e4d8be38563b78b346, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 181990924207563517, guid: 25384f9cf93678e4d8be38563b78b346, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 181990924207563517, guid: 25384f9cf93678e4d8be38563b78b346, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 181990924207563517, guid: 25384f9cf93678e4d8be38563b78b346, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 181990924207563517, guid: 25384f9cf93678e4d8be38563b78b346, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 181990924207563517, guid: 25384f9cf93678e4d8be38563b78b346, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 181990924207563517, guid: 25384f9cf93678e4d8be38563b78b346, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 181990924207563517, guid: 25384f9cf93678e4d8be38563b78b346, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 181990924207563517, guid: 25384f9cf93678e4d8be38563b78b346, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2649162638278587800, guid: 25384f9cf93678e4d8be38563b78b346, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d80c8af88baee86428ba428300763245, type: 3}
+    - target: {fileID: 3675721073016662359, guid: 25384f9cf93678e4d8be38563b78b346, type: 3}
+      propertyPath: m_Name
+      value: Goudron Tile
+      objectReference: {fileID: 0}
+    - target: {fileID: 5631186201713083449, guid: 25384f9cf93678e4d8be38563b78b346, type: 3}
+      propertyPath: spritesVariation.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5631186201713083449, guid: 25384f9cf93678e4d8be38563b78b346, type: 3}
+      propertyPath: spritesVariation.Array.data[0].baseSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2087559e481b43f4ab38e324a323a2bf, type: 3}
+    - target: {fileID: 5631186201713083449, guid: 25384f9cf93678e4d8be38563b78b346, type: 3}
+      propertyPath: spritesVariation.Array.data[0].interacted
+      value: 
+      objectReference: {fileID: 21300000, guid: 9f9898faf78a7934ba64ed875559e576, type: 3}
+    - target: {fileID: 5631186201713083449, guid: 25384f9cf93678e4d8be38563b78b346, type: 3}
+      propertyPath: spritesVariation.Array.data[1].baseSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: befa89cc308e39445b29ad26c8c831a1, type: 3}
+    - target: {fileID: 5631186201713083449, guid: 25384f9cf93678e4d8be38563b78b346, type: 3}
+      propertyPath: spritesVariation.Array.data[1].interacted
+      value: 
+      objectReference: {fileID: 21300000, guid: 2087559e481b43f4ab38e324a323a2bf, type: 3}
+    - target: {fileID: 5631186201713083449, guid: 25384f9cf93678e4d8be38563b78b346, type: 3}
+      propertyPath: spritesVariation.Array.data[2].baseSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 34ad717f6d1e068458943de44a074055, type: 3}
+    - target: {fileID: 5631186201713083449, guid: 25384f9cf93678e4d8be38563b78b346, type: 3}
+      propertyPath: spritesVariation.Array.data[2].interacted
+      value: 
+      objectReference: {fileID: 21300000, guid: 7b867da9be37e3142abf0c8157ae7022, type: 3}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 25384f9cf93678e4d8be38563b78b346, type: 3}
