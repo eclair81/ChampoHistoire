@@ -1,0 +1,96 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 246864f3c3f35584b99d4ada9b9b0b57, type: 3}
+  m_Name: DecorLevel 1-2
+  m_EditorClassIdentifier: 
+  allDecorOnThisLevel:
+  - decorationOnThisTile: []
+  - decorationOnThisTile: []
+  - decorationOnThisTile: []
+  - decorationOnThisTile: []
+  - decorationOnThisTile: []
+  - decorationOnThisTile: []
+  - decorationOnThisTile: []
+  - decorationOnThisTile:
+    - correctionXY: {x: 0.13955, y: 0.431383}
+      spriteOrder: 0
+      decoSprite: {fileID: 21300000, guid: 2353b8ebfaff8d94e9c30f04b1a7d991, type: 3}
+  - decorationOnThisTile:
+    - correctionXY: {x: 0.30055, y: 0.354383}
+      spriteOrder: 0
+      decoSprite: {fileID: 21300000, guid: 0587d0220755a7540bb92b4fc30444ae, type: 3}
+  - decorationOnThisTile: []
+  - decorationOnThisTile:
+    - correctionXY: {x: 0.17355, y: 0.431383}
+      spriteOrder: 0
+      decoSprite: {fileID: 21300000, guid: 5d7aa6f9a7087434d905160bd2bb9ce1, type: 3}
+  - decorationOnThisTile:
+    - correctionXY: {x: 0.32855, y: 0.356383}
+      spriteOrder: 0
+      decoSprite: {fileID: 21300000, guid: 75c0e5990aeb4a844a37600a4da691e7, type: 3}
+  - decorationOnThisTile: []
+  - decorationOnThisTile:
+    - correctionXY: {x: -0.18545, y: 0.346383}
+      spriteOrder: 0
+      decoSprite: {fileID: 21300000, guid: 4f081e2fef70a6f4bb9d2b7f1787e25a, type: 3}
+  - decorationOnThisTile:
+    - correctionXY: {x: 0.14855, y: 0.416383}
+      spriteOrder: 0
+      decoSprite: {fileID: 21300000, guid: b5b4603d440c5984a82877ba9f01e064, type: 3}
+  - decorationOnThisTile: []
+  - decorationOnThisTile:
+    - correctionXY: {x: 0.01155, y: 0.313383}
+      spriteOrder: 0
+      decoSprite: {fileID: 21300000, guid: 11d77c0b840426f4d8049827ce27e599, type: 3}
+  - decorationOnThisTile:
+    - correctionXY: {x: 0.00655, y: 0.199383}
+      spriteOrder: 0
+      decoSprite: {fileID: 21300000, guid: e0656dd8b6f010849b798a41cb2e47f7, type: 3}
+  - decorationOnThisTile: []
+  - decorationOnThisTile:
+    - correctionXY: {x: -0.16245, y: 0.430383}
+      spriteOrder: 0
+      decoSprite: {fileID: 21300000, guid: 9f968ab648ab76d49bef7148ba9e0fa7, type: 3}
+  - decorationOnThisTile:
+    - correctionXY: {x: 0.18655, y: 0.268383}
+      spriteOrder: 0
+      decoSprite: {fileID: 21300000, guid: f87a11528a266f040adeaa4e8f567fdf, type: 3}
+  - decorationOnThisTile: []
+  - decorationOnThisTile:
+    - correctionXY: {x: 0.07955, y: 0.317383}
+      spriteOrder: 0
+      decoSprite: {fileID: 21300000, guid: a2f194f53eaacf348ac922e56c6d9684, type: 3}
+  - decorationOnThisTile: []
+  - decorationOnThisTile: []
+  - decorationOnThisTile:
+    - correctionXY: {x: -0.20845, y: 0.404383}
+      spriteOrder: 0
+      decoSprite: {fileID: 21300000, guid: b65a9a2b6542a7f48b7fa6675409fd63, type: 3}
+  - decorationOnThisTile:
+    - correctionXY: {x: 0.05155, y: 0.346383}
+      spriteOrder: 0
+      decoSprite: {fileID: 21300000, guid: 4117c107d0ed78d4dbf468236b44d001, type: 3}
+  - decorationOnThisTile:
+    - correctionXY: {x: 0.01855, y: 0.421383}
+      spriteOrder: 0
+      decoSprite: {fileID: 21300000, guid: 93b40053775066c449b0938733696857, type: 3}
+  - decorationOnThisTile:
+    - correctionXY: {x: 0.02155, y: 0.321383}
+      spriteOrder: 0
+      decoSprite: {fileID: 21300000, guid: f7eabe54628ceae43b78a187f52c84f0, type: 3}
+  - decorationOnThisTile: []
+  - decorationOnThisTile: []
+  - decorationOnThisTile: []
+  - decorationOnThisTile: []
+  - decorationOnThisTile: []
+  - decorationOnThisTile: []
+  - decorationOnThisTile: []
