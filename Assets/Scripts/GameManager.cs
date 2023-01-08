@@ -35,12 +35,14 @@ public class GameManager : MonoBehaviour
 
     //Inventory position
     private float[,] inv;
+    private Vector2 middleScreenPos;
 
     private void Awake()
     {
         Instance = this;
 
-        inv = new float[,] { { -1.5f, -3f }, { 0f, -3f }, { 1.5f, -3f }};
+        inv = new float[,] { { -1.5f, -3f }, { 0f, -3f }, { 1.5f, -3f }, { -1.5f, -4f }, { 0f, -4f }, { 1.5f, -4f }, { -1.5f, -5f } };
+        middleScreenPos = new Vector2(0, 3);
 
         objectIndex = 0;
         levelIndex = -1;
@@ -156,7 +158,7 @@ public class GameManager : MonoBehaviour
         //spawn object
         Vector3 correctedPos = new Vector3(pos.x, pos.y, -3f); // added Z axis to avoid the object sprite being renderer under the player mesh
         currentObjectEvent = Instantiate(objectEventDialoguePrefab, correctedPos, Quaternion.identity, inventory);
-        StartCoroutine(currentObjectEvent.Spawn(eventObject));
+        StartCoroutine(currentObjectEvent.Spawn(eventObject, middleScreenPos));
         newObject = true;
 
         //wait spawn animation
