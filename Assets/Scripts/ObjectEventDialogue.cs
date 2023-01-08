@@ -16,7 +16,7 @@ public class ObjectEventDialogue : MonoBehaviour
         scaleBase = transform.localScale;
     }
 
-    public IEnumerator Spawn(EventObject eventObject)
+    public IEnumerator Spawn(EventObject eventObject, Vector2 pos)
     {
         inventoryDialogue = eventObject.inventoryDialogue;
         spriteRenderer.sprite = eventObject.sprite;
@@ -26,6 +26,7 @@ public class ObjectEventDialogue : MonoBehaviour
         {
             transform.localScale = scaleBase * i;
             transform.localRotation = Quaternion.Euler(new Vector3(0, 3.6f * i, 0));
+            transform.position = Vector2.Lerp(transform.position, pos, 0.05f);
             yield return new WaitForSeconds(0.015f);
         }
     }
