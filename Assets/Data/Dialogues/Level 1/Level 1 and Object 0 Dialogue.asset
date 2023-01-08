@@ -1,0 +1,144 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc7ee81a66519a49a248a73bbf52a2c, type: 3}
+  m_Name: Level 1 and Object 0 Dialogue
+  m_EditorClassIdentifier: 
+  firstCharNotProf: 0
+  listeText:
+  - text: "Ah, vous avez trouv\xE9 quelque-chose ? Ramenez-le moi par ici !"
+    id: 
+    whoIsTalking: 0
+    isAloneAtStart: 1
+    entersTheStage: 0
+    leavesTheStage: 0
+    whichExpression: 1
+    whichAnimation: 1
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
+  - text: "Une paire de jumelles ? Elles sont en tr\xE8s mauvais \xE9tat, mieux vaut
+      les manipuler avec pr\xE9caution."
+    id: 
+    whoIsTalking: 0
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 0
+    whichExpression: 0
+    whichAnimation: 0
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
+  - text: "C\u2019est emb\xEAtant que vous soyez bloqu\xE9 avec moi, mais en m\xEAme
+      temps c\u2019est une chance ! Voyez-vous, je suis la Docteure Eva, j\u2019\xE9tudie
+      l\u2019histoire des b\xE2timents. Et l\u2019Universit\xE9 Champollion d\xE9borde
+      d\u2019histoire ! Enfin\u2026 En ce moment, nous ne sommes pas \xE0 l\u2019Universit\xE9.
+      Voyez-vous, ma machine, ici, sert \xE0 analyser les traces laiss\xE9es par
+      le passage humain au fil des si\xE8cles dans le domaine quantique. C\u2019est
+      une invention personnelle. G\xE9nial, n\u2019est-ce pas ? Enfin, peu importe.
+      Ma machine a surchauff\xE9 \xE0 cause d\u2019un surplus d\u2019informations
+      et nous nous sommes retrouv\xE9s ici\u2026"
+    id: 
+    whoIsTalking: 0
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 0
+    whichExpression: 0
+    whichAnimation: 0
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
+  - text: "[Je n\u2019avais jamais vu \xE7a avant !]"
+    id: 
+    whoIsTalking: 0
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 0
+    whichExpression: 2
+    whichAnimation: 2
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
+  - text: "En bref : au lieu d\u2019entrer dans le pass\xE9 du b\xE2timent, la machine
+      a amen\xE9 le pass\xE9\u2026 \xE0 nous ! Heureusement, elle est intacte, on
+      va pouvoir faire le trajet inverse. Mais pour cela, il va falloir qu\u2019on
+      parvienne \xE0 d\xE9terminer \xE0 quelle \xE9poque nous sommes actuellement.
+      Pas besoin d\u2019une ann\xE9e pr\xE9cise, une fourchette devrait suffire pour
+      calibrer la machine\u2026 Je pense que votre aide ne sera pas de trop ! "
+    id: 
+    whoIsTalking: 0
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 0
+    whichExpression: 0
+    whichAnimation: 0
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
+  - text: "Je n\u2019ai pas l\u2019habitude de travailler avec autre chose que des
+      th\xE9sards et des docteurs, mais cette exp\xE9rience devrait \xEAtre rafra\xEEchissante
+      !"
+    id: 
+    whoIsTalking: 0
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 0
+    whichExpression: 1
+    whichAnimation: 0
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 
+  - text: "Allez ! Partons \xE0 la recherche d\u2019indices sur la date !"
+    id: 
+    whoIsTalking: 0
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 0
+    whichExpression: 1
+    whichAnimation: 1
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 

@@ -19,7 +19,7 @@ MonoBehaviour:
       a s\xFBrement \xE9t\xE9 abandonn\xE9e ici en raison de son \xE9tat. "
     id: 
     whoIsTalking: 0
-    isAloneAtStart: 0
+    isAloneAtStart: 1
     entersTheStage: 0
     leavesTheStage: 0
     whichExpression: 0
