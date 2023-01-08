@@ -18,7 +18,7 @@ MonoBehaviour:
       les manipuler avec pr\xE9caution."
     id: 
     whoIsTalking: 0
-    isAloneAtStart: 0
+    isAloneAtStart: 1
     entersTheStage: 0
     leavesTheStage: 0
     whichExpression: 0
