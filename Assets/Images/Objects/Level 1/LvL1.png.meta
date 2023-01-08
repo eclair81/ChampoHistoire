@@ -153,7 +153,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Objets_lvl_1_0
+      name: LvL1_0
       rect:
         serializedVersion: 2
         x: 66
@@ -167,20 +167,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f161e7516d892824a9d07ad0146b60f5
-      internalID: -1219627618
+      spriteID: 33f2528c9585bf34e89a8cade01ff678
+      internalID: -934813674
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Objets_lvl_1_1
+      name: LvL1_1
       rect:
         serializedVersion: 2
         x: 579
-        y: 645
+        y: 644
         width: 720
-        height: 407
+        height: 408
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -188,14 +188,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d1b5b0c74ee619f4eba3e573c29c8be9
-      internalID: -1919881161
+      spriteID: 8feecf094b23a5746884a4282c91e27a
+      internalID: 1972742576
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Objets_lvl_1_2
+      name: LvL1_2
       rect:
         serializedVersion: 2
         x: 1342
@@ -209,14 +209,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 09cceba169f8d34419aa316cab2d4e0f
-      internalID: -334062295
+      spriteID: ef5c2b1af17c2504dac47dd034bec056
+      internalID: -1075665237
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Objets_lvl_1_3
+      name: LvL1_3
       rect:
         serializedVersion: 2
         x: 127
@@ -230,14 +230,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd126dff7688c284c95fc1f93d9b0158
-      internalID: 673138407
+      spriteID: 028b5ce1837512248a9b5e2aff34d577
+      internalID: 1073038127
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Objets_lvl_1_4
+      name: LvL1_4
       rect:
         serializedVersion: 2
         x: 534
@@ -251,14 +251,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d006e1331226d7d42be8241a85a2c4ad
-      internalID: -915796918
+      spriteID: ede75e7198929f24ab24277a3e98e2d8
+      internalID: 294124806
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Objets_lvl_1_5
+      name: LvL1_5
       rect:
         serializedVersion: 2
         x: 927
@@ -272,8 +272,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2da6c031657586d49a55d6cdb40af9c7
-      internalID: -578550806
+      spriteID: e8a9aa5971ccd7d479220cdba565bfc3
+      internalID: -106482392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LvL1_6
+      rect:
+        serializedVersion: 2
+        x: 1355
+        y: 82
+        width: 518
+        height: 414
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffcdc1eae1a9a6348bfb4aed418656a5
+      internalID: -1295674519
       vertices: []
       indices: 
       edges: []
@@ -330,12 +351,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Objets_lvl_1_1: -1919881161
-      Objets_lvl_1_2: -334062295
-      Objets_lvl_1_0: -1219627618
-      Objets_lvl_1_5: -578550806
-      Objets_lvl_1_3: 673138407
-      Objets_lvl_1_4: -915796918
+      LvL1_4: 294124806
+      LvL1_2: -1075665237
+      LvL1_3: 1073038127
+      LvL1_6: -1295674519
+      LvL1_0: -934813674
+      LvL1_1: 1972742576
+      LvL1_5: -106482392
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
