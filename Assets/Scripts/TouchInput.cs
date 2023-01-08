@@ -51,20 +51,31 @@ public class TouchInput : MonoBehaviour
         Vector2 vectDir = p2 - p1;
         vectDir.Normalize();
 
+        int dir;
+
         // if true, didn't swipe -> directly touched a tile
         if(vectDir == new Vector2(0, 0))
         {
             if(useMouseInput)
-            {  
+            {
+                //Calculate direction
+                dir = Convert.AngleToDir((Vector2)Input.mousePosition - (Vector2)player.transform.position);
+                player.lastDirFromInput = dir;
+
                 SendRaycast(Camera.main.ScreenToWorldPoint(Input.mousePosition));
                 return;
             }
+
+            //Calculate direction
+            dir = Convert.AngleToDir((Vector2)Input.touches[0].position - (Vector2)player.transform.position);
+            player.lastDirFromInput = dir;
+
             SendRaycast(Camera.main.ScreenToWorldPoint(Input.touches[0].position));
             return;
         }
 
         // Get the swipe direction
-        int dir = Convert.AngleToDir(vectDir);
+        dir = Convert.AngleToDir(vectDir);
         player.lastDirFromInput = dir;
         Vector2 currentPos = MoveOnGrid.Instance.GetPos();
 
