@@ -6,7 +6,12 @@ using NaughtyAttributes; //https://dbrizov.github.io/na-docs/
 [CreateAssetMenu(fileName = "Dialogue", menuName = "Data/Dialogue", order = 0)]
 public class Dialogue : ScriptableObject 
 {
+    public bool isInventoryDialogue;
+
+    [HideIf("isInventoryDialogue")]
+    [AllowNesting]
     public CurrentlyTalking firstCharNotProf;
+
     public List<MyText> listeText;
 }
 
