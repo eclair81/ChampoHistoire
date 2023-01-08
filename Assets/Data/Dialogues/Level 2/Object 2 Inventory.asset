@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc7ee81a66519a49a248a73bbf52a2c, type: 3}
+  m_Name: Object 2 Inventory
+  m_EditorClassIdentifier: 
+  isInventoryDialogue: 1
+  firstCharNotProf: 0
+  listeText:
+  - text: "Une carte postale montrant la caserne de la Visitation, \xE0 Albi. Les
+      b\xE2timents semblent y \xEAtre beaucoup plus ress\xE9r\xE9s qu'\xE0 la caserne
+      Lap\xE9rouse, et presque contigus. Il est indiqu\xE9 au dos \"Caserne de la
+      Visitation, Albi, 1882.\""
+    id: 
+    whoIsTalking: 0
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 0
+    whichExpression: 0
+    whichAnimation: 0
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 

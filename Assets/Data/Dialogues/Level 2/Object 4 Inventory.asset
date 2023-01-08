@@ -10,11 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dbc7ee81a66519a49a248a73bbf52a2c, type: 3}
-  m_Name: Inventory Test Dialogue 2
+  m_Name: Object 4 Inventory
   m_EditorClassIdentifier: 
-  firstCharNotProf: 6
+  isInventoryDialogue: 1
+  firstCharNotProf: 0
   listeText:
-  - text: Test2 Inventaire
+  - text: "Un vieux papier appelant \xE0 la mobilisation de la part des habitants
+      du rond-point Saint-Martin. Ils r\xE9clament l'implantation de la caserne dans
+      leur quartier, apparemment tr\xE8s d\xE9velopp\xE9 \xE0 la fin des ann\xE9es
+      1870. "
     id: 
     whoIsTalking: 0
     isAloneAtStart: 0
