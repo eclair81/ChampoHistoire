@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc7ee81a66519a49a248a73bbf52a2c, type: 3}
+  m_Name: Object 6 Inventory
+  m_EditorClassIdentifier: 
+  isInventoryDialogue: 1
+  firstCharNotProf: 0
+  listeText:
+  - text: "Un formulaire de plainte \xE0 l'encontre de la tannerie Gilbert. Depuis
+      1892, cet \xE9tablissement rejette ses eaux us\xE9es \xE0 proximit\xE9 de la
+      caserne, ce qui en incommmode les occupants. Une plainte a \xE9t\xE9 d\xE9pos\xE9e
+      \xE0 la pr\xE9fecture dans l'espoir que des sanctions soient prises. "
+    id: 
+    whoIsTalking: 0
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 0
+    whichExpression: 0
+    whichAnimation: 0
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 

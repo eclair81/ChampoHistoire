@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc7ee81a66519a49a248a73bbf52a2c, type: 3}
+  m_Name: Object 8 Inventory 2
+  m_EditorClassIdentifier: 
+  isInventoryDialogue: 1
+  firstCharNotProf: 0
+  listeText:
+  - text: "Une brochure de pr\xE9sentation du DEUG Sciences donn\xE9e par un \xE9tudiant.
+      \xC0 en juger par la pr\xE9sentation de la formation, celle-ci a l'air d'\xEAtre
+      lanc\xE9e depuis plusieurs ann\xE9es. "
+    id: 
+    whoIsTalking: 0
+    isAloneAtStart: 0
+    entersTheStage: 0
+    leavesTheStage: 0
+    whichExpression: 0
+    whichAnimation: 0
+    thisTextIs: 0
+    jumpTo: 
+    repA:
+      answer: 
+      jumpTo: 
+    repB:
+      answer: 
+      jumpTo: 

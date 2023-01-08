@@ -1677,10 +1677,9 @@ MonoBehaviour:
     - initialDialogue: {fileID: 11400000, guid: c93e836c4d5a2354f8714eae405f72b0, type: 2}
       inventoryDialogue: {fileID: 11400000, guid: e53b2cd4ebc1b674eaff77ae1b9cee05, type: 2}
       sprite: {fileID: 21300000, guid: 8670eda5111cb5e48bd1e9b806a290e5, type: 3}
-    - initialDialogue: {fileID: 11400000, guid: 553c4db4c2243644b8b14cdab5ac88bb, type: 2}
-      inventoryDialogue: {fileID: 11400000, guid: 6856d8f8bc1b5f14cbc99c66c143cb06, type: 2}
-      sprite: {fileID: 21300000, guid: 8670eda5111cb5e48bd1e9b806a290e5, type: 3}
     dialogueAfterXObjects:
+    - trigger: 0
+      dialogue: {fileID: 11400000, guid: 3baa22c2f9e0eea4a883c236495cd056, type: 2}
     - trigger: 1
       dialogue: {fileID: 11400000, guid: 1cdebcb3ce6b78442a42e769d57c901b, type: 2}
     sliderInfo:
@@ -1690,15 +1689,27 @@ MonoBehaviour:
       year3: 2000
   - level: {fileID: 2800000, guid: 7e3f9b19fc5cae044a3f19b0f99b6047, type: 3}
     tileUsed: {fileID: 6845429320187426543, guid: 421204b5e69b90944adf2c9c3669b1bf, type: 3}
-    decor: {fileID: 11400000, guid: c18330b685ff55347ae36d33edae36fc, type: 2}
-    buildings: {fileID: 11400000, guid: 4081efe60a66fc04eabd93a6d12b11bb, type: 2}
+    decor: {fileID: 11400000, guid: cdb3a51bd315ac6479929b03bddda6c1, type: 2}
+    buildings: {fileID: 11400000, guid: 3df35d5ca8831694da45816d51597c45, type: 2}
     objectFound: 0
     objectInLevel:
     - initialDialogue: {fileID: 11400000, guid: e472a339dd55a1c47baf48daba5c581e, type: 2}
       inventoryDialogue: {fileID: 11400000, guid: e53b2cd4ebc1b674eaff77ae1b9cee05, type: 2}
       sprite: {fileID: 21300000, guid: 8670eda5111cb5e48bd1e9b806a290e5, type: 3}
-    - initialDialogue: {fileID: 11400000, guid: 553c4db4c2243644b8b14cdab5ac88bb, type: 2}
-      inventoryDialogue: {fileID: 11400000, guid: 6856d8f8bc1b5f14cbc99c66c143cb06, type: 2}
+    dialogueAfterXObjects: []
+    sliderInfo:
+      correctSliderPos: 0
+      year1: 0
+      year2: 0
+      year3: 0
+  - level: {fileID: 2800000, guid: 7e3f9b19fc5cae044a3f19b0f99b6047, type: 3}
+    tileUsed: {fileID: 6153305938175729584, guid: fbc009fa7cf20924598fa62190858ee3, type: 3}
+    decor: {fileID: 11400000, guid: 18379609be0247c49966bf8caeca5650, type: 2}
+    buildings: {fileID: 11400000, guid: 470c40b6eb6c58248a2a68de49790ac8, type: 2}
+    objectFound: 0
+    objectInLevel:
+    - initialDialogue: {fileID: 11400000, guid: e472a339dd55a1c47baf48daba5c581e, type: 2}
+      inventoryDialogue: {fileID: 11400000, guid: e53b2cd4ebc1b674eaff77ae1b9cee05, type: 2}
       sprite: {fileID: 21300000, guid: 8670eda5111cb5e48bd1e9b806a290e5, type: 3}
     dialogueAfterXObjects: []
     sliderInfo:

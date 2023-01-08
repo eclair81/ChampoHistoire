@@ -18,7 +18,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private ObjectEventDialogue objectEventDialoguePrefab;
     private ObjectEventDialogue currentObjectEvent;
 
-    [SerializeField] private GameObject dialogueUI;
+    [SerializeField] private GameObject dialogueUI; //is called UI but I mean the prefab
+    private GameObject CharactersContainer;
     private DialogueManager dialogueManager;
 
     [SerializeField] private GameObject nextLevelUI;
@@ -45,6 +46,7 @@ public class GameManager : MonoBehaviour
         levelIndex = -1;
 
         dialogueManager = dialogueUI.GetComponentInChildren<DialogueManager>();
+        CharactersContainer = dialogueUI.transform.GetChild(0).GetChild(0).GetChild(0).gameObject;
 
         //Get sliderGameObject and years references 
         sliderGameObject = nextLevelUI.transform.GetChild(1).gameObject;
@@ -134,10 +136,14 @@ public class GameManager : MonoBehaviour
         if(levelIndex == 0)
         {
             SpawnLevel();
-            return;
+        }
+        else
+        {
+            StartCoroutine(SpawnLevelWithAnimation());
         }
 
-        StartCoroutine(SpawnLevelWithAnimation());
+        //Checks if there is a start dialogue for this level
+        StartCoroutine(CheckForDialogueTrigger());
     }
 
     public IEnumerator SpawnObject(EventObject eventObject, Vector2 pos)
@@ -165,6 +171,16 @@ public class GameManager : MonoBehaviour
         currentGameState = GameState.Dialogue; // Needs to be repeated because ShowDialogueUI can be called from the object when it's in the inventory
 
         dialogueUI.SetActive(true);
+
+        if (newDialogue.isInventoryDialogue)
+        {
+            CharactersContainer.SetActive(false);
+        }
+        else
+        {
+            CharactersContainer.SetActive(true);
+        }
+
         dialogueManager.StartDialogue(newDialogue);
     }
 
