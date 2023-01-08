@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -209,6 +210,12 @@ public class GameManager : MonoBehaviour
                 //Maybe add a dialogue here to explain slider for the first time
                 nextLevelUI.SetActive(true); //Show next level button & slider
             }
+        }
+
+        //if last level (only has 1 dialogue), go back to title screen
+        if (levelIndex++ == levelList.Count)
+        {
+            SceneManager.LoadScene("HomeScreen Scene");
         }
     }
 
