@@ -136,10 +136,14 @@ public class GameManager : MonoBehaviour
         if(levelIndex == 0)
         {
             SpawnLevel();
-            return;
+        }
+        else
+        {
+            StartCoroutine(SpawnLevelWithAnimation());
         }
 
-        StartCoroutine(SpawnLevelWithAnimation());
+        //Checks if there is a start dialogue for this level
+        StartCoroutine(CheckForDialogueTrigger());
     }
 
     public IEnumerator SpawnObject(EventObject eventObject, Vector2 pos)
