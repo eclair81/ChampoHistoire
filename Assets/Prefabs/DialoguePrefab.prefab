@@ -982,7 +982,7 @@ MonoBehaviour:
       angry: {fileID: 0}
       fear: {fileID: 0}
     soldat_1:
-      neutral: {fileID: 0}
+      neutral: {fileID: 21300000, guid: 370eefefb0dadca48a3ada1fa414cadf, type: 3}
       happy: {fileID: 0}
       sad: {fileID: 0}
       angry: {fileID: 0}
