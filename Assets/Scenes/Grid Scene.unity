@@ -550,7 +550,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 1, g: 0.827884, b: 0.627451, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1668,50 +1668,86 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelList:
-  - level: {fileID: 2800000, guid: 7e3f9b19fc5cae044a3f19b0f99b6047, type: 3}
-    tileUsed: {fileID: 3675721073016662359, guid: 25384f9cf93678e4d8be38563b78b346, type: 3}
-    decor: {fileID: 11400000, guid: c18330b685ff55347ae36d33edae36fc, type: 2}
-    buildings: {fileID: 11400000, guid: 4081efe60a66fc04eabd93a6d12b11bb, type: 2}
-    objectFound: 0
-    objectInLevel:
-    - initialDialogue: {fileID: 11400000, guid: c93e836c4d5a2354f8714eae405f72b0, type: 2}
-      inventoryDialogue: {fileID: 11400000, guid: e53b2cd4ebc1b674eaff77ae1b9cee05, type: 2}
-      sprite: {fileID: 21300000, guid: 8670eda5111cb5e48bd1e9b806a290e5, type: 3}
-    dialogueAfterXObjects:
-    - trigger: 0
-      dialogue: {fileID: 11400000, guid: 3baa22c2f9e0eea4a883c236495cd056, type: 2}
-    - trigger: 1
-      dialogue: {fileID: 11400000, guid: 1cdebcb3ce6b78442a42e769d57c901b, type: 2}
-    sliderInfo:
-      correctSliderPos: 3
-      year1: 1800
-      year2: 1900
-      year3: 2000
-  - level: {fileID: 2800000, guid: 7e3f9b19fc5cae044a3f19b0f99b6047, type: 3}
+  - level: {fileID: 2800000, guid: b16775635880f5c46bae3e7d4e7c80ed, type: 3}
     tileUsed: {fileID: 6845429320187426543, guid: 421204b5e69b90944adf2c9c3669b1bf, type: 3}
     decor: {fileID: 11400000, guid: cdb3a51bd315ac6479929b03bddda6c1, type: 2}
     buildings: {fileID: 11400000, guid: 3df35d5ca8831694da45816d51597c45, type: 2}
     objectFound: 0
     objectInLevel:
-    - initialDialogue: {fileID: 11400000, guid: e472a339dd55a1c47baf48daba5c581e, type: 2}
-      inventoryDialogue: {fileID: 11400000, guid: e53b2cd4ebc1b674eaff77ae1b9cee05, type: 2}
+    - initialDialogue: {fileID: 11400000, guid: eb5207526889f2d4daed60ee919f249e, type: 2}
+      inventoryDialogue: {fileID: 11400000, guid: 3514a44ffe811d64a97bce91bc7ced32, type: 2}
+      sprite: {fileID: 673138407, guid: 5eda62dd6fc045f4c9ab5721203bb729, type: 3}
+    - initialDialogue: {fileID: 11400000, guid: 443fe424bdd9cd14cb4f57de50292bbc, type: 2}
+      inventoryDialogue: {fileID: 11400000, guid: 3969a566f577bfe498ce07b446352bf8, type: 2}
+      sprite: {fileID: -1919881161, guid: 5eda62dd6fc045f4c9ab5721203bb729, type: 3}
+    - initialDialogue: {fileID: 11400000, guid: a9c364ea2d9c8da45bdbca813b8d7201, type: 2}
+      inventoryDialogue: {fileID: 11400000, guid: dce96773bc5677b488ef00cc8c2f9ac1, type: 2}
+      sprite: {fileID: -1130246437, guid: a7d55f8fbcce83e408407da9d2e1c1d4, type: 3}
+    - initialDialogue: {fileID: 11400000, guid: 4a88052dfe54a7f43a1f942de06b5196, type: 2}
+      inventoryDialogue: {fileID: 11400000, guid: ecc5b5ceb606a3046ad44bc062b6652a, type: 2}
+      sprite: {fileID: -915796918, guid: 5eda62dd6fc045f4c9ab5721203bb729, type: 3}
+    - initialDialogue: {fileID: 11400000, guid: dfafdbc2bcff0644591568fca8fa93c5, type: 2}
+      inventoryDialogue: {fileID: 11400000, guid: 6935e61aeded9d740a1f15954f73347b, type: 2}
+      sprite: {fileID: -334062295, guid: 5eda62dd6fc045f4c9ab5721203bb729, type: 3}
+    - initialDialogue: {fileID: 11400000, guid: f727e44493eed7949beb2ef05a4cbe3f, type: 2}
+      inventoryDialogue: {fileID: 11400000, guid: 16748571b82bdb745b3625eee9c2a999, type: 2}
+      sprite: {fileID: -1219627618, guid: 5eda62dd6fc045f4c9ab5721203bb729, type: 3}
+    - initialDialogue: {fileID: 11400000, guid: df8fdd266bcbca54d87aa9b33b336501, type: 2}
+      inventoryDialogue: {fileID: 11400000, guid: 99508a259a26ac24eb11423d93f95ebd, type: 2}
       sprite: {fileID: 21300000, guid: 8670eda5111cb5e48bd1e9b806a290e5, type: 3}
-    dialogueAfterXObjects: []
+    dialogueAfterXObjects:
+    - trigger: 0
+      dialogue: {fileID: 11400000, guid: d27304d3296f45a459da85814daaf3e1, type: 2}
+    - trigger: 7
+      dialogue: {fileID: 11400000, guid: bce55d0aa23b3bc46a65dfbf88f51fb8, type: 2}
     sliderInfo:
-      correctSliderPos: 0
-      year1: 0
-      year2: 0
-      year3: 0
-  - level: {fileID: 2800000, guid: 7e3f9b19fc5cae044a3f19b0f99b6047, type: 3}
+      correctSliderPos: 3
+      year1: 1800
+      year2: 1900
+      year3: 2000
+  - level: {fileID: 2800000, guid: a537dcff332b97e49ae4628a61c97264, type: 3}
     tileUsed: {fileID: 6153305938175729584, guid: fbc009fa7cf20924598fa62190858ee3, type: 3}
     decor: {fileID: 11400000, guid: 18379609be0247c49966bf8caeca5650, type: 2}
     buildings: {fileID: 11400000, guid: 470c40b6eb6c58248a2a68de49790ac8, type: 2}
     objectFound: 0
     objectInLevel:
-    - initialDialogue: {fileID: 11400000, guid: e472a339dd55a1c47baf48daba5c581e, type: 2}
-      inventoryDialogue: {fileID: 11400000, guid: e53b2cd4ebc1b674eaff77ae1b9cee05, type: 2}
+    - initialDialogue: {fileID: 11400000, guid: 951713320f82a2449a89f32496790696, type: 2}
+      inventoryDialogue: {fileID: 11400000, guid: 6856d8f8bc1b5f14cbc99c66c143cb06, type: 2}
+      sprite: {fileID: 6888880, guid: a7d55f8fbcce83e408407da9d2e1c1d4, type: 3}
+    - initialDialogue: {fileID: 11400000, guid: b62bdbb076da1ab4098467dad332da04, type: 2}
+      inventoryDialogue: {fileID: 11400000, guid: 2e826635bcace80408b10a1d44486b03, type: 2}
+      sprite: {fileID: -1270146393, guid: a7d55f8fbcce83e408407da9d2e1c1d4, type: 3}
+    - initialDialogue: {fileID: 11400000, guid: ab49d66c66dde0946bf4178901bc0efc, type: 2}
+      inventoryDialogue: {fileID: 11400000, guid: 6856d8f8bc1b5f14cbc99c66c143cb06, type: 2}
       sprite: {fileID: 21300000, guid: 8670eda5111cb5e48bd1e9b806a290e5, type: 3}
-    dialogueAfterXObjects: []
+    - initialDialogue: {fileID: 11400000, guid: 74dd29a351568b9459d3efebde9e2f8d, type: 2}
+      inventoryDialogue: {fileID: 11400000, guid: ca83cb2b4125cbf47935f2725525d2eb, type: 2}
+      sprite: {fileID: -1523046739, guid: a7d55f8fbcce83e408407da9d2e1c1d4, type: 3}
+    - initialDialogue: {fileID: 11400000, guid: 72d9e15860cfe9944b20f588f03e4337, type: 2}
+      inventoryDialogue: {fileID: 11400000, guid: 9be90c6dc980c8e43924c89327dfdb8f, type: 2}
+      sprite: {fileID: 356606831, guid: a7d55f8fbcce83e408407da9d2e1c1d4, type: 3}
+    - initialDialogue: {fileID: 11400000, guid: 8a7f710a25f86cd42ad9e4cc1a3fd905, type: 2}
+      inventoryDialogue: {fileID: 11400000, guid: e53b2cd4ebc1b674eaff77ae1b9cee05, type: 2}
+      sprite: {fileID: -578550806, guid: 5eda62dd6fc045f4c9ab5721203bb729, type: 3}
+    dialogueAfterXObjects:
+    - trigger: 0
+      dialogue: {fileID: 11400000, guid: d276c980b30157a41a90c4663d5d7aca, type: 2}
+    - trigger: 7
+      dialogue: {fileID: 11400000, guid: bce55d0aa23b3bc46a65dfbf88f51fb8, type: 2}
+    sliderInfo:
+      correctSliderPos: 0
+      year1: 0
+      year2: 0
+      year3: 0
+  - level: {fileID: 2800000, guid: 5fda4d472483ab949ab2c452ad757827, type: 3}
+    tileUsed: {fileID: 3675721073016662359, guid: 25384f9cf93678e4d8be38563b78b346, type: 3}
+    decor: {fileID: 11400000, guid: c18330b685ff55347ae36d33edae36fc, type: 2}
+    buildings: {fileID: 11400000, guid: 4081efe60a66fc04eabd93a6d12b11bb, type: 2}
+    objectFound: 0
+    objectInLevel: []
+    dialogueAfterXObjects:
+    - trigger: 0
+      dialogue: {fileID: 11400000, guid: 5753b793f0053f644bdace5e03fb388c, type: 2}
     sliderInfo:
       correctSliderPos: 0
       year1: 0
