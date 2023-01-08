@@ -1701,10 +1701,10 @@ MonoBehaviour:
     - trigger: 7
       dialogue: {fileID: 11400000, guid: bce55d0aa23b3bc46a65dfbf88f51fb8, type: 2}
     sliderInfo:
-      correctSliderPos: 3
-      year1: 1800
+      correctSliderPos: 1
+      year1: 1890
       year2: 1900
-      year3: 2000
+      year3: 1910
   - level: {fileID: 2800000, guid: a537dcff332b97e49ae4628a61c97264, type: 3}
     tileUsed: {fileID: 6153305938175729584, guid: fbc009fa7cf20924598fa62190858ee3, type: 3}
     decor: {fileID: 11400000, guid: 18379609be0247c49966bf8caeca5650, type: 2}
@@ -1735,10 +1735,10 @@ MonoBehaviour:
     - trigger: 7
       dialogue: {fileID: 11400000, guid: bce55d0aa23b3bc46a65dfbf88f51fb8, type: 2}
     sliderInfo:
-      correctSliderPos: 0
-      year1: 0
-      year2: 0
-      year3: 0
+      correctSliderPos: 1
+      year1: 1995
+      year2: 2000
+      year3: 2005
   - level: {fileID: 2800000, guid: 5fda4d472483ab949ab2c452ad757827, type: 3}
     tileUsed: {fileID: 3675721073016662359, guid: 25384f9cf93678e4d8be38563b78b346, type: 3}
     decor: {fileID: 11400000, guid: c18330b685ff55347ae36d33edae36fc, type: 2}
