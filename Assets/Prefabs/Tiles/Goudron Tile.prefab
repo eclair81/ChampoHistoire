@@ -66,7 +66,7 @@ PrefabInstance:
     - target: {fileID: 5631186201713083449, guid: 25384f9cf93678e4d8be38563b78b346, type: 3}
       propertyPath: spritesVariation.Array.data[0].baseSprite
       value: 
-      objectReference: {fileID: 21300000, guid: 2087559e481b43f4ab38e324a323a2bf, type: 3}
+      objectReference: {fileID: 21300000, guid: d80c8af88baee86428ba428300763245, type: 3}
     - target: {fileID: 5631186201713083449, guid: 25384f9cf93678e4d8be38563b78b346, type: 3}
       propertyPath: spritesVariation.Array.data[0].interacted
       value: 
