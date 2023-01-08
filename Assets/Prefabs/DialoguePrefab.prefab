@@ -970,11 +970,11 @@ MonoBehaviour:
   otherChar: {fileID: 3860683204417023381}
   allCharactersSprites:
     professor:
-      neutral: {fileID: 21300000, guid: 1fd5384df2e827240b5c20a2de296452, type: 3}
-      happy: {fileID: 21300000, guid: 1fd5384df2e827240b5c20a2de296452, type: 3}
-      sad: {fileID: 21300000, guid: 1fd5384df2e827240b5c20a2de296452, type: 3}
-      angry: {fileID: 21300000, guid: f9bd0135162ba7d4bbcb149f62c8c1f4, type: 3}
-      fear: {fileID: 21300000, guid: 1fd5384df2e827240b5c20a2de296452, type: 3}
+      neutral: {fileID: 21300000, guid: c3f76792875dffd46bcb82a6ff894de1, type: 3}
+      happy: {fileID: 21300000, guid: 5020365addf24ac478fd105cd89e7d71, type: 3}
+      sad: {fileID: 21300000, guid: 0d99b754087d45647913856726ad41f2, type: 3}
+      angry: {fileID: 21300000, guid: d6543729ef12941498db7b9041a14d2f, type: 3}
+      fear: {fileID: 21300000, guid: 8c7590b713c807544b4c46c6f9b7ba00, type: 3}
     mme_Gilbert:
       neutral: {fileID: 0}
       happy: {fileID: 0}
@@ -1006,7 +1006,7 @@ MonoBehaviour:
       angry: {fileID: 0}
       fear: {fileID: 0}
     etudiant_1:
-      neutral: {fileID: 21300000, guid: b148f2883ccad2f469810621fc1e7c33, type: 3}
+      neutral: {fileID: 21300000, guid: b3e8de40bcb22a34a985614d0fefab18, type: 3}
       happy: {fileID: 21300000, guid: b148f2883ccad2f469810621fc1e7c33, type: 3}
       sad: {fileID: 21300000, guid: b148f2883ccad2f469810621fc1e7c33, type: 3}
       angry: {fileID: 21300000, guid: b148f2883ccad2f469810621fc1e7c33, type: 3}
