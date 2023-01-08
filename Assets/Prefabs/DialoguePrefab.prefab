@@ -988,23 +988,23 @@ MonoBehaviour:
       angry: {fileID: 21300000, guid: 370eefefb0dadca48a3ada1fa414cadf, type: 3}
       fear: {fileID: 21300000, guid: 370eefefb0dadca48a3ada1fa414cadf, type: 3}
     soldat_2:
-      neutral: {fileID: 21300000, guid: 370eefefb0dadca48a3ada1fa414cadf, type: 3}
-      happy: {fileID: 21300000, guid: 370eefefb0dadca48a3ada1fa414cadf, type: 3}
-      sad: {fileID: 21300000, guid: 370eefefb0dadca48a3ada1fa414cadf, type: 3}
-      angry: {fileID: 21300000, guid: 370eefefb0dadca48a3ada1fa414cadf, type: 3}
-      fear: {fileID: 21300000, guid: 370eefefb0dadca48a3ada1fa414cadf, type: 3}
+      neutral: {fileID: 21300000, guid: 6c09c7cdddffeee489bd118e3387b476, type: 3}
+      happy: {fileID: 21300000, guid: 6c09c7cdddffeee489bd118e3387b476, type: 3}
+      sad: {fileID: 21300000, guid: 6c09c7cdddffeee489bd118e3387b476, type: 3}
+      angry: {fileID: 21300000, guid: 6c09c7cdddffeee489bd118e3387b476, type: 3}
+      fear: {fileID: 21300000, guid: 6c09c7cdddffeee489bd118e3387b476, type: 3}
     soldat_3:
-      neutral: {fileID: 21300000, guid: 370eefefb0dadca48a3ada1fa414cadf, type: 3}
-      happy: {fileID: 21300000, guid: 370eefefb0dadca48a3ada1fa414cadf, type: 3}
-      sad: {fileID: 21300000, guid: 370eefefb0dadca48a3ada1fa414cadf, type: 3}
-      angry: {fileID: 21300000, guid: 370eefefb0dadca48a3ada1fa414cadf, type: 3}
-      fear: {fileID: 21300000, guid: 370eefefb0dadca48a3ada1fa414cadf, type: 3}
+      neutral: {fileID: 21300000, guid: cd61f7c28cb301b428fbde343871ebd0, type: 3}
+      happy: {fileID: 21300000, guid: cd61f7c28cb301b428fbde343871ebd0, type: 3}
+      sad: {fileID: 21300000, guid: cd61f7c28cb301b428fbde343871ebd0, type: 3}
+      angry: {fileID: 21300000, guid: cd61f7c28cb301b428fbde343871ebd0, type: 3}
+      fear: {fileID: 21300000, guid: cd61f7c28cb301b428fbde343871ebd0, type: 3}
     soldat_4:
-      neutral: {fileID: 21300000, guid: 370eefefb0dadca48a3ada1fa414cadf, type: 3}
-      happy: {fileID: 21300000, guid: 370eefefb0dadca48a3ada1fa414cadf, type: 3}
-      sad: {fileID: 21300000, guid: 370eefefb0dadca48a3ada1fa414cadf, type: 3}
-      angry: {fileID: 21300000, guid: 370eefefb0dadca48a3ada1fa414cadf, type: 3}
-      fear: {fileID: 21300000, guid: 370eefefb0dadca48a3ada1fa414cadf, type: 3}
+      neutral: {fileID: 21300000, guid: b5da91d870669354aa20b6d3c0bb1d3a, type: 3}
+      happy: {fileID: 21300000, guid: b5da91d870669354aa20b6d3c0bb1d3a, type: 3}
+      sad: {fileID: 21300000, guid: b5da91d870669354aa20b6d3c0bb1d3a, type: 3}
+      angry: {fileID: 21300000, guid: b5da91d870669354aa20b6d3c0bb1d3a, type: 3}
+      fear: {fileID: 21300000, guid: b5da91d870669354aa20b6d3c0bb1d3a, type: 3}
     etudiant_1:
       neutral: {fileID: 21300000, guid: b3e8de40bcb22a34a985614d0fefab18, type: 3}
       happy: {fileID: 21300000, guid: b3e8de40bcb22a34a985614d0fefab18, type: 3}
@@ -1012,11 +1012,11 @@ MonoBehaviour:
       angry: {fileID: 21300000, guid: b3e8de40bcb22a34a985614d0fefab18, type: 3}
       fear: {fileID: 21300000, guid: b3e8de40bcb22a34a985614d0fefab18, type: 3}
     etudiant_2:
-      neutral: {fileID: 21300000, guid: b3e8de40bcb22a34a985614d0fefab18, type: 3}
-      happy: {fileID: 21300000, guid: b3e8de40bcb22a34a985614d0fefab18, type: 3}
-      sad: {fileID: 21300000, guid: b3e8de40bcb22a34a985614d0fefab18, type: 3}
-      angry: {fileID: 21300000, guid: b3e8de40bcb22a34a985614d0fefab18, type: 3}
-      fear: {fileID: 21300000, guid: b3e8de40bcb22a34a985614d0fefab18, type: 3}
+      neutral: {fileID: 21300000, guid: d9af5e2ece3c67f44a462521f81db74f, type: 3}
+      happy: {fileID: 21300000, guid: d9af5e2ece3c67f44a462521f81db74f, type: 3}
+      sad: {fileID: 21300000, guid: d9af5e2ece3c67f44a462521f81db74f, type: 3}
+      angry: {fileID: 21300000, guid: d9af5e2ece3c67f44a462521f81db74f, type: 3}
+      fear: {fileID: 21300000, guid: d9af5e2ece3c67f44a462521f81db74f, type: 3}
 --- !u!1 &8293884110534357416
 GameObject:
   m_ObjectHideFlags: 0
