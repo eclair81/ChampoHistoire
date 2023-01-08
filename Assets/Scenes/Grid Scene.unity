@@ -1678,6 +1678,8 @@ MonoBehaviour:
       inventoryDialogue: {fileID: 11400000, guid: e53b2cd4ebc1b674eaff77ae1b9cee05, type: 2}
       sprite: {fileID: 21300000, guid: 8670eda5111cb5e48bd1e9b806a290e5, type: 3}
     dialogueAfterXObjects:
+    - trigger: 0
+      dialogue: {fileID: 11400000, guid: 3baa22c2f9e0eea4a883c236495cd056, type: 2}
     - trigger: 1
       dialogue: {fileID: 11400000, guid: 1cdebcb3ce6b78442a42e769d57c901b, type: 2}
     sliderInfo:
